@@ -1,209 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <meta charset="utf-8">
   
-  
-  <title>shiqi.io</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="shiqi blog">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f8fc">
+<title>SHIQI.IO</title>
+<meta name="description" content="Shiqi 的个人博客，记录技术、思考与生活。">
+<meta name="author" content="shiqi">
 <meta property="og:type" content="website">
-<meta property="og:title" content="shiqi.io">
-<meta property="og:url" content="https://shiqi.io/index.html">
-<meta property="og:site_name" content="shiqi.io">
-<meta property="og:description" content="shiqi blog">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="shiqi">
-<meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="shiqi.io" type="application/atom+xml">
-  
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta property="og:title" content="SHIQI.IO">
+<meta property="og:description" content="Shiqi 的个人博客，记录技术、思考与生活。">
+<meta property="og:url" content="https://shiqi117-lang.github.io/shiqi.io">
+<meta property="og:site_name" content="SHIQI.IO">
+<link rel="canonical" href="https://shiqi117-lang.github.io/shiqi.io">
 
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+<link rel="stylesheet" href="/shiqi.io/css/style.css">
 
-  
-  
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
+<script>
+  (() => {
+    const saved = localStorage.getItem('color-theme');
+    const dark = saved === 'dark' || (!saved && matchMedia('(prefers-color-scheme: dark)').matches);
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+  })();
+</script>
 
 <meta name="generator" content="Hexo 8.1.2"></head>
+<body class="">
+  <a class="skip-link" href="#main-content">跳到正文</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="/shiqi.io/" aria-label="返回首页">
+      <span class="brand-mark" aria-hidden="true">S</span>
+      <span>SHIQI.IO</span>
+    </a>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">shiqi.io</a>
-      </h1>
+    <button class="menu-toggle icon-button" type="button" aria-label="打开导航" aria-expanded="false" aria-controls="site-nav">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+
+    <nav id="site-nav" class="site-nav" aria-label="主导航">
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-        
-          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
-        
-        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://shiqi.io"></form>
-      </div>
-    </div>
+        <a class="nav-link active" href="/shiqi.io/">首页</a>
+      
+        <a class="nav-link " href="/shiqi.io/archives/">归档</a>
+      
+        <a class="nav-link " href="/shiqi.io/about/">关于</a>
+      
+      
+        <a class="nav-link nav-github" href="https://github.com/shiqi117-lang" target="_blank" rel="noopener noreferrer" aria-label="访问 GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.69c-2.78.6-3.37-1.18-3.37-1.18-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.35 1.09 2.92.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.6 9.6 0 0 1 12 7.7a9.6 9.6 0 0 1 2.5.34c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v1.89c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+        </a>
+      
+      <button class="theme-toggle icon-button" type="button" aria-label="切换深色模式">
+        <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5 8.5 8.5 0 1 0 20.5 14.2Z"/></svg>
+      </button>
+    </nav>
   </div>
 </header>
 
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2026/05/28/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2026-05-27T17:20:40.478Z" itemprop="datePublished">2026-05-28</time>
-</a>
+  <main id="main-content" class="site-main">
+    <section class="hero page-shell">
+  <div class="hero-copy">
+    <span class="eyebrow">PERSONAL BLOG</span>
+    <h1>你好，我是 Shiqi。</h1>
+    <p>在这里记录技术实践、学习笔记，以及对生活的持续思考。</p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="#latest-posts">浏览文章 <span aria-hidden="true">↓</span></a>
+      <a class="button button-secondary" href="/shiqi.io/about/">了解更多</a>
+    </div>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <div class="orbit orbit-one"></div>
+    <div class="orbit orbit-two"></div>
+    <div class="hero-monogram">S</div>
+    <span class="spark spark-one">✦</span>
+    <span class="spark spark-two">✦</span>
+    <span class="hero-note">THINK · BUILD · SHARE</span>
+  </div>
+</section>
+
+<section id="latest-posts" class="post-section page-shell">
+  <div class="section-heading">
+    <div>
+      <span class="eyebrow">LATEST WRITING</span>
+      <h2>最近更新</h2>
+    </div>
+    <a href="/shiqi.io/archives/">查看全部 <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="post-grid">
+    
+      <article class="post-card">
+  <div class="post-card-meta">
+    <time datetime="2026-08-14T09:18:18.863Z">2026.08.14</time>
     
   </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2026/05/28/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+  <h2><a href="/shiqi.io/2026/08/14/hello-world/">Hello World</a></h2>
+  <p>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer ...</p>
+  <div class="post-card-footer">
+    <div class="tag-row">
       
     </div>
-    <footer class="article-footer">
-      <a data-url="https://shiqi.io/2026/05/28/hello-world/" data-id="cuidEUK_CnZIm1cMkMvQoGlwW" data-title="Hello World" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
+    <a class="read-more" href="/shiqi.io/2026/08/14/hello-world/" aria-label="阅读《Hello World》">阅读全文 <span aria-hidden="true">→</span></a>
   </div>
-  
 </article>
 
-
-
+    
+  </div>
   
-
 
 </section>
-        
-          <aside id="sidebar">
-  
-    
 
-  
-    
-
-  
-    
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/05/">五月 2026</a></li></ul>
+  </main>
+  <footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <strong>SHIQI.IO</strong>
+      <p>保持好奇，持续创造。</p>
     </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2026/05/28/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2026 shiqi<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
+    <p>© 2026 shiqi · Powered by Hexo</p>
   </div>
 </footer>
 
-    </div>
-    <nav id="mobile-nav">
   
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
+<script src="/shiqi.io/js/main.js"></script>
 
-
-<script src="/js/jquery-3.6.4.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
 </body>
 </html>
