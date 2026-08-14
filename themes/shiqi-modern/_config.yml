@@ -1,0 +1,12 @@
+menu:
+  首页: /
+  归档: /archives/
+  关于: /about/
+
+hero:
+  eyebrow: PERSONAL BLOG
+  title: 你好，我是 Shiqi。
+  description: 在这里记录技术实践、学习笔记，以及对生活的持续思考。
+
+github: https://github.com/shiqi117-lang
+footer_text: 保持好奇，持续创造。

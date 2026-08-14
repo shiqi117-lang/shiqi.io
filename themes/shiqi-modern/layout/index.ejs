@@ -1,0 +1,35 @@
+<section class="hero page-shell">
+  <div class="hero-copy">
+    <span class="eyebrow"><%= theme.hero.eyebrow %></span>
+    <h1><%= theme.hero.title %></h1>
+    <p><%= theme.hero.description %></p>
+    <div class="hero-actions">
+      <a class="button button-primary" href="#latest-posts">浏览文章 <span aria-hidden="true">↓</span></a>
+      <a class="button button-secondary" href="<%= url_for('/about/') %>">了解更多</a>
+    </div>
+  </div>
+  <div class="hero-art" aria-hidden="true">
+    <div class="orbit orbit-one"></div>
+    <div class="orbit orbit-two"></div>
+    <div class="hero-monogram">S</div>
+    <span class="spark spark-one">✦</span>
+    <span class="spark spark-two">✦</span>
+    <span class="hero-note">THINK · BUILD · SHARE</span>
+  </div>
+</section>
+
+<section id="latest-posts" class="post-section page-shell">
+  <div class="section-heading">
+    <div>
+      <span class="eyebrow">LATEST WRITING</span>
+      <h2>最近更新</h2>
+    </div>
+    <a href="<%= url_for('/archives/') %>">查看全部 <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="post-grid">
+    <% page.posts.each(function(post) { %>
+      <%- partial('_partial/post-card', { post: post }) %>
+    <% }); %>
+  </div>
+  <%- partial('_partial/pagination') %>
+</section>

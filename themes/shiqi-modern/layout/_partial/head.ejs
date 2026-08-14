@@ -1,0 +1,26 @@
+<%
+  const siteTitle = config.title || 'SHIQI.IO';
+  const fullTitle = page.title ? `${page.title} · ${siteTitle}` : siteTitle;
+  const rawDescription = page.description || page.excerpt || config.description || config.subtitle || '';
+  const metaDescription = truncate(strip_html(rawDescription), { length: 160 });
+%>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7f8fc">
+<title><%= fullTitle %></title>
+<meta name="description" content="<%= metaDescription %>">
+<meta name="author" content="<%= config.author %>">
+<meta property="og:type" content="<%= is_post() ? 'article' : 'website' %>">
+<meta property="og:title" content="<%= fullTitle %>">
+<meta property="og:description" content="<%= metaDescription %>">
+<meta property="og:url" content="<%= page.permalink || config.url %>">
+<meta property="og:site_name" content="<%= siteTitle %>">
+<link rel="canonical" href="<%= page.permalink || config.url %>">
+<%- css('css/style') %>
+<script>
+  (() => {
+    const saved = localStorage.getItem('color-theme');
+    const dark = saved === 'dark' || (!saved && matchMedia('(prefers-color-scheme: dark)').matches);
+    document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+  })();
+</script>

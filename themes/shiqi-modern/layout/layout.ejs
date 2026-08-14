@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="<%= config.language || 'zh-CN' %>">
+<head>
+  <%- partial('_partial/head') %>
+</head>
+<body class="<%= is_post() ? 'is-post' : '' %>">
+  <a class="skip-link" href="#main-content">跳到正文</a>
+  <div class="reading-progress" aria-hidden="true"><span></span></div>
+  <%- partial('_partial/header') %>
+  <main id="main-content" class="site-main">
+    <%- body %>
+  </main>
+  <%- partial('_partial/footer') %>
+  <%- js('js/main') %>
+</body>
+</html>

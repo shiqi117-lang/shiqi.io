@@ -1,0 +1,38 @@
+<article class="article-page page-shell">
+  <header class="article-header">
+    <a class="article-back" href="<%= url_for('/archives/') %>">← 返回文章</a>
+    <div class="article-meta">
+      <time datetime="<%= date_xml(page.date) %>"><%= date(page.date, 'YYYY年MM月DD日') %></time>
+      <% if (page.categories && page.categories.length) { %><span>·</span><span><%= page.categories.first().name %></span><% } %>
+    </div>
+    <h1><%= page.title %></h1>
+    <% if (page.description) { %><p class="article-lead"><%= page.description %></p><% } %>
+    <% if (page.tags && page.tags.length) { %>
+      <div class="tag-row article-tags">
+        <% page.tags.each(function(tag) { %><a class="tag" href="<%= url_for(tag.path) %>"># <%= tag.name %></a><% }); %>
+      </div>
+    <% } %>
+  </header>
+
+  <div class="article-layout">
+    <div class="article-content"><%- page.content %></div>
+    <% const tocHtml = toc(page.content, { list_number: false }); if (tocHtml) { %>
+      <aside class="article-toc" aria-label="文章目录">
+        <strong>文章目录</strong>
+        <%- tocHtml %>
+      </aside>
+    <% } %>
+  </div>
+
+  <footer class="article-footer">
+    <div><span>感谢阅读</span><strong>如果内容有帮助，欢迎分享。</strong></div>
+    <a href="<%= url_for('/') %>">返回首页 →</a>
+  </footer>
+
+  <% if (page.prev || page.next) { %>
+    <nav class="post-nav" aria-label="相邻文章">
+      <% if (page.prev) { %><a href="<%= url_for(page.prev.path) %>"><span>上一篇</span><strong><%= page.prev.title %></strong></a><% } else { %><span></span><% } %>
+      <% if (page.next) { %><a class="post-nav-next" href="<%= url_for(page.next.path) %>"><span>下一篇</span><strong><%= page.next.title %></strong></a><% } %>
+    </nav>
+  <% } %>
+</article>

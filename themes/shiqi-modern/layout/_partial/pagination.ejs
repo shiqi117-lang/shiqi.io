@@ -1,0 +1,7 @@
+<% if (page.total > 1) { %>
+<nav class="pagination" aria-label="文章分页">
+  <% if (page.prev_link) { %><a href="<%= url_for(page.prev_link) %>">← 上一页</a><% } else { %><span></span><% } %>
+  <span>第 <%= page.current %> / <%= page.total %> 页</span>
+  <% if (page.next_link) { %><a href="<%= url_for(page.next_link) %>">下一页 →</a><% } else { %><span></span><% } %>
+</nav>
+<% } %>
