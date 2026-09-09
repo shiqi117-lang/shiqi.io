@@ -48,6 +48,9 @@ roadmap:
       status: active
       goal: '从「会写」到「知道编译器看到了什么」。'
       output: '手写 optional / variant / function'
+      page: /roadmap/01-modern-cpp/
+      duration: '10–12 周'
+      prereq: '基本语法、指针与引用、会用 g++/clang++ 或 CMake 编译'
       learn:
         - '值类别：lvalue / xvalue / prvalue、引用折叠、std::move 与 std::forward 的实现'
         - '对象生命周期与所有权：RAII、Rule of 0/3/5、异常安全三档保证'

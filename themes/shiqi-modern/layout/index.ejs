@@ -52,9 +52,14 @@
       <article class="stage-card">
         <span class="status-tag <%= statusClass[stage.status] || '' %>"><%= statusText[stage.status] || '待开始' %></span>
         <span class="stage-index"><%= stage.id %></span>
-        <h3><%= stage.title %></h3>
+        <h3>
+          <% if (stage.page) { %><a href="<%= url_for(stage.page) %>"><%= stage.title %></a><% } else { %><%= stage.title %><% } %>
+        </h3>
         <p class="stage-goal"><%= stage.goal %></p>
         <p class="stage-output"><strong>关键产出</strong><%= stage.output %></p>
+        <% if (stage.page) { %>
+          <a class="stage-cta" href="<%= url_for(stage.page) %>">查看学习计划 <span aria-hidden="true">→</span></a>
+        <% } %>
       </article>
     <% }); %>
   </div>

@@ -411,6 +411,15 @@ img { max-width: 100%; height: auto; }
   text-transform: uppercase;
 }
 .stage-card .status-tag { position: absolute; top: 16px; right: 16px; }
+.stage-card h3 a:hover, .roadmap-stage-head h2 a:hover { color: var(--accent); }
+.stage-cta {
+  margin-top: 10px;
+  color: var(--accent);
+  font-size: .82rem;
+  font-weight: 660;
+}
+.stage-cta:hover { text-decoration: underline; text-underline-offset: 3px; }
+.stage-nav { margin-top: 20px; }
 
 /* ---------- principles ---------- */
 .principle-row {

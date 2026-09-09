@@ -21,7 +21,9 @@
       <section class="roadmap-stage">
         <div class="roadmap-stage-head">
           <span class="stage-index"><%= stage.id %></span>
-          <h2><%= stage.title %></h2>
+          <h2>
+            <% if (stage.page) { %><a href="<%= url_for(stage.page) %>"><%= stage.title %></a><% } else { %><%= stage.title %><% } %>
+          </h2>
           <span class="status-tag <%= statusClass[stage.status] || '' %>"><%= statusText[stage.status] || '待开始' %></span>
         </div>
         <p class="roadmap-goal"><%= stage.goal %></p>
@@ -45,6 +47,10 @@
           <% if (stage.output) { %><span><strong>关键产出</strong><%= stage.output %></span><% } %>
           <% if (stage.refs) { %><span><strong>资料</strong><%= stage.refs %></span><% } %>
         </div>
+
+        <% if (stage.page) { %>
+          <a class="stage-cta" href="<%= url_for(stage.page) %>">查看学习计划 <span aria-hidden="true">→</span></a>
+        <% } %>
       </section>
     <% }); %>
   </div>

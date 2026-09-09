@@ -1,0 +1,72 @@
+<%
+  const roadmap = theme.roadmap || {};
+  const stages = roadmap.stages || [];
+  const statusText = { done: '已完成', active: '进行中', todo: '待开始' };
+  const statusClass = { done: 'is-done', active: 'is-active', todo: '' };
+
+  const index = stages.findIndex(function(item) { return item.id === page.stage; });
+  const stage = index >= 0 ? stages[index] : null;
+  const prev = index > 0 ? stages[index - 1] : null;
+  const next = index >= 0 && index < stages.length - 1 ? stages[index + 1] : null;
+%>
+
+<article class="standalone-page page-shell">
+  <header class="page-heading">
+    <span class="eyebrow"><%= page.stage ? `阶段 ${page.stage}` : (roadmap.eyebrow || 'LEARNING ROADMAP') %></span>
+    <h1><%= page.title %></h1>
+    <% if (page.description) { %><p><%= page.description %></p><% } %>
+
+    <div class="chip-row">
+      <% if (stage) { %>
+        <span class="status-tag <%= statusClass[stage.status] || '' %>"><%= statusText[stage.status] || '待开始' %></span>
+      <% } %>
+      <% if (page.duration) { %><span class="chip">周期 <%= page.duration %></span><% } %>
+      <% if (page.prereq) { %><span class="chip">前置 <%= page.prereq %></span><% } %>
+    </div>
+  </header>
+
+  <% if (page.content) { %>
+    <div class="article-content"><%- page.content %></div>
+  <% } %>
+
+  <% if (stage) { %>
+    <section class="roadmap-stage">
+      <p class="roadmap-goal"><strong>阶段目标</strong>　<%= stage.goal %></p>
+
+      <div class="roadmap-cols">
+        <% if (stage.learn && stage.learn.length) { %>
+          <div>
+            <h3>学什么</h3>
+            <ul><% stage.learn.forEach(function(item) { %><li><%= item %></li><% }); %></ul>
+          </div>
+        <% } %>
+        <% if (stage.do && stage.do.length) { %>
+          <div>
+            <h3>做什么</h3>
+            <ul><% stage.do.forEach(function(item) { %><li><%= item %></li><% }); %></ul>
+          </div>
+        <% } %>
+      </div>
+
+      <div class="roadmap-meta">
+        <% if (stage.output) { %><span><strong>关键产出</strong><%= stage.output %></span><% } %>
+        <% if (stage.refs) { %><span><strong>资料</strong><%= stage.refs %></span><% } %>
+      </div>
+    </section>
+  <% } %>
+
+  <% if (prev || next) { %>
+    <nav class="post-nav stage-nav" aria-label="相邻阶段">
+      <% if (prev) { %>
+        <a href="<%= url_for(prev.page || '/roadmap/') %>"><span>上一阶段 <%= prev.id %></span><strong><%= prev.title %></strong></a>
+      <% } else { %>
+        <a href="<%= url_for('/roadmap/') %>"><span>返回</span><strong>路线总览</strong></a>
+      <% } %>
+      <% if (next) { %>
+        <a class="post-nav-next" href="<%= url_for(next.page || '/roadmap/') %>"><span>下一阶段 <%= next.id %></span><strong><%= next.title %></strong></a>
+      <% } else { %>
+        <a class="post-nav-next" href="<%= url_for('/roadmap/') %>"><span>返回</span><strong>路线总览</strong></a>
+      <% } %>
+    </nav>
+  <% } %>
+</article>
