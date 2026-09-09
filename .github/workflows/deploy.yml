@@ -1,0 +1,61 @@
+name: Deploy Hexo to GitHub Pages
+
+on:
+  push:
+    branches: [source]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: 构建并发布到 master
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出 source 分支
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 配置 Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: 安装依赖
+        run: npm ci
+
+      - name: 生成静态文件
+        run: npx hexo clean && npx hexo generate
+
+      - name: 发布到 master 分支
+        env:
+          COMMIT_MSG: ${{ github.event.head_commit.message }}
+        run: |
+          set -euo pipefail
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # 在临时工作树里组装 master 的内容，避免污染 source 工作区
+          git fetch origin master --depth=1
+          git worktree add --detach /tmp/deploy origin/master
+
+          cd /tmp/deploy
+          git rm -rq --ignore-unmatch .
+          cp -R "$GITHUB_WORKSPACE/public"/. .
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "public 与 master 内容一致，跳过发布"
+            exit 0
+          fi
+
+          git commit -m "deploy: ${COMMIT_MSG:-manual deploy} ($GITHUB_SHA)"
+          git push origin HEAD:master
