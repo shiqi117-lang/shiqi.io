@@ -4,7 +4,7 @@
   
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f7f8fc">
+<meta name="theme-color" content="#fcfcfd">
 <title>SHIQI.IO</title>
 <meta name="description" content="Shiqi 的个人博客，记录技术、思考与生活。">
 <meta name="author" content="shiqi">
@@ -44,6 +44,8 @@
       
         <a class="nav-link active" href="/shiqi.io/">首页</a>
       
+        <a class="nav-link " href="/shiqi.io/roadmap/">路线</a>
+      
         <a class="nav-link " href="/shiqi.io/archives/">归档</a>
       
         <a class="nav-link " href="/shiqi.io/about/">关于</a>
@@ -62,27 +64,173 @@
 </header>
 
   <main id="main-content" class="site-main">
-    <section class="hero page-shell">
+    
+
+<section class="hero page-shell">
   <div class="hero-copy">
-    <span class="eyebrow">PERSONAL BLOG</span>
-    <h1>你好，我是 Shiqi。</h1>
-    <p>在这里记录技术实践、学习笔记，以及对生活的持续思考。</p>
+    <span class="eyebrow">SHIQI.IO / 个人技术笔记</span>
+    <h1>深入 C++ 与性能工程</h1>
+    <p class="hero-lead">以 C++ 为地基，向性能优化方向深耕。这里记录语言细节、内存与 CPU 微架构、并发模型，以及每一次优化前后的实测数据。</p>
     <div class="hero-actions">
-      <a class="button button-primary" href="#latest-posts">浏览文章 <span aria-hidden="true">↓</span></a>
-      <a class="button button-secondary" href="/shiqi.io/about/">了解更多</a>
+      <a class="button button-primary" href="#roadmap">查看学习路线 <span aria-hidden="true">↓</span></a>
+      <a class="button" href="#latest-posts">浏览文章</a>
     </div>
+    
+      <div class="chip-row">
+        
+          <span class="chip">C++</span>
+        
+          <span class="chip">性能优化</span>
+        
+          <span class="chip">内存模型</span>
+        
+          <span class="chip">SIMD</span>
+        
+          <span class="chip">Linux</span>
+        
+      </div>
+    
   </div>
-  <div class="hero-art" aria-hidden="true">
-    <div class="orbit orbit-one"></div>
-    <div class="orbit orbit-two"></div>
-    <div class="hero-monogram">S</div>
-    <span class="spark spark-one">✦</span>
-    <span class="spark spark-two">✦</span>
-    <span class="hero-note">THINK · BUILD · SHARE</span>
-  </div>
+
+  <aside class="hero-panel" aria-label="当前状态">
+    <h2>当前状态</h2>
+    <dl class="status-list">
+      
+        <div class="status-row">
+          <dt>主攻方向</dt>
+          <dd>C++ 性能工程</dd>
+        </div>
+      
+        <div class="status-row">
+          <dt>当前阶段</dt>
+          <dd>01 · 现代 C++ 语言内核</dd>
+        </div>
+      
+        <div class="status-row">
+          <dt>正在做</dt>
+          <dd>手写 optional / variant / function</dd>
+        </div>
+      
+        <div class="status-row">
+          <dt>下一步</dt>
+          <dd>对象模型与内存布局</dd>
+        </div>
+      
+    </dl>
+  </aside>
 </section>
 
-<section id="latest-posts" class="post-section page-shell">
+
+<section id="roadmap" class="section page-shell">
+  <div class="section-heading">
+    <div>
+      <span class="eyebrow">LEARNING ROADMAP</span>
+      <h2>C++ 性能优化学习路线</h2>
+      <p>按「语言 → 内存 → 标准库 → 编译器 → 度量 → CPU → 并发 → 系统 → 领域」九级递进。核心原则：先会测量，再谈优化。</p>
+    </div>
+    <a href="/shiqi.io/roadmap/">查看完整路线 <span aria-hidden="true">→</span></a>
+  </div>
+
+  <div class="stage-grid">
+    
+      <article class="stage-card">
+        <span class="status-tag is-active">进行中</span>
+        <span class="stage-index">01</span>
+        <h3>现代 C++ 语言内核</h3>
+        <p class="stage-goal">从「会写」到「知道编译器看到了什么」。</p>
+        <p class="stage-output"><strong>关键产出</strong>手写 optional / variant / function</p>
+      </article>
+    
+      <article class="stage-card">
+        <span class="status-tag ">待开始</span>
+        <span class="stage-index">02</span>
+        <h3>对象模型与内存布局</h3>
+        <p class="stage-goal">看到一个类，就能在脑中画出它的内存布局。</p>
+        <p class="stage-output"><strong>关键产出</strong>自研 arena allocator + benchmark</p>
+      </article>
+    
+      <article class="stage-card">
+        <span class="status-tag ">待开始</span>
+        <span class="stage-index">03</span>
+        <h3>标准库与数据结构</h3>
+        <p class="stage-goal">理解「复杂度相同 ≠ 性能相同」，常数因子才是主战场。</p>
+        <p class="stage-output"><strong>关键产出</strong>自研 flat hash map，压过 std::unordered_map</p>
+      </article>
+    
+      <article class="stage-card">
+        <span class="status-tag ">待开始</span>
+        <span class="stage-index">04</span>
+        <h3>编译器与构建</h3>
+        <p class="stage-goal">把编译器当合作者，而不是黑盒。</p>
+        <p class="stage-output"><strong>关键产出</strong>汇编对比报告 + sanitizer CI</p>
+      </article>
+    
+      <article class="stage-card">
+        <span class="status-tag ">待开始</span>
+        <span class="stage-index">05</span>
+        <h3>度量方法论</h3>
+        <p class="stage-goal">这一条决定你是「优化工程师」还是「玄学爱好者」。</p>
+        <p class="stage-output"><strong>关键产出</strong>可复现的 benchmark 仓库</p>
+      </article>
+    
+      <article class="stage-card">
+        <span class="status-tag ">待开始</span>
+        <span class="stage-index">06</span>
+        <h3>CPU 微架构</h3>
+        <p class="stage-goal">把「cache 命中率」从口号变成可计算的量。</p>
+        <p class="stage-output"><strong>关键产出</strong>矩阵乘法逐级优化 + roofline 分析</p>
+      </article>
+    
+      <article class="stage-card">
+        <span class="status-tag ">待开始</span>
+        <span class="stage-index">07</span>
+        <h3>并发与内存模型</h3>
+        <p class="stage-goal">能判断「什么时候加锁就够，什么时候必须无锁」。</p>
+        <p class="stage-output"><strong>关键产出</strong>无锁队列 + TSan 验证</p>
+      </article>
+    
+      <article class="stage-card">
+        <span class="status-tag ">待开始</span>
+        <span class="stage-index">08</span>
+        <h3>系统与内核交互</h3>
+        <p class="stage-goal">很多瓶颈不在你的代码里，而在你与内核的边界上。</p>
+        <p class="stage-output"><strong>关键产出</strong>高性能 echo server 优化报告</p>
+      </article>
+    
+      <article class="stage-card">
+        <span class="status-tag ">待开始</span>
+        <span class="stage-index">09</span>
+        <h3>领域深耕与输出</h3>
+        <p class="stage-goal">性能优化必须落到一个领域，才构成竞争力。</p>
+        <p class="stage-output"><strong>关键产出</strong>开源贡献 / 个人性能案例库</p>
+      </article>
+    
+  </div>
+
+  
+    <div class="principle-row">
+      
+        <div class="principle">
+          <strong>先测量，再优化</strong>
+          <span>没有基准数据的优化等于没做。优化前先建立可复现的 benchmark。</span>
+        </div>
+      
+        <div class="principle">
+          <strong>数据结构优先于指令</strong>
+          <span>大部分收益来自内存布局与数据组织，指令级技巧只是最后 20%。</span>
+        </div>
+      
+        <div class="principle">
+          <strong>能解释才算会</strong>
+          <span>每步优化都要能回答「为什么快了」，答不上来就是运气。</span>
+        </div>
+      
+    </div>
+  
+</section>
+
+
+<section id="latest-posts" class="section page-shell">
   <div class="section-heading">
     <div>
       <span class="eyebrow">LATEST WRITING</span>
@@ -94,7 +242,7 @@
     
       <article class="post-card">
   <div class="post-card-meta">
-    <time datetime="2026-08-14T09:18:18.863Z">2026.08.14</time>
+    <time datetime="2026-08-14T09:18:18.000Z">2026.08.14</time>
     
   </div>
   <h2><a href="/shiqi.io/2026/08/14/hello-world/">Hello World</a></h2>
@@ -118,7 +266,7 @@
   <div class="footer-inner">
     <div>
       <strong>SHIQI.IO</strong>
-      <p>保持好奇，持续创造。</p>
+      <p>先测量，再优化。</p>
     </div>
     <p>© 2026 shiqi · Powered by Hexo</p>
   </div>
