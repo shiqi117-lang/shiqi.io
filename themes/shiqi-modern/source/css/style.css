@@ -27,6 +27,9 @@
   --ok: #17803d;
   --ok-soft: #e7f5ec;
 
+  --warn: #a35a06;
+  --warn-soft: #fdf1e0;
+
   --code-bg: #f5f6f8;
   --code-text: #1f2430;
   --code-line: #e3e5ea;
@@ -68,6 +71,9 @@
 
   --ok: #4ec97f;
   --ok-soft: #14251c;
+
+  --warn: #e3a550;
+  --warn-soft: #2a2015;
 
   --code-bg: #12151b;
   --code-text: #dfe3ec;
@@ -177,6 +183,22 @@ img { max-width: 100%; height: auto; }
   border-radius: 50%;
   background: currentColor;
 }
+/* 深度分级：精通要显眼，了解要退后 */
+.chip.is-depth-master {
+  border-color: color-mix(in srgb, var(--accent) 45%, var(--line));
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 700;
+}
+.chip.is-depth-familiar { border-color: var(--line-strong); background: var(--bg-subtle); color: var(--muted); }
+.chip.is-depth-brief { color: var(--faint); }
+.chip.is-depth-sprint {
+  border-color: color-mix(in srgb, var(--warn) 50%, var(--line));
+  background: var(--warn-soft);
+  color: var(--warn);
+  font-weight: 700;
+}
+
 .status-tag.is-active { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); background: var(--accent-soft); color: var(--accent); }
 .status-tag.is-done { border-color: color-mix(in srgb, var(--ok) 40%, var(--line)); background: var(--ok-soft); color: var(--ok); }
 
@@ -376,6 +398,7 @@ img { max-width: 100%; height: auto; }
   box-shadow: var(--shadow);
   transform: translateY(-2px);
 }
+.stage-index-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
 .stage-index {
   font-family: var(--font-mono);
   font-size: .75rem;
@@ -609,6 +632,26 @@ img { max-width: 100%; height: auto; }
 .callout li { margin: 6px 0; font-size: .9rem; line-height: 1.7; color: var(--muted); }
 .callout li strong { color: var(--text); font-weight: 660; }
 .callout.is-ok { border-left-color: var(--ok); }
+.callout.is-cut { border-left-color: var(--warn); }
+
+/* 明确跳过的内容：虚线框 + 弱化，视觉上"退后" */
+.roadmap-skip {
+  margin-top: 16px;
+  padding: 12px 16px;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius);
+}
+.roadmap-skip strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--faint);
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+.roadmap-skip ul { margin: 0; padding-left: 18px; }
+.roadmap-skip li { margin: 4px 0; color: var(--muted); font-size: .85rem; line-height: 1.6; }
 
 /* ---------- article ---------- */
 .article-page { padding: 48px 0 96px; }

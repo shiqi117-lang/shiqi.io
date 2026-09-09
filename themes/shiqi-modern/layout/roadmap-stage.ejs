@@ -3,6 +3,12 @@
   const stages = roadmap.stages || [];
   const statusText = { done: '已完成', active: '进行中', todo: '待开始' };
   const statusClass = { done: 'is-done', active: 'is-active', todo: '' };
+  const depthClass = {
+    '精通': 'is-depth-master',
+    '熟悉': 'is-depth-familiar',
+    '了解': 'is-depth-brief',
+    '冲刺': 'is-depth-sprint'
+  };
 
   const index = stages.findIndex(function(item) { return item.id === page.stage; });
   const stage = index >= 0 ? stages[index] : null;
@@ -19,6 +25,7 @@
     <div class="chip-row">
       <% if (stage) { %>
         <span class="status-tag <%= statusClass[stage.status] || '' %>"><%= statusText[stage.status] || '待开始' %></span>
+        <% if (stage.depth) { %><span class="chip <%= depthClass[stage.depth] || '' %>">深度 <%= stage.depth %></span><% } %>
       <% } %>
       <% if (page.duration) { %><span class="chip">周期 <%= page.duration %></span><% } %>
       <% if (page.prereq) { %><span class="chip">前置 <%= page.prereq %></span><% } %>
@@ -47,6 +54,13 @@
           </div>
         <% } %>
       </div>
+
+      <% if (stage.skip && stage.skip.length) { %>
+        <div class="roadmap-skip">
+          <strong>仅了解 / 可跳过</strong>
+          <ul><% stage.skip.forEach(function(item) { %><li><%= item %></li><% }); %></ul>
+        </div>
+      <% } %>
 
       <div class="roadmap-meta">
         <% if (stage.output) { %><span><strong>关键产出</strong><%= stage.output %></span><% } %>

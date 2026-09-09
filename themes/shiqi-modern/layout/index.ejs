@@ -3,6 +3,12 @@
   const stages = roadmap.stages || [];
   const statusText = { done: '已完成', active: '进行中', todo: '待开始' };
   const statusClass = { done: 'is-done', active: 'is-active', todo: '' };
+  const depthClass = {
+    '精通': 'is-depth-master',
+    '熟悉': 'is-depth-familiar',
+    '了解': 'is-depth-brief',
+    '冲刺': 'is-depth-sprint'
+  };
 %>
 
 <section class="hero page-shell">
@@ -51,7 +57,11 @@
     <% stages.forEach(function(stage) { %>
       <article class="stage-card">
         <span class="status-tag <%= statusClass[stage.status] || '' %>"><%= statusText[stage.status] || '待开始' %></span>
-        <span class="stage-index"><%= stage.id %></span>
+        <div class="stage-index-row">
+          <span class="stage-index"><%= stage.id %></span>
+          <% if (stage.depth) { %><span class="chip <%= depthClass[stage.depth] || '' %>"><%= stage.depth %></span><% } %>
+          <% if (stage.weeks) { %><span class="chip"><%= stage.weeks %></span><% } %>
+        </div>
         <h3>
           <% if (stage.page) { %><a href="<%= url_for(stage.page) %>"><%= stage.title %></a><% } else { %><%= stage.title %><% } %>
         </h3>

@@ -3,13 +3,27 @@
   const stages = roadmap.stages || [];
   const statusText = { done: '已完成', active: '进行中', todo: '待开始' };
   const statusClass = { done: 'is-done', active: 'is-active', todo: '' };
+  const depthClass = {
+    '精通': 'is-depth-master',
+    '熟悉': 'is-depth-familiar',
+    '了解': 'is-depth-brief',
+    '冲刺': 'is-depth-sprint'
+  };
 %>
 
 <article class="standalone-page page-shell">
   <header class="page-heading">
-    <span class="eyebrow"><%= roadmap.eyebrow || 'LEARNING ROADMAP' %></span>
+    <span class="eyebrow"><%= roadmap.eyebrow %></span>
     <h1><%= page.title %></h1>
     <% if (page.description) { %><p><%= page.description %></p><% } %>
+
+    <% if (roadmap.depth_legend && roadmap.depth_legend.length) { %>
+      <div class="chip-row">
+        <% roadmap.depth_legend.forEach(function(item) { %>
+          <span class="chip"><%= item %></span>
+        <% }); %>
+      </div>
+    <% } %>
   </header>
 
   <% if (page.content) { %>
@@ -25,6 +39,8 @@
             <% if (stage.page) { %><a href="<%= url_for(stage.page) %>"><%= stage.title %></a><% } else { %><%= stage.title %><% } %>
           </h2>
           <span class="status-tag <%= statusClass[stage.status] || '' %>"><%= statusText[stage.status] || '待开始' %></span>
+          <% if (stage.depth) { %><span class="chip <%= depthClass[stage.depth] || '' %>"><%= stage.depth %></span><% } %>
+          <% if (stage.weeks) { %><span class="chip"><%= stage.weeks %></span><% } %>
         </div>
         <p class="roadmap-goal"><%= stage.goal %></p>
 
@@ -43,6 +59,13 @@
           <% } %>
         </div>
 
+        <% if (stage.skip && stage.skip.length) { %>
+          <div class="roadmap-skip">
+            <strong>仅了解 / 可跳过</strong>
+            <ul><% stage.skip.forEach(function(item) { %><li><%= item %></li><% }); %></ul>
+          </div>
+        <% } %>
+
         <div class="roadmap-meta">
           <% if (stage.output) { %><span><strong>关键产出</strong><%= stage.output %></span><% } %>
           <% if (stage.refs) { %><span><strong>资料</strong><%= stage.refs %></span><% } %>
@@ -57,11 +80,31 @@
 
   <% if (roadmap.principles && roadmap.principles.length) { %>
     <div class="callout is-ok">
-      <h2>贯穿全程的三条原则</h2>
+      <h2>三条原则</h2>
       <ul>
         <% roadmap.principles.forEach(function(item) { %>
           <li><strong><%= item.title %></strong> — <%= item.text %></li>
         <% }); %>
+      </ul>
+    </div>
+  <% } %>
+
+  <% if (roadmap.parallel && roadmap.parallel.length) { %>
+    <div class="callout">
+      <h2>并行轨道（全程不断，不占主线时间）</h2>
+      <ul>
+        <% roadmap.parallel.forEach(function(item) { %>
+          <li><strong><%= item.title %></strong> — <%= item.text %></li>
+        <% }); %>
+      </ul>
+    </div>
+  <% } %>
+
+  <% if (roadmap.cut && roadmap.cut.length) { %>
+    <div class="callout is-cut">
+      <h2>明确放弃：6 个月内不要碰</h2>
+      <ul>
+        <% roadmap.cut.forEach(function(item) { %><li><%= item %></li><% }); %>
       </ul>
     </div>
   <% } %>
