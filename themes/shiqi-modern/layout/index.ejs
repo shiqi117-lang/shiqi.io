@@ -1,24 +1,78 @@
+<%
+  const roadmap = theme.roadmap || {};
+  const stages = roadmap.stages || [];
+  const statusText = { done: '已完成', active: '进行中', todo: '待开始' };
+  const statusClass = { done: 'is-done', active: 'is-active', todo: '' };
+%>
+
 <section class="hero page-shell">
   <div class="hero-copy">
     <span class="eyebrow"><%= theme.hero.eyebrow %></span>
     <h1><%= theme.hero.title %></h1>
-    <p><%= theme.hero.description %></p>
+    <p class="hero-lead"><%= theme.hero.description %></p>
     <div class="hero-actions">
-      <a class="button button-primary" href="#latest-posts">浏览文章 <span aria-hidden="true">↓</span></a>
-      <a class="button button-secondary" href="<%= url_for('/about/') %>">了解更多</a>
+      <a class="button button-primary" href="#roadmap">查看学习路线 <span aria-hidden="true">↓</span></a>
+      <a class="button" href="#latest-posts">浏览文章</a>
     </div>
+    <% if (theme.hero.chips && theme.hero.chips.length) { %>
+      <div class="chip-row">
+        <% theme.hero.chips.forEach(function(chip) { %>
+          <span class="chip"><%= chip %></span>
+        <% }); %>
+      </div>
+    <% } %>
   </div>
-  <div class="hero-art" aria-hidden="true">
-    <div class="orbit orbit-one"></div>
-    <div class="orbit orbit-two"></div>
-    <div class="hero-monogram">S</div>
-    <span class="spark spark-one">✦</span>
-    <span class="spark spark-two">✦</span>
-    <span class="hero-note">THINK · BUILD · SHARE</span>
-  </div>
+
+  <aside class="hero-panel" aria-label="当前状态">
+    <h2><%= theme.hero.status_title || '当前状态' %></h2>
+    <dl class="status-list">
+      <% (theme.hero.status || []).forEach(function(row) { %>
+        <div class="status-row">
+          <dt><%= row.label %></dt>
+          <dd><%= row.value %></dd>
+        </div>
+      <% }); %>
+    </dl>
+  </aside>
 </section>
 
-<section id="latest-posts" class="post-section page-shell">
+<% if (stages.length) { %>
+<section id="roadmap" class="section page-shell">
+  <div class="section-heading">
+    <div>
+      <span class="eyebrow"><%= roadmap.eyebrow %></span>
+      <h2><%= roadmap.title %></h2>
+      <p><%= roadmap.description %></p>
+    </div>
+    <a href="<%= url_for('/roadmap/') %>">查看完整路线 <span aria-hidden="true">→</span></a>
+  </div>
+
+  <div class="stage-grid">
+    <% stages.forEach(function(stage) { %>
+      <article class="stage-card">
+        <span class="status-tag <%= statusClass[stage.status] || '' %>"><%= statusText[stage.status] || '待开始' %></span>
+        <span class="stage-index"><%= stage.id %></span>
+        <h3><%= stage.title %></h3>
+        <p class="stage-goal"><%= stage.goal %></p>
+        <p class="stage-output"><strong>关键产出</strong><%= stage.output %></p>
+      </article>
+    <% }); %>
+  </div>
+
+  <% if (roadmap.principles && roadmap.principles.length) { %>
+    <div class="principle-row">
+      <% roadmap.principles.forEach(function(item) { %>
+        <div class="principle">
+          <strong><%= item.title %></strong>
+          <span><%= item.text %></span>
+        </div>
+      <% }); %>
+    </div>
+  <% } %>
+</section>
+<% } %>
+
+<section id="latest-posts" class="section page-shell">
   <div class="section-heading">
     <div>
       <span class="eyebrow">LATEST WRITING</span>

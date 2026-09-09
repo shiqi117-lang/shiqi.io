@@ -1,0 +1,71 @@
+<%
+  const roadmap = theme.roadmap || {};
+  const stages = roadmap.stages || [];
+  const statusText = { done: '已完成', active: '进行中', todo: '待开始' };
+  const statusClass = { done: 'is-done', active: 'is-active', todo: '' };
+%>
+
+<article class="standalone-page page-shell">
+  <header class="page-heading">
+    <span class="eyebrow"><%= roadmap.eyebrow || 'LEARNING ROADMAP' %></span>
+    <h1><%= page.title %></h1>
+    <% if (page.description) { %><p><%= page.description %></p><% } %>
+  </header>
+
+  <% if (page.content) { %>
+    <div class="article-content"><%- page.content %></div>
+  <% } %>
+
+  <div class="roadmap-list">
+    <% stages.forEach(function(stage) { %>
+      <section class="roadmap-stage">
+        <div class="roadmap-stage-head">
+          <span class="stage-index"><%= stage.id %></span>
+          <h2><%= stage.title %></h2>
+          <span class="status-tag <%= statusClass[stage.status] || '' %>"><%= statusText[stage.status] || '待开始' %></span>
+        </div>
+        <p class="roadmap-goal"><%= stage.goal %></p>
+
+        <div class="roadmap-cols">
+          <% if (stage.learn && stage.learn.length) { %>
+            <div>
+              <h3>学什么</h3>
+              <ul><% stage.learn.forEach(function(item) { %><li><%= item %></li><% }); %></ul>
+            </div>
+          <% } %>
+          <% if (stage.do && stage.do.length) { %>
+            <div>
+              <h3>做什么</h3>
+              <ul><% stage.do.forEach(function(item) { %><li><%= item %></li><% }); %></ul>
+            </div>
+          <% } %>
+        </div>
+
+        <div class="roadmap-meta">
+          <% if (stage.output) { %><span><strong>关键产出</strong><%= stage.output %></span><% } %>
+          <% if (stage.refs) { %><span><strong>资料</strong><%= stage.refs %></span><% } %>
+        </div>
+      </section>
+    <% }); %>
+  </div>
+
+  <% if (roadmap.principles && roadmap.principles.length) { %>
+    <div class="callout is-ok">
+      <h2>贯穿全程的三条原则</h2>
+      <ul>
+        <% roadmap.principles.forEach(function(item) { %>
+          <li><strong><%= item.title %></strong> — <%= item.text %></li>
+        <% }); %>
+      </ul>
+    </div>
+  <% } %>
+
+  <% if (roadmap.pitfalls && roadmap.pitfalls.length) { %>
+    <div class="callout">
+      <h2>要避开的坑</h2>
+      <ul>
+        <% roadmap.pitfalls.forEach(function(item) { %><li><%= item %></li><% }); %>
+      </ul>
+    </div>
+  <% } %>
+</article>
