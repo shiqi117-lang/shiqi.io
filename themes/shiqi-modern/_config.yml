@@ -5,7 +5,7 @@ menu:
   关于: /about/
 
 github: https://github.com/shiqi117-lang
-footer_text: 先测量，再优化。
+footer_text: 先测量，再优化。 [CI 链路测试]
 
 hero:
   eyebrow: 'SHIQI.IO / 个人技术笔记'
