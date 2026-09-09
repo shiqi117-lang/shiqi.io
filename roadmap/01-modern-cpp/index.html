@@ -6,11 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#fcfcfd">
 <title>现代 C++ 语言内核 · SHIQI.IO</title>
-<meta name="description" content="十二周学习计划：值类别与移动语义、RAII 与异常安全、模板与 SFINAE、constexpr 编译期计算、Lambda 与可调用对象、Concepts 与协程。">
+<meta name="description" content="3 周计划：值类别与移动语义、智能指针与 RAII、模板与类型推导。全部按面试高频排序，低频内容明确标注为「仅了解」。">
 <meta name="author" content="shiqi">
 <meta property="og:type" content="website">
 <meta property="og:title" content="现代 C++ 语言内核 · SHIQI.IO">
-<meta property="og:description" content="十二周学习计划：值类别与移动语义、RAII 与异常安全、模板与 SFINAE、constexpr 编译期计算、Lambda 与可调用对象、Concepts 与协程。">
+<meta property="og:description" content="3 周计划：值类别与移动语义、智能指针与 RAII、模板与类型推导。全部按面试高频排序，低频内容明确标注为「仅了解」。">
 <meta property="og:url" content="https://shiqi117-lang.github.io/shiqi.io/roadmap/01-modern-cpp/index.html">
 <meta property="og:site_name" content="SHIQI.IO">
 <link rel="canonical" href="https://shiqi117-lang.github.io/shiqi.io/roadmap/01-modern-cpp/index.html">
@@ -70,56 +70,52 @@
   <header class="page-heading">
     <span class="eyebrow">阶段 01</span>
     <h1>现代 C++ 语言内核</h1>
-    <p>十二周学习计划：值类别与移动语义、RAII 与异常安全、模板与 SFINAE、constexpr 编译期计算、Lambda 与可调用对象、Concepts 与协程。</p>
+    <p>3 周计划：值类别与移动语义、智能指针与 RAII、模板与类型推导。全部按面试高频排序，低频内容明确标注为「仅了解」。</p>
 
     <div class="chip-row">
       
         <span class="status-tag is-active">进行中</span>
+        <span class="chip is-depth-master">深度 精通</span>
       
-      <span class="chip">周期 10–12 周</span>
+      <span class="chip">周期 3 周</span>
       <span class="chip">前置 基本语法、指针与引用、会编译</span>
     </div>
   </header>
 
   
-    <div class="article-content"><h2 id="这一阶段要解决什么"><a href="#这一阶段要解决什么" class="headerlink" title="这一阶段要解决什么"></a>这一阶段要解决什么</h2><p>你现在的 C++ 大概率停留在”能跑起来”这一层：知道有 <code>std::move</code>、会写个 <code>template&lt;class T&gt;</code>，但说不清它们落到机器上是什么。这一阶段的目标很具体——<strong>看到一行 C++，能预测编译器会生成什么，以及为什么</strong>。</p>
-<p>判断标准也很直接：读完这一阶段，你应该能回答”这个写法到底有没有开销”，而不是猜。</p>
-<h2 id="每周时间盒（按-10-小时计）"><a href="#每周时间盒（按-10-小时计）" class="headerlink" title="每周时间盒（按 10 小时计）"></a>每周时间盒（按 10 小时计）</h2><table>
+    <div class="article-content"><h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p>原来的 12 周版本按「完整掌握语言」设计，现在压到 3 周，取舍标准只有一条：<strong>这个知识点在面试里出现过三次以上吗？</strong></p>
+<p>答是的留下，答不是的一律降级到「了解」或跳过。所以协程、Concepts、SFINAE 奇技全部出局——它们很有趣，但六个月内投入产出比太低。</p>
+<p>省下来的时间全部压在<strong>智能指针</strong>和<strong>Rule of 5</strong> 上，这是 C++ 面试出现频率最高、也最容易被追问到实现细节的两块。</p>
+<h2 id="每周时间盒（实习期间，约-12–15-小时）"><a href="#每周时间盒（实习期间，约-12–15-小时）" class="headerlink" title="每周时间盒（实习期间，约 12–15 小时）"></a>每周时间盒（实习期间，约 12–15 小时）</h2><table>
 <thead>
 <tr>
 <th>时段</th>
 <th>内容</th>
-<th>备注</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>3h</td>
-<td>精读：EMC 对应条款 + cppreference</td>
-<td>读的时候手边必须有编译器</td>
+<td>工作日 5 × 1.5h</td>
+<td>读 + 写代码</td>
+<td>每晚固定，别攒到周末</td>
 </tr>
 <tr>
-<td>4h</td>
-<td>写代码：每个概念落一个最小可编译示例</td>
-<td>不写等于没学</td>
+<td>周末 5h</td>
+<td>写练习 + 看汇编</td>
+<td>大部分产出在这里</td>
 </tr>
 <tr>
-<td>2h</td>
-<td>看汇编：Compiler Explorer 对照</td>
-<td>这是把”记住”变成”理解”的关键一步</td>
-</tr>
-<tr>
-<td>1h</td>
-<td>写笔记：用自己的话讲一遍</td>
-<td>讲不清的地方就是没懂的地方</td>
+<td>周末 1h</td>
+<td>整理笔记</td>
+<td>用能讲给别人的标准写</td>
 </tr>
 </tbody></table>
-<p>每周只有 5–6 小时的话，把每格按 1.5–2 倍拉长，<strong>顺序不要变</strong>——这几个模块之间有硬依赖关系（值类别 → 移动语义 → 模板 → SFINAE），跳着学会卡死。</p>
-<h2 id="12-周进度表"><a href="#12-周进度表" class="headerlink" title="12 周进度表"></a>12 周进度表</h2><p>下文把《Effective Modern C++》简称为 <strong>EMC</strong>，条款号以第 1 版中译本为准。</p>
-<table>
+<p>实习日状态差就只做「读」那一项，但<strong>不要断</strong>。断两天再接回来要花一天找状态。</p>
+<h2 id="3-周进度表"><a href="#3-周进度表" class="headerlink" title="3 周进度表"></a>3 周进度表</h2><table>
 <thead>
 <tr>
 <th>周</th>
-<th>模块</th>
+<th>主题</th>
 <th>输入</th>
 <th>输出</th>
 <th>验收</th>
@@ -127,157 +123,105 @@
 </thead>
 <tbody><tr>
 <td>1</td>
-<td>值类别与引用</td>
-<td>EMC 条款 23–24；cppreference <code>value_category</code></td>
-<td>一张值类别判定实验表（30 个表达式）</td>
-<td>能背出 lvalue &#x2F; xvalue &#x2F; prvalue 的判定规则，并给每类举 3 个例子</td>
+<td>值类别与移动语义</td>
+<td>EMC 条款 23–30；cppreference <code>value_category</code></td>
+<td>15 个表达式的值类别判定表；<code>emplace_back</code> vs <code>push_back</code> 实测</td>
+<td>能说清 <code>std::move</code> 到底做了什么、完美转发何时失效</td>
 </tr>
 <tr>
 <td>2</td>
-<td>移动语义与完美转发</td>
-<td>EMC 条款 23–30</td>
-<td>手写 <code>my_move</code> &#x2F; <code>my_forward</code>；一个带移动构造的 <code>Buffer</code> + 拷贝&#x2F;移动 benchmark</td>
-<td>能解释”为什么 <code>std::move</code> 不移动”、万能引用何时退化</td>
+<td>智能指针与 RAII</td>
+<td>EMC 条款 18–22；cppreference <code>shared_ptr</code></td>
+<td>手写 <code>unique_ptr</code> 与 <code>shared_ptr</code>，复现循环引用并用 <code>weak_ptr</code> 修掉</td>
+<td>能画出 <code>shared_ptr</code> 的内存布局（对象 + 控制块）</td>
 </tr>
 <tr>
 <td>3</td>
-<td>RAII 与 Rule of 0&#x2F;3&#x2F;5</td>
-<td>EMC 条款 13–22</td>
-<td>简化版 <code>unique_ptr</code>、<code>ScopeGuard</code></td>
-<td>说清 Rule of 0&#x2F;3&#x2F;5 各自适用场景，以及为什么优先 Rule of 0</td>
-</tr>
-<tr>
-<td>4</td>
-<td>异常安全与 noexcept</td>
-<td>EMC 条款 14</td>
-<td>给上周的 <code>Buffer</code> 补齐强异常安全保证</td>
-<td>区分三种异常安全保证；说清容器扩容为何依赖移动构造 <code>noexcept</code></td>
-</tr>
-<tr>
-<td>5</td>
-<td>模板基础与实例化模型</td>
-<td>《C++ Templates》ch.1–3</td>
-<td><code>type_traits</code> 子集：<code>is_same</code> &#x2F; <code>remove_cv</code> &#x2F; <code>conditional</code> &#x2F; <code>enable_if</code></td>
-<td>解释两阶段名字查找与 ADL；说清何时必须写 <code>typename</code> &#x2F; <code>template</code></td>
-</tr>
-<tr>
-<td>6</td>
-<td>变参模板与折叠表达式</td>
-<td>《C++ Templates》ch.4</td>
-<td>可变参数 <code>print</code>；简化版 <code>tuple</code></td>
-<td>能手写递归展开与折叠表达式两种写法</td>
-</tr>
-<tr>
-<td>7</td>
-<td>SFINAE 与检测惯用法</td>
-<td>cppreference <code>void_t</code>、<code>enable_if</code></td>
-<td><code>is_detected</code> 检测器；用它做”有 <code>size()</code> 就用它”的分派</td>
-<td>说清 SFINAE 的替换失败边界，以及 C++20 <code>requires</code> 解决了什么</td>
-</tr>
-<tr>
-<td>8</td>
-<td>CRTP、tag dispatch、if constexpr</td>
-<td>EMC 条款 27、37</td>
-<td>用 CRTP 写静态多态计数器，与虚函数在 Compiler Explorer 上对比汇编</td>
-<td>量化静态多态与动态多态的代价差异</td>
-</tr>
-<tr>
-<td>9</td>
-<td>constexpr 与编译期计算</td>
-<td>cppreference <code>constexpr</code> &#x2F; <code>consteval</code></td>
-<td>编译期字符串；编译期素数表</td>
-<td>说清 constexpr 函数在 C++11 &#x2F; 14 &#x2F; 20 的限制演进</td>
-</tr>
-<tr>
-<td>10</td>
-<td>Lambda 与可调用对象</td>
-<td>EMC 条款 31–32</td>
-<td>简化版 <code>std::function</code>（含 SBO）</td>
-<td>解释闭包类型、捕获方式、无捕获 lambda 转函数指针的条件</td>
-</tr>
-<tr>
-<td>11</td>
-<td>Concepts 与 ranges 入门</td>
-<td>cppreference <code>constraints</code></td>
-<td>给自己写的容器加 concept 约束</td>
-<td>独立写出一个 concept，并解释 requires 子句的求值顺序</td>
-</tr>
-<tr>
-<td>12</td>
-<td>协程（压轴，可延后）</td>
-<td>cppreference <code>coroutines</code></td>
-<td>手写 <code>promise_type</code> 的 generator</td>
-<td>画清协程挂起 &#x2F; 恢复的控制流图</td>
+<td>模板与类型系统</td>
+<td>EMC 条款 1–4；cppreference 四种 cast</td>
+<td>手写简化 <code>string</code> &#x2F; <code>vector</code>（Rule of 5 + 扩容 + <code>emplace_back</code>）</td>
+<td>能说清 <code>auto</code> 与 <code>decltype</code> 的推导差异、四种 cast 的边界</td>
 </tr>
 </tbody></table>
-<p>第 12 周是唯一可以推迟的模块。协程在性能优化里的直接用途有限，先放一放不影响后面 02–04 阶段；等做到 07 阶段（并发）需要用有栈&#x2F;无栈协程时再回头补，理解会快得多。</p>
-<h2 id="八个必须落地的练习"><a href="#八个必须落地的练习" class="headerlink" title="八个必须落地的练习"></a>八个必须落地的练习</h2><p>按依赖顺序排，每个都要有独立 <code>.cpp</code> 和一段 README 记录结论：</p>
+<h2 id="四个练习"><a href="#四个练习" class="headerlink" title="四个练习"></a>四个练习</h2><p>比原计划的八个少一半，剩下的每一个都是面试能直接聊的：</p>
 <ol>
-<li><strong>值类别实验矩阵</strong> — 对 <code>a</code>、<code>std::move(a)</code>、<code>f()</code>、<code>a++</code>、<code>++a</code>、字符串字面量、<code>T{}</code>、成员访问等 30 个表达式，用 <code>decltype</code> 和重载决议判类别，做成表格。</li>
-<li><strong>手写 <code>move</code> &#x2F; <code>forward</code></strong> — 就两行 <code>static_cast</code>，但必须自己写一遍并解释为什么 <code>remove_reference</code> 不可省。</li>
-<li><strong><code>Buffer</code> 类</strong> — Rule of 5 齐全，移动构造标 <code>noexcept</code>，穿插异常安全：让 push 在分配失败时保持原状态不变。</li>
-<li><strong>简化 <code>unique_ptr</code> + <code>ScopeGuard</code></strong> — 体会”资源获取即初始化”到底把什么责任转移给了编译器。</li>
-<li><strong><code>type_traits</code> 子集</strong> — <code>is_same</code>、<code>remove_cv</code>、<code>conditional</code>、<code>enable_if</code>、<code>is_integral</code>。写完后对比标准库实现，看差在哪。</li>
-<li><strong>简化 <code>tuple</code> &#x2F; 可变参数 <code>print</code></strong> — 递归展开和 C++17 折叠表达式各写一遍。</li>
-<li><strong><code>optional</code> 与 <code>variant</code></strong> — 阶段核心产出。<code>variant</code> 重点在实现访问（访问者 + 递归 union），别用一堆 <code>if-else</code> 糊过去。</li>
-<li><strong><code>function</code> with SBO</strong> — 阶段核心产出。搞清楚小对象优化的内联缓冲多大、什么时候会退化到堆分配，这一步直接决定你后面能不能看懂 <code>std::function</code> 的调用开销。</li>
+<li><p><strong>值类别判定表</strong>（15 个表达式，精简版）<br><code>a</code>、<code>std::move(a)</code>、<code>f()</code>、<code>a++</code>、<code>++a</code>、<code>p-&gt;x</code>、<code>arr[0]</code>、字符串字面量、<code>T{}</code>、三元表达式……<br>用重载决议判类别，做成表格。目标不是背下来，是能现场推导。</p>
+</li>
+<li><p><strong>手写 <code>unique_ptr</code> + <code>shared_ptr</code></strong> ⭐ 最高频<br><code>unique_ptr</code>：禁拷贝、实现移动、<code>release</code> &#x2F; <code>reset</code> &#x2F; <code>get</code>、自定义删除器。<br><code>shared_ptr</code>：控制块（强计数 + 弱计数）、<code>make_shared</code> 为什么只分配一次、手写一遍循环引用再用 <code>weak_ptr</code> 断开。<br>面试官大概率会追问”引用计数存在哪””线程安全吗”，这两个必须能答。</p>
+</li>
+<li><p><strong>手写简化 <code>string</code> &#x2F; <code>vector</code></strong> ⭐ 最高频<br>Rule of 5 齐全，移动构造标 <code>noexcept</code>。<br><code>vector</code> 重点在扩容策略（1.5x 还是 2x，为什么）和 <code>emplace_back</code> 的完美转发。<br>写完后用 ASan 跑一遍，确认没有泄漏和越界。</p>
+</li>
+<li><p><strong>类型推导与四种 cast</strong><br><code>auto</code> &#x2F; <code>decltype</code> &#x2F; <code>decltype(auto)</code> 的推导差异，写十几个例子验证。<br>四种 cast 各写一个最小用例，重点说清 <code>dynamic_cast</code> 依赖 RTTI、有运行时开销。</p>
+</li>
 </ol>
-<p><strong>验收方式</strong>：这些练习统一放在 <code>perf-lab/01-language-core/</code> 下，每个目录一个 <code>main.cpp</code> + <code>README.md</code>。README 只写三件事：现象、你的解释、还没搞懂的问题。</p>
-<h2 id="验收清单"><a href="#验收清单" class="headerlink" title="验收清单"></a>验收清单</h2><p>全部能答上来，才算过这一阶段：</p>
+<h2 id="验收清单"><a href="#验收清单" class="headerlink" title="验收清单"></a>验收清单</h2><p>这 12 条是真实的高频面试题，全部能答上来才算过：</p>
 <ol>
-<li><code>lvalue</code> &#x2F; <code>xvalue</code> &#x2F; <code>prvalue</code> 的判定规则是什么？给 <code>a</code>、<code>std::move(a)</code>、<code>f()</code>、<code>a++</code>、<code>++a</code>、字符串字面量各分类。</li>
-<li>为什么模板里的 <code>T&amp;&amp;</code> 叫万能引用？什么情况下它并不是？</li>
-<li><code>std::move</code> 实际做了什么？为什么对 <code>const</code> 对象调用它通常没效果？</li>
-<li>完美转发会在哪几种情况下失效？（至少说出花括号初始化、<code>0</code> &#x2F; <code>NULL</code>、静态 <code>const</code> 成员、重载函数名这四种）</li>
-<li>Rule of 0 &#x2F; 3 &#x2F; 5 分别是什么？为什么现代 C++ 优先 Rule of 0？</li>
-<li>基本、强、不抛三种异常安全保证的区别？</li>
-<li>为什么 <code>vector</code> 扩容要求移动构造是 <code>noexcept</code>？不是的话会发生什么？</li>
-<li>两阶段名字查找是什么？为什么 <code>swap(a, b)</code> 和 <code>std::swap(a, b)</code> 可能调到不同函数？</li>
-<li>ADL 是什么？举一个它让代码”意外通过编译”的例子。</li>
-<li>SFINAE 的”替换失败”边界在哪？哪些错误不属于 SFINAE？</li>
-<li><code>if constexpr</code> 和预处理 <code>#if</code>、普通 <code>if</code> 三者有什么区别？</li>
-<li>constexpr 函数的限制在 C++11 &#x2F; 14 &#x2F; 20 分别是怎样放宽的？</li>
-<li>无捕获 lambda 为什么能转函数指针？<code>std::function</code> 的 SBO 是什么，多大以内不分配堆内存？</li>
+<li>左值和右值的区别？<code>std::move</code> 实际做了什么，它真的”移动”了吗？</li>
+<li>完美转发是什么？举出它失效的情况。</li>
+<li><code>push_back</code> 和 <code>emplace_back</code> 的区别？什么时候后者更快，什么时候没差？</li>
+<li><code>shared_ptr</code> 的实现原理？引用计数存在哪里？它是线程安全的吗？</li>
+<li>循环引用是怎么产生的？怎么解决？为什么 <code>weak_ptr</code> 能解决？</li>
+<li><code>make_shared</code> 相比 <code>shared_ptr&lt;T&gt;(new T)</code> 好在哪？有没有坏处？</li>
+<li><code>unique_ptr</code> 是怎么禁止拷贝的？它能作为函数返回值吗？为什么？</li>
+<li>深拷贝和浅拷贝的区别？什么时候必须自己写拷贝构造函数？</li>
+<li>Rule of 3 &#x2F; 5 &#x2F; 0 分别是什么？现代 C++ 更推荐哪个？</li>
+<li><code>auto</code> 和 <code>decltype</code> 的推导规则有什么不同？<code>decltype(auto)</code> 又是什么？</li>
+<li><code>static_cast</code> &#x2F; <code>dynamic_cast</code> &#x2F; <code>const_cast</code> &#x2F; <code>reinterpret_cast</code> 各自的使用场景？<code>dynamic_cast</code> 的开销来自哪里？</li>
+<li>为什么基类析构函数要是 <code>virtual</code>？为什么构造函数不能是 <code>virtual</code>？</li>
 </ol>
-<p>第 13 题答不上来很正常——它取决于具体实现（libstdc++ 和 libc++ 的内联缓冲大小不同）。答不上来时去翻你用的标准库头文件，把数字找出来，这本身就是训练。</p>
+<p>第 4、5、6 条是重中之重。<code>shared_ptr</code> 几乎每场 C++ 面试都会问到，而且会一路追问到控制块的内存布局。</p>
+<h2 id="明确跳过"><a href="#明确跳过" class="headerlink" title="明确跳过"></a>明确跳过</h2><p>这些不要求掌握，知道存在即可，别在这里花时间：</p>
+<ul>
+<li><strong>协程</strong> — 知道 <code>co_await</code> 是什么就行</li>
+<li><strong>Concepts &#x2F; requires</strong> — 能写一个简单约束即可</li>
+<li><strong>SFINAE 与模板元编程奇技</strong> — 知道 <code>void_t</code> 和 <code>enable_if</code> 存在即可</li>
+<li><strong>手写 <code>optional</code> &#x2F; <code>variant</code> &#x2F; <code>function</code></strong> — 改为了解 SBO 概念，能说出 <code>std::function</code> 多大以内不分配堆内存</li>
+</ul>
+<p>最后一条原本是旧计划的核心产出，现在降级了。如果你后面有余力，<code>function</code> 的 SBO 值得一看（涉及类型擦除），但优先级低于所有标 ⭐ 的练习。</p>
 <h2 id="常见卡点"><a href="#常见卡点" class="headerlink" title="常见卡点"></a>常见卡点</h2><ul>
-<li><strong>值类别太抽象</strong> — 别背定义。用两条判据：能不能取地址（有身份）、能不能被移动（可复用资源）。然后填那张 30 个表达式的表，填完自然就懂了。</li>
-<li><strong>模板报错一屏屏</strong> — 只看第一行错误和最后一个 <code>note: ... with T = ...</code>。中间全是噪音。定位不了就用 <code>static_assert</code> 和 <code>if constexpr</code> 把条件一段段砍掉。</li>
-<li><strong>元编程上瘾</strong> — 设个硬预算：单个 trait 超过 20 行就停手，换成 <code>if constexpr</code> 或 concepts。C++11 的模板元编程技巧大部分在 C++17&#x2F;20 里已经有更直白的写法，别为了炫技写不可维护的代码。</li>
-<li><strong>只看不写</strong> — 这条最致命。每个概念必须有一个能编译、能跑、能在 Compiler Explorer 上看到汇编的 <code>.cpp</code>。没有产出的阅读，两周后就忘干净。</li>
+<li><strong><code>shared_ptr</code> 的控制块想不明白</strong> — 直接去看 libc++ 或 libstdc++ 的头文件，画一张内存图。文字描述再详细也不如一张图。</li>
+<li><strong>模板报错一屏屏</strong> — 只看第一行错误和最后一个 <code>note: ... with T = ...</code>，中间全是噪音。</li>
+<li><strong>实习太累，晚上不想动</strong> — 把每晚 1.5h 拆成通勤&#x2F;午休的「读」+ 睡前的「写」。只要不断，进度就不会崩。</li>
+<li><strong>想把所有东西都学透</strong> — 这是这份计划最大的敌人。对照上面的 skip 清单，该跳就跳。</li>
 </ul>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><em>Effective Modern C++</em>（Scott Meyers）— 主教材，按上面的周表拆着读</li>
-<li><em>C++ Templates: The Complete Guide</em> 第二版 — 工具书，第 5–7 周当参考查</li>
-<li><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/">cppreference</a> — 遇到概念先查这里，比博客准</li>
-<li><a target="_blank" rel="noopener" href="https://godbolt.org/">Compiler Explorer</a> — 每周那 2 小时的场地</li>
-<li><em>C++20: The Complete Guide</em>（Josuttis）— 第 11 周 Concepts 部分</li>
+<li><em>Effective Modern C++</em>（Scott Meyers）— 条款 1–4、13–32，其余暂时不看</li>
+<li><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/">cppreference</a> — 遇到概念先查这里</li>
+<li><a target="_blank" rel="noopener" href="https://godbolt.org/">Compiler Explorer</a> — 验证「零开销抽象」到底零没零</li>
+<li><code>perf-lab/01-language-core/</code> — 练习落在这里，每个目录一个 <code>README.md</code></li>
 </ul>
 </div>
   
 
   
     <section class="roadmap-stage">
-      <p class="roadmap-goal"><strong>阶段目标</strong>　从「会写」到「知道编译器看到了什么」。</p>
+      <p class="roadmap-goal"><strong>阶段目标</strong>　面试高频的语言特性全部能讲清原理、能写代码、能答追问。</p>
 
       <div class="roadmap-cols">
         
           <div>
             <h3>学什么</h3>
-            <ul><li>值类别：lvalue / xvalue / prvalue、引用折叠、std::move 与 std::forward 的实现</li><li>对象生命周期与所有权：RAII、Rule of 0/3/5、异常安全三档保证</li><li>模板：两阶段名字查找、ADL、SFINAE、变参模板、CRTP、type traits、if constexpr、Concepts</li><li>编译期计算：constexpr / consteval / constinit</li><li>Lambda 到闭包类型的本质；C++20 协程的 promise_type</li></ul>
+            <ul><li>值类别与移动语义：lvalue / xvalue / prvalue、std::move 与 std::forward、完美转发、emplace_back vs push_back</li><li>智能指针：unique_ptr / shared_ptr / weak_ptr、引用计数、循环引用、make_shared 为什么更好</li><li>RAII 与 Rule of 0/3/5、深拷贝与浅拷贝</li><li>模板基础：函数与类模板、特化与偏特化、auto 与 decltype 推导规则</li><li>四种类型转换与各自适用边界</li></ul>
           </div>
         
         
           <div>
             <h3>做什么</h3>
-            <ul><li>从零实现 type_traits、optional、variant、tuple、function（SSO 版）、ScopeGuard</li><li>用 Compiler Explorer 逐个看汇编，确认「零开销抽象」零在哪、不零在哪</li><li>实现编译期字符串，体会模板元编程的编译时代价</li></ul>
+            <ul><li>手写 unique_ptr 与 shared_ptr：含控制块、引用计数，并复现循环引用再用 weak_ptr 修掉</li><li>手写简化 string / vector：Rule of 5、扩容策略、emplace_back</li><li>整理 15 个表达式的值类别判定表</li></ul>
           </div>
         
       </div>
 
+      
+        <div class="roadmap-skip">
+          <strong>仅了解 / 可跳过</strong>
+          <ul><li>协程：知道 co_await 是什么即可</li><li>Concepts / requires：能写一个简单约束就行</li><li>SFINAE 与模板元编程奇技：知道 void_t 和 enable_if 存在即可</li><li>手写 optional / variant / function：改为了解 SBO 概念，能说出 std::function 多大以内不分配堆</li></ul>
+        </div>
+      
+
       <div class="roadmap-meta">
-        <span><strong>关键产出</strong>手写 optional / variant / function</span>
-        <span><strong>资料</strong>Effective Modern C++ · C++ Templates 第二版 · C++20 The Complete Guide</span>
+        <span><strong>关键产出</strong>手写 unique_ptr / shared_ptr / 简化 vector</span>
+        <span><strong>资料</strong>Effective Modern C++ 条款 13–32（挑读）· cppreference</span>
       </div>
     </section>
   

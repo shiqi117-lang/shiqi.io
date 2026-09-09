@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#fcfcfd">
-<title>C++ 性能优化学习路线 · SHIQI.IO</title>
-<meta name="description" content="以 C++ 为地基向性能工程深耕的九阶段路线：语言内核、对象模型、标准库、编译器、度量方法论、CPU 微架构、并发、系统层与领域深耕。">
+<title>C++ 性能优化冲刺路线 · SHIQI.IO</title>
+<meta name="description" content="面向秋招的 24 周压缩版路线：砍掉低频深水区，把时间压在面试高频和能产生数据的地方，第 12 周设面试就绪检查点。">
 <meta name="author" content="shiqi">
 <meta property="og:type" content="website">
-<meta property="og:title" content="C++ 性能优化学习路线 · SHIQI.IO">
-<meta property="og:description" content="以 C++ 为地基向性能工程深耕的九阶段路线：语言内核、对象模型、标准库、编译器、度量方法论、CPU 微架构、并发、系统层与领域深耕。">
+<meta property="og:title" content="C++ 性能优化冲刺路线 · SHIQI.IO">
+<meta property="og:description" content="面向秋招的 24 周压缩版路线：砍掉低频深水区，把时间压在面试高频和能产生数据的地方，第 12 周设面试就绪检查点。">
 <meta property="og:url" content="https://shiqi117-lang.github.io/shiqi.io/roadmap/index.html">
 <meta property="og:site_name" content="SHIQI.IO">
 <link rel="canonical" href="https://shiqi117-lang.github.io/shiqi.io/roadmap/index.html">
@@ -68,14 +68,112 @@
 
 <article class="standalone-page page-shell">
   <header class="page-heading">
-    <span class="eyebrow">LEARNING ROADMAP</span>
-    <h1>C++ 性能优化学习路线</h1>
-    <p>以 C++ 为地基向性能工程深耕的九阶段路线：语言内核、对象模型、标准库、编译器、度量方法论、CPU 微架构、并发、系统层与领域深耕。</p>
+    <span class="eyebrow">LEARNING ROADMAP · 24 WEEKS</span>
+    <h1>C++ 性能优化冲刺路线</h1>
+    <p>面向秋招的 24 周压缩版路线：砍掉低频深水区，把时间压在面试高频和能产生数据的地方，第 12 周设面试就绪检查点。</p>
+
+    
+      <div class="chip-row">
+        
+          <span class="chip">精通：能讲原理、能写代码、能答追问</span>
+        
+          <span class="chip">熟悉：能讲清原理和权衡，不要求手写</span>
+        
+          <span class="chip">了解：知道是什么、什么时候用</span>
+        
+      </div>
+    
   </header>
 
   
-    <div class="article-content"><p>这份路线按 <strong>语言 → 内存 → 标准库 → 编译器 → 度量 → CPU → 并发 → 系统 → 领域</strong> 九级递进。顺序不是随意排的：前四级解决”写出正确且编译器友好的代码”，第五级解决”怎么判断快没快”，后四级才真正进入性能工程的主战场。</p>
-<p>一个提醒：<strong>阶段 5（度量方法论）不要等到最后</strong>。从第一天就养成”优化前后必须留证据”的习惯，否则后面所有的优化结论都不可信。</p>
+    <div class="article-content"><h2 id="为什么重做"><a href="#为什么重做" class="headerlink" title="为什么重做"></a>为什么重做</h2><p>原来那条九阶段路线是<strong>两到三年的深度路线</strong>，按它走完，秋招已经结束了。更麻烦的是它有两个结构性问题：</p>
+<ul>
+<li><strong>大量内容对秋招零回报</strong>：HPC、MPI、游戏引擎、DPDK、编译器开发——这些方向本身没问题，但六个月内啃它们，等于用准备面试的时间去做一个面试官不会问的项目。</li>
+<li><strong>漏了面试必考项</strong>：原路线里没有计算机网络，没有操作系统八股，没有算法。这三样是笔试和前两轮面试的硬门槛，缺一样就走不到能聊性能优化的那一轮。</li>
+</ul>
+<p>所以这份是重写，不是压缩。</p>
+<h2 id="24-周总表"><a href="#24-周总表" class="headerlink" title="24 周总表"></a>24 周总表</h2><table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>周次</th>
+<th>主题</th>
+<th>深度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>01</td>
+<td>W1–3</td>
+<td>现代 C++ 语言内核</td>
+<td>精通</td>
+</tr>
+<tr>
+<td>02</td>
+<td>W4–5</td>
+<td>对象模型与内存布局</td>
+<td>精通</td>
+</tr>
+<tr>
+<td>03</td>
+<td>W6–7</td>
+<td>标准库与数据结构</td>
+<td>熟悉</td>
+</tr>
+<tr>
+<td>04</td>
+<td>W8</td>
+<td>编译器与工具链</td>
+<td>熟悉</td>
+</tr>
+<tr>
+<td>05</td>
+<td>W9–10</td>
+<td>性能度量方法论</td>
+<td>精通</td>
+</tr>
+<tr>
+<td>06</td>
+<td>W11–12</td>
+<td>CPU 微架构</td>
+<td>熟悉</td>
+</tr>
+<tr>
+<td><strong>—</strong></td>
+<td><strong>W12 末</strong></td>
+<td><strong>面试就绪检查点</strong></td>
+<td>—</td>
+</tr>
+<tr>
+<td>07</td>
+<td>W13–14</td>
+<td>并发与内存模型</td>
+<td>精通</td>
+</tr>
+<tr>
+<td>08</td>
+<td>W15–17</td>
+<td>系统编程与网络</td>
+<td>熟悉</td>
+</tr>
+<tr>
+<td>09</td>
+<td>W18–24</td>
+<td>项目整合与面试冲刺</td>
+<td>冲刺</td>
+</tr>
+</tbody></table>
+<p><strong>第 12 周末是检查点</strong>：此时 C++ 主线、性能度量方法和两个数据案例应该都齐了，即使提前批来得早也有东西可讲。之后进入查漏补缺和刷题收尾。</p>
+<h2 id="三个结构性改动"><a href="#三个结构性改动" class="headerlink" title="三个结构性改动"></a>三个结构性改动</h2><p><strong>一、深度分级，不搞一刀切。</strong><br>每个阶段都标了深度，并附「仅了解 &#x2F; 可跳过」清单。看到「了解」就真的只花半小时知道它是什么，别展开——这是这份路线能塞进 24 周的关键。</p>
+<p><strong>二、补上网络、OS 和算法。</strong><br>阶段 08 整块是新增的，算法是全程并行轨道。它们不性感，但决定了你有没有机会展示性能优化能力。</p>
+<p><strong>三、产出从「完整实现」改为「能讲清楚 + 有数据」。</strong><br>手写 hash map 改成读懂 Swiss table；手写无锁 MPMC 队列改成读懂一个实现。省下来的时间全部投到阶段 05 的性能案例上——那才是差异化卖点。</p>
+<h2 id="怎么判断该不该跳过"><a href="#怎么判断该不该跳过" class="headerlink" title="怎么判断该不该跳过"></a>怎么判断该不该跳过</h2><p>拿不准时问自己三个问题：</p>
+<ol>
+<li>过去半年我在面经里见过它三次以上吗？</li>
+<li>面试官会不会追问到实现细节？如果会，我能现场写出来吗？</li>
+<li>我能不能在两分钟内把它讲清楚，并说出一个使用场景？</li>
+</ol>
+<p>三个都答不上来 → 标「了解」，写进 skip 清单，然后跳过。三个都能答 → 才值得投时间到「精通」。</p>
+<h2 id="明确放弃"><a href="#明确放弃" class="headerlink" title="明确放弃"></a>明确放弃</h2><p>页面底部有一份「6 个月内不要碰」清单。它不是「以后也不学」，而是「现在学了不划算」。等拿到offer、进了组，再按兴趣回头补。</p>
 </div>
   
 
@@ -88,27 +186,36 @@
             <a href="/shiqi.io/roadmap/01-modern-cpp/">现代 C++ 语言内核</a>
           </h2>
           <span class="status-tag is-active">进行中</span>
+          <span class="chip is-depth-master">精通</span>
+          <span class="chip">3 周</span>
         </div>
-        <p class="roadmap-goal">从「会写」到「知道编译器看到了什么」。</p>
+        <p class="roadmap-goal">面试高频的语言特性全部能讲清原理、能写代码、能答追问。</p>
 
         <div class="roadmap-cols">
           
             <div>
               <h3>学什么</h3>
-              <ul><li>值类别：lvalue / xvalue / prvalue、引用折叠、std::move 与 std::forward 的实现</li><li>对象生命周期与所有权：RAII、Rule of 0/3/5、异常安全三档保证</li><li>模板：两阶段名字查找、ADL、SFINAE、变参模板、CRTP、type traits、if constexpr、Concepts</li><li>编译期计算：constexpr / consteval / constinit</li><li>Lambda 到闭包类型的本质；C++20 协程的 promise_type</li></ul>
+              <ul><li>值类别与移动语义：lvalue / xvalue / prvalue、std::move 与 std::forward、完美转发、emplace_back vs push_back</li><li>智能指针：unique_ptr / shared_ptr / weak_ptr、引用计数、循环引用、make_shared 为什么更好</li><li>RAII 与 Rule of 0/3/5、深拷贝与浅拷贝</li><li>模板基础：函数与类模板、特化与偏特化、auto 与 decltype 推导规则</li><li>四种类型转换与各自适用边界</li></ul>
             </div>
           
           
             <div>
               <h3>做什么</h3>
-              <ul><li>从零实现 type_traits、optional、variant、tuple、function（SSO 版）、ScopeGuard</li><li>用 Compiler Explorer 逐个看汇编，确认「零开销抽象」零在哪、不零在哪</li><li>实现编译期字符串，体会模板元编程的编译时代价</li></ul>
+              <ul><li>手写 unique_ptr 与 shared_ptr：含控制块、引用计数，并复现循环引用再用 weak_ptr 修掉</li><li>手写简化 string / vector：Rule of 5、扩容策略、emplace_back</li><li>整理 15 个表达式的值类别判定表</li></ul>
             </div>
           
         </div>
 
+        
+          <div class="roadmap-skip">
+            <strong>仅了解 / 可跳过</strong>
+            <ul><li>协程：知道 co_await 是什么即可</li><li>Concepts / requires：能写一个简单约束就行</li><li>SFINAE 与模板元编程奇技：知道 void_t 和 enable_if 存在即可</li><li>手写 optional / variant / function：改为了解 SBO 概念，能说出 std::function 多大以内不分配堆</li></ul>
+          </div>
+        
+
         <div class="roadmap-meta">
-          <span><strong>关键产出</strong>手写 optional / variant / function</span>
-          <span><strong>资料</strong>Effective Modern C++ · C++ Templates 第二版 · C++20 The Complete Guide</span>
+          <span><strong>关键产出</strong>手写 unique_ptr / shared_ptr / 简化 vector</span>
+          <span><strong>资料</strong>Effective Modern C++ 条款 13–32（挑读）· cppreference</span>
         </div>
 
         
@@ -123,27 +230,36 @@
             对象模型与内存布局
           </h2>
           <span class="status-tag ">待开始</span>
+          <span class="chip is-depth-master">精通</span>
+          <span class="chip">2 周</span>
         </div>
-        <p class="roadmap-goal">看到一个类，就能在脑中画出它的内存布局。</p>
+        <p class="roadmap-goal">能画出类对象的内存布局，说清多态的实现代价。</p>
 
         <div class="roadmap-cols">
           
             <div>
               <h3>学什么</h3>
-              <ul><li>sizeof / alignof / alignas、padding 与字段重排、空基类优化（EBO）</li><li>虚表结构、多重继承布局、虚继承、Itanium C++ ABI</li><li>new 表达式 vs operator new、placement new、std::launder</li><li>strict aliasing 规则与合法 type punning（memcpy / bit_cast）</li><li>存储期：栈 / 堆 / .data / .bss / TLS</li></ul>
+              <ul><li>类大小：内存对齐、padding、空类大小、成员顺序的影响</li><li>虚函数表：vptr 位置、单继承与多继承布局、虚函数调用的开销构成</li><li>为什么析构函数要 virtual；为什么构造函数不能是虚函数</li><li>new / delete 表达式 vs operator new vs malloc / free</li><li>内存分区：栈 / 堆 / 全局 / 常量区；泄漏、越界、悬垂指针</li></ul>
             </div>
           
           
             <div>
               <h3>做什么</h3>
-              <ul><li>用 -fdump-lang-class 导出 vtable 布局，手画多继承对象内存图并与 offsetof 对照</li><li>写一个 arena / pool allocator，支持对齐与批量释放，与 malloc 做 benchmark</li><li>用 pahole 分析真实项目结构体的 padding 浪费并动手重排</li></ul>
+              <ul><li>打印各类对象的 sizeof 与成员偏移，手画多继承对象布局图</li><li>用 -fdump-lang-class 导出 vtable，验证你画的图</li><li>实现 IntrusivePtr，对比 shared_ptr 控制块的额外开销</li></ul>
             </div>
           
         </div>
 
+        
+          <div class="roadmap-skip">
+            <strong>仅了解 / 可跳过</strong>
+            <ul><li>Itanium ABI 完整规范：知道有这份文档、遇到问题会查即可</li><li>虚继承的复杂布局：知道它解决菱形继承即可</li></ul>
+          </div>
+        
+
         <div class="roadmap-meta">
-          <span><strong>关键产出</strong>自研 arena allocator + benchmark</span>
-          <span><strong>资料</strong>Itanium C++ ABI · pahole / clang -fdump-lang-class</span>
+          <span><strong>关键产出</strong>一份类布局分析笔记 + vtable 实测</span>
+          <span><strong>资料</strong>深度探索 C++ 对象模型（挑读 1–4 章）· cppreference</span>
         </div>
 
         
@@ -156,27 +272,36 @@
             标准库与数据结构
           </h2>
           <span class="status-tag ">待开始</span>
+          <span class="chip is-depth-familiar">熟悉</span>
+          <span class="chip">2 周</span>
         </div>
-        <p class="roadmap-goal">理解「复杂度相同 ≠ 性能相同」，常数因子才是主战场。</p>
+        <p class="roadmap-goal">能说清每个容器的实现与复杂度，并在面试里给出选型理由。</p>
 
         <div class="roadmap-cols">
           
             <div>
               <h3>学什么</h3>
-              <ul><li>容器内存布局：vector / deque / list 的 cache 行为差异与指针追逐代价</li><li>SSO、SBO 等小对象优化；内联缓冲的边界</li><li>哈希：开链 vs 开放寻址，robin hood / Swiss table；flat_map / btree_map</li><li>Allocator 概念与 C++17 std::pmr（monotonic_buffer_resource）</li><li>Ranges / views 的开销与惰性求值陷阱</li></ul>
+              <ul><li>vector 扩容策略、reserve 的意义、迭代器失效规则</li><li>list / deque / map / unordered_map 的实现与适用场景</li><li>迭代器失效全景：各容器插入删除后哪些迭代器还能用</li><li>allocator 概念、std::pmr 一句话</li><li>冷门但好用的接口：stable_sort、nth_element、lower_bound</li></ul>
             </div>
           
           
             <div>
               <h3>做什么</h3>
-              <ul><li>实现 Swiss-table 风格 hash map，在插入 / 查找 / 遍历三个维度与 std::unordered_map 对比</li><li>实现侵入式链表，对比 std::list 的遍历性能</li><li>用 pmr + arena 改造一条热路径，量化分配次数下降</li></ul>
+              <ul><li>把阶段 01 的简化 vector 补齐 allocator 接口</li><li>实测 vector vs list 的遍历与插入，数据记进 perf-lab</li></ul>
             </div>
           
         </div>
 
+        
+          <div class="roadmap-skip">
+            <strong>仅了解 / 可跳过</strong>
+            <ul><li>手写 hash map：改为读懂 Swiss table 的设计要点</li><li>ranges / views 深入</li></ul>
+          </div>
+        
+
         <div class="roadmap-meta">
-          <span><strong>关键产出</strong>自研 flat hash map，压过 std::unordered_map</span>
-          <span><strong>资料</strong>abseil::flat_hash_map · folly F14 · Boost.Container</span>
+          <span><strong>关键产出</strong>容器选型速查表 + 一组对比数据</span>
+          <span><strong>资料</strong>cppreference · abseil Swiss table 设计文档</span>
         </div>
 
         
@@ -186,30 +311,39 @@
         <div class="roadmap-stage-head">
           <span class="stage-index">04</span>
           <h2>
-            编译器与构建
+            编译器与工具链
           </h2>
           <span class="status-tag ">待开始</span>
+          <span class="chip is-depth-familiar">熟悉</span>
+          <span class="chip">1 周</span>
         </div>
-        <p class="roadmap-goal">把编译器当合作者，而不是黑盒。</p>
+        <p class="roadmap-goal">能说清从源码到可执行文件的过程，以及常用工具怎么用。</p>
 
         <div class="roadmap-cols">
           
             <div>
               <h3>学什么</h3>
-              <ul><li>编译链接模型：翻译单元、ODR、inline、模板实例化、符号可见性</li><li>优化等级 -O0..-O3/-Os、-march=native、LTO、PGO、BOLT</li><li>UB 与编译器假设：有符号溢出、strict aliasing、未初始化读、noexcept、__restrict</li><li>诊断：-Wall -Wextra -Wconversion、ASan / UBSan / TSan / MSan、clang-tidy</li><li>编译速度与体积：PCH、C++20 modules、unity build、ccache、模板膨胀</li></ul>
+              <ul><li>预处理 / 编译 / 汇编 / 链接四步；静态库与动态库的区别</li><li>符号、ODR、extern &#34;C&#34;、名称修饰</li><li>-O0 到 -O3、LTO、-march=native 各做了什么（概念层）</li><li>gdb 基本调试、core dump 分析、CMake 基础</li><li>sanitizer：ASan / UBSan / TSan 怎么用、各自查什么</li></ul>
             </div>
           
           
             <div>
               <h3>做什么</h3>
-              <ul><li>同一份代码在 gcc / clang × -O0/-O2/-O3 下对比汇编，找出内联与向量化的差异</li><li>用 -fopt-info-vec 找出没被向量化的循环，改写后让它向量化</li><li>给项目接上 CI：sanitizer + ASan/UBSan 回归</li></ul>
+              <ul><li>手动走一遍 gcc -E / -S / -c / 链接，看每一步的产物</li><li>给 perf-lab 接上 CMake 与 ASan，把现有练习跑一遍</li></ul>
             </div>
           
         </div>
 
+        
+          <div class="roadmap-skip">
+            <strong>仅了解 / 可跳过</strong>
+            <ul><li>PGO / BOLT 实操：知道是什么、能解决什么问题即可</li><li>C++20 modules</li></ul>
+          </div>
+        
+
         <div class="roadmap-meta">
-          <span><strong>关键产出</strong>汇编对比报告 + sanitizer CI</span>
-          <span><strong>资料</strong>Compiler Explorer · llvm-mca · bloaty · include-what-you-use</span>
+          <span><strong>关键产出</strong>编译流程图解 + perf-lab 接上 CMake / ASan</span>
+          <span><strong>资料</strong>CS:APP 第 7 章（链接）· man gdb</span>
         </div>
 
         
@@ -219,30 +353,39 @@
         <div class="roadmap-stage-head">
           <span class="stage-index">05</span>
           <h2>
-            度量方法论
+            性能度量方法论
           </h2>
           <span class="status-tag ">待开始</span>
+          <span class="chip is-depth-master">精通</span>
+          <span class="chip">2 周</span>
         </div>
-        <p class="roadmap-goal">这一条决定你是「优化工程师」还是「玄学爱好者」。</p>
+        <p class="roadmap-goal">这是你和普通候选人的分水岭——别人说「应该会快」，你拿数据。</p>
 
         <div class="roadmap-cols">
           
             <div>
               <h3>学什么</h3>
-              <ul><li>可复现基准：锁 CPU 频率 / 关 turbo / taskset 绑核 / warm-up / 多轮取中位数与方差</li><li>Google Benchmark：DoNotOptimize、ClobberMemory、参数化、libpfm 自定义 counter</li><li>剖析：perf record/report、火焰图、off-CPU 分析、Top-Down（TMA）</li><li>模型：Roofline、Amdahl 定律、Little’s Law、算术强度</li><li>微基准陷阱：DCE、常量折叠、测到的其实是分支预测器或缓存</li></ul>
+              <ul><li>可复现基准：锁频、绑核、warm-up、多轮取中位数与 CV</li><li>Google Benchmark：DoNotOptimize / ClobberMemory / PauseTiming 的坑</li><li>perf stat / perf record、火焰图怎么读</li><li>Roofline 与算术强度：概念层，能讲清楚即可</li><li>微基准的三个经典陷阱：DCE、常量折叠、测到的是缓存不是算法</li></ul>
             </div>
           
           
             <div>
               <h3>做什么</h3>
-              <ul><li>建 perf-lab 仓库：benchmark 模板 + 一键锁频脚本 + 火焰图生成 + CI 回归</li><li>立规矩：任何优化 PR 必须附前后对比数据，并写清 why</li><li>练习说「这个优化不值得做」——可读性与正确性的账也要算</li></ul>
+              <ul><li>在 perf-lab 里积累 3–5 个案例，每个都要有「现象 → 测量 → 根因 → 方案 → 收益」</li><li>每个案例都要留优化前后的数字和火焰图</li></ul>
             </div>
           
         </div>
 
+        
+          <div class="roadmap-skip">
+            <strong>仅了解 / 可跳过</strong>
+            <ul><li>自建性能回归 CI：知道思路即可</li><li>libpfm 自定义硬件计数器：知道能接即可</li></ul>
+          </div>
+        
+
         <div class="roadmap-meta">
-          <span><strong>关键产出</strong>可复现的 benchmark 仓库</span>
-          <span><strong>资料</strong>Google Benchmark · perf · Brendan Gregg 火焰图</span>
+          <span><strong>关键产出</strong>3–5 个完整的性能案例</span>
+          <span><strong>资料</strong>Google Benchmark 文档 · perf wiki · Brendan Gregg 火焰图</span>
         </div>
 
         
@@ -255,27 +398,36 @@
             CPU 微架构
           </h2>
           <span class="status-tag ">待开始</span>
+          <span class="chip is-depth-familiar">熟悉</span>
+          <span class="chip">2 周</span>
         </div>
-        <p class="roadmap-goal">把「cache 命中率」从口号变成可计算的量。</p>
+        <p class="roadmap-goal">能解释常见的 cache / 分支 / SIMD 现象，并给出改进方向。</p>
 
         <div class="roadmap-cols">
           
             <div>
               <h3>学什么</h3>
-              <ul><li>流水线、乱序执行、超标量、分支预测与投机执行、分支误判代价</li><li>缓存层级、cache line 64B、组相联、伪共享、硬件预取、TLB 与 huge page</li><li>SIMD：SSE / AVX / AVX-512 / NEON，自动向量化、intrinsics、std::simd</li><li>数据布局：AoS vs SoA、结构体冷热拆分、位打包、指针压缩</li><li>手法：循环分块、展开、分支消除（查表 / CMOV）、批量化、打破依赖链</li></ul>
+              <ul><li>缓存层级、cache line 64B、伪共享及其代价</li><li>分支预测与误判代价、likely / unlikely</li><li>数据布局：AoS vs SoA、热冷字段分离</li><li>SIMD 与自动向量化：什么时候该用、怎么判断有没有生效</li><li>循环分块、展开、消除依赖链：概念 + 简单应用</li></ul>
             </div>
           
           
             <div>
               <h3>做什么</h3>
-              <ul><li>矩阵乘法逐级优化：naive → 循环交换 → 分块 → 展开 → SIMD → 多线程，每级记录 GFLOPS 并画在 roofline 图上</li><li>矩阵转置、卷积、位计数、字符串查找各优化一遍</li><li>分支预测实验：排序 vs 未排序数组，用 perf stat 看 branch-misses</li><li>伪共享实验：两线程写相邻变量，加 alignas(64) 前后对比</li></ul>
+              <ul><li>伪共享实验：alignas(64) 前后对比</li><li>分支预测实验：排序 vs 未排序数组</li><li>矩阵乘法做到分块 + -O3 自动向量化即可，不手写 intrinsics</li></ul>
             </div>
           
         </div>
 
+        
+          <div class="roadmap-skip">
+            <strong>仅了解 / 可跳过</strong>
+            <ul><li>AVX-512 intrinsics 手写</li><li>流水线与乱序执行的微架构细节：知道有这回事即可</li></ul>
+          </div>
+        
+
         <div class="roadmap-meta">
-          <span><strong>关键产出</strong>矩阵乘法逐级优化 + roofline 分析</span>
-          <span><strong>资料</strong>Agner Fog 优化手册 · Intel / AMD Optimization Manual · CS:APP 第 5-6 章</span>
+          <span><strong>关键产出</strong>两个可复现实验 + 一份优化手法清单</span>
+          <span><strong>资料</strong>Agner Fog 优化手册（挑读）· CS:APP 第 5–6 章</span>
         </div>
 
         
@@ -288,27 +440,36 @@
             并发与内存模型
           </h2>
           <span class="status-tag ">待开始</span>
+          <span class="chip is-depth-master">精通</span>
+          <span class="chip">2 周</span>
         </div>
-        <p class="roadmap-goal">能判断「什么时候加锁就够，什么时候必须无锁」。</p>
+        <p class="roadmap-goal">面试高频区：线程同步、锁、原子、线程池都要能手撕。</p>
 
         <div class="roadmap-cols">
           
             <div>
               <h3>学什么</h3>
-              <ul><li>C++ 内存模型：data race 定义、happens-before、六种 memory_order、atomic_thread_fence</li><li>锁的实现：futex、自旋 vs 阻塞、自适应锁、读写锁、锁粒度</li><li>无锁结构：SPSC / MPMC ring buffer、CAS 循环、ABA 问题、hazard pointer、RCU</li><li>伪共享与 cache line padding、NUMA 感知分配</li><li>线程池、work-stealing、任务粒度与调度开销</li></ul>
+              <ul><li>线程、互斥、条件变量；生产者消费者；死锁四条件与避免</li><li>原子与六种 memory_order，重点 relaxed / acquire-release / seq_cst</li><li>线程池原理与手撕</li><li>伪共享、锁粒度、读写锁</li><li>无锁编程的适用边界：知道什么时候不该用</li></ul>
             </div>
           
           
             <div>
               <h3>做什么</h3>
-              <ul><li>实现 SPSC → MPMC 无锁队列，与 mutex + deque 版本对比吞吐与 P99/P999 延迟</li><li>用 TSan + Relacy / CDSChecker 验证正确性；用 perf c2c 找伪共享</li><li>实现 work-stealing 线程池，跑并行分治负载看加速比</li></ul>
+              <ul><li>手写线程池：固定线程数 + 任务队列 + 优雅退出</li><li>手撕生产者消费者：条件变量版与信号量版</li><li>用 atomic 实现自旋锁，与 mutex 对比</li></ul>
             </div>
           
         </div>
 
+        
+          <div class="roadmap-skip">
+            <strong>仅了解 / 可跳过</strong>
+            <ul><li>手写 MPMC 无锁队列：改为读懂一个实现</li><li>hazard pointer / RCU / epoch 内存回收</li></ul>
+          </div>
+        
+
         <div class="roadmap-meta">
-          <span><strong>关键产出</strong>无锁队列 + TSan 验证</span>
-          <span><strong>资料</strong>C++ Concurrency in Action 2nd · Is Parallel Programming Hard?</span>
+          <span><strong>关键产出</strong>线程池 + 生产者消费者 + 自旋锁 benchmark</span>
+          <span><strong>资料</strong>C++ Concurrency in Action 2nd（挑读 1–8 章）· cppreference</span>
         </div>
 
         
@@ -318,30 +479,39 @@
         <div class="roadmap-stage-head">
           <span class="stage-index">08</span>
           <h2>
-            系统与内核交互
+            系统编程与网络
           </h2>
           <span class="status-tag ">待开始</span>
+          <span class="chip is-depth-familiar">熟悉</span>
+          <span class="chip">3 周</span>
         </div>
-        <p class="roadmap-goal">很多瓶颈不在你的代码里，而在你与内核的边界上。</p>
+        <p class="roadmap-goal">补上后端面试必考的 OS 与网络——原路线完全没有这块，不能空。</p>
 
         <div class="roadmap-cols">
           
             <div>
               <h3>学什么</h3>
-              <ul><li>虚拟内存：页表、缺页中断、mmap / brk、page cache、huge page、内存映射文件</li><li>系统调用开销与 vDSO；epoll / io_uring / sendfile / splice / 零拷贝</li><li>上下文切换、调度器、cgroup、taskset、numactl、isolcpus</li><li>高级剖析：perf 硬件事件、eBPF / bpftrace / uprobe、Intel PT、VTune</li><li>存储：direct I/O、异步 I/O、写放大</li></ul>
+              <ul><li>进程 vs 线程、上下文切换、协程概念</li><li>虚拟内存、页表、缺页中断、fork 写时复制</li><li>IO 多路复用：select / poll / epoll 的区别，LT 与 ET</li><li>TCP：三次握手 / 四次挥手、TIME_WAIT、滑动窗口、拥塞控制（概念层）</li><li>Reactor 模式与 one loop per thread</li></ul>
             </div>
           
           
             <div>
               <h3>做什么</h3>
-              <ul><li>echo server 逐级优化：阻塞 → 多线程 → epoll → io_uring → 零拷贝 → 绑核 / NUMA，每级记 QPS 与尾延迟</li><li>用 bpftrace / perf 定位一次真实的上下文切换、缺页或 cache miss 热点</li><li>对比 huge page 开启前后某内存密集程序的 TLB miss</li></ul>
+              <ul><li>写一个 epoll + Reactor 的 echo server，支持 LT / ET 切换</li><li>压测并记录 QPS 与连接数上限，数据记进 perf-lab</li></ul>
             </div>
           
         </div>
 
+        
+          <div class="roadmap-skip">
+            <strong>仅了解 / 可跳过</strong>
+            <ul><li>io_uring：知道是新一代异步 IO 即可</li><li>DPDK、零拷贝深入</li><li>拥塞控制算法细节</li></ul>
+          </div>
+        
+
         <div class="roadmap-meta">
-          <span><strong>关键产出</strong>高性能 echo server 优化报告</span>
-          <span><strong>资料</strong>Linux perf · bpftrace · io_uring 文档</span>
+          <span><strong>关键产出</strong>一个能讲的 Reactor echo server</span>
+          <span><strong>资料</strong>UNIX 网络编程（挑读）· man epoll · 小林 coding 网络篇</span>
         </div>
 
         
@@ -351,30 +521,34 @@
         <div class="roadmap-stage-head">
           <span class="stage-index">09</span>
           <h2>
-            领域深耕与输出
+            项目整合与面试冲刺
           </h2>
           <span class="status-tag ">待开始</span>
+          <span class="chip is-depth-sprint">冲刺</span>
+          <span class="chip">7 周</span>
         </div>
-        <p class="roadmap-goal">性能优化必须落到一个领域，才构成竞争力。</p>
+        <p class="roadmap-goal">把前面的产出打包成能讲 20 分钟的项目，并完成刷题与八股收尾。</p>
 
         <div class="roadmap-cols">
           
             <div>
               <h3>学什么</h3>
-              <ul><li>低延迟：尾延迟、busy-poll、无锁、内核旁路 DPDK</li><li>HPC / 数值：BLAS、稀疏矩阵、GPU offload、MPI</li><li>存储 / 数据库：LSM、B+tree、列存、向量化执行</li><li>游戏引擎：ECS、数据导向设计、SIMD、内存预算</li><li>中间件 / 编译器：LLVM pass、JIT</li></ul>
+              <ul><li>八股三科：C++ / OS / 网络高频题滚动复习</li><li>项目讲述结构：背景 → 难点 → 你的方案 → 数据 → 复盘</li><li>行为面试：实习经历用 STAR 表达</li></ul>
             </div>
           
           
             <div>
               <h3>做什么</h3>
-              <ul><li>精读 1-2 个源码库：abseil、folly、EASTL、ClickHouse、RocksDB、Redis、LLVM</li><li>提 PR，或独立写一个能讲清楚的小型系统</li><li>持续写笔记，建立自己的性能案例库：现象 → 测量 → 根因 → 方案 → 收益 → 教训</li></ul>
+              <ul><li>把 perf-lab 的案例整成 1–2 个项目主线，每个能讲 20 分钟</li><li>LeetCode 200 题，第 20 周前收尾</li><li>每周 2 次模拟面试，录音复盘</li></ul>
             </div>
           
         </div>
 
+        
+
         <div class="roadmap-meta">
-          <span><strong>关键产出</strong>开源贡献 / 个人性能案例库</span>
-          <span><strong>资料</strong>abseil · folly · ClickHouse · RocksDB · LLVM</span>
+          <span><strong>关键产出</strong>简历 + 两个能讲的项目 + 200 题</span>
+          <span><strong>资料</strong>剑指 Offer · 代码随想录 · 你的错题本</span>
         </div>
 
         
@@ -384,15 +558,39 @@
 
   
     <div class="callout is-ok">
-      <h2>贯穿全程的三条原则</h2>
+      <h2>三条原则</h2>
       <ul>
         
-          <li><strong>先测量，再优化</strong> — 没有基准数据的优化等于没做。优化前先建立可复现的 benchmark。</li>
+          <li><strong>高频优先</strong> — 面试里出现过三次以上的知识点先吃透，冷门深水区直接标「了解」然后跳过。</li>
         
-          <li><strong>数据结构优先于指令</strong> — 大部分收益来自内存布局与数据组织，指令级技巧只是最后 20%。</li>
+          <li><strong>能讲清楚 &gt; 完整实现</strong> — Swiss table 你不需要手写，但要能说清它为什么比 std::unordered_map 快。</li>
         
-          <li><strong>能解释才算会</strong> — 每步优化都要能回答「为什么快了」，答不上来就是运气。</li>
+          <li><strong>结论必须有数据</strong> — 每句性能优化的判断都要能在 perf-lab 里复现，这是你和普通候选人的分水岭。</li>
         
+      </ul>
+    </div>
+  
+
+  
+    <div class="callout">
+      <h2>并行轨道（全程不断，不占主线时间）</h2>
+      <ul>
+        
+          <li><strong>算法刷题</strong> — 200 题规模（数组 / 链表 / 二叉树 / 图 / 二分 / 排序 / DP），每周 8–10 题，第 20 周前收尾。这是硬门槛，不刷过不了笔试。</li>
+        
+          <li><strong>八股滚动复习</strong> — C++ / OS / 网络三科，每周末 2 小时过一遍错题本。不要攒到最后，会崩。</li>
+        
+          <li><strong>实习沉淀</strong> — 把实习里碰到的每个问题按 STAR 记下来。面试时「你做过什么」比「你学过什么」有分量得多。</li>
+        
+      </ul>
+    </div>
+  
+
+  
+    <div class="callout is-cut">
+      <h2>明确放弃：6 个月内不要碰</h2>
+      <ul>
+        <li>HPC / MPI / GPU offload / BLAS 调优</li><li>游戏引擎：ECS、数据导向设计</li><li>内核旁路：DPDK、RDMA</li><li>编译器开发：LLVM pass、JIT</li><li>RCU / hazard pointer / epoch 内存回收</li><li>eBPF / Intel PT 深入分析</li><li>手写 hash map 与 MPMC 无锁队列（改为读懂实现，不手写）</li>
       </ul>
     </div>
   
@@ -401,7 +599,7 @@
     <div class="callout">
       <h2>要避开的坑</h2>
       <ul>
-        <li>沉迷语言边角（UB 细节、模板奇技）而不落地写东西</li><li>复制「十大优化技巧」却不测量，实际可能是负优化</li><li>用微基准得出宏观结论</li><li>忽略编译器已经做得很好的部分，手写反而更慢</li><li>不控制变量：一边改代码一边换机器，数据全废</li>
+        <li>按旧路线啃 HPC 或编译器——6 个月内对秋招零回报，坚决跳过</li><li>只刷八股不写项目——面试三轮之后全是项目追问，没有产出会露馅</li><li>刷题拖到最后——笔试挂了后面全白搭，第 20 周前必须收尾</li><li>性能优化只讲结论不给数据——「应该会快」在面试官那里等于没说</li><li>把「了解」的内容当成「精通」准备——对照 skip 清单，别自我感动</li>
       </ul>
     </div>
   

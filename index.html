@@ -69,8 +69,8 @@
 <section class="hero page-shell">
   <div class="hero-copy">
     <span class="eyebrow">SHIQI.IO / 个人技术笔记</span>
-    <h1>深入 C++ 与性能工程</h1>
-    <p class="hero-lead">以 C++ 为地基，向性能优化方向深耕。这里记录语言细节、内存与 CPU 微架构、并发模型，以及每一次优化前后的实测数据。</p>
+    <h1>C++ 与性能工程，24 周冲刺</h1>
+    <p class="hero-lead">在实习与秋招之间挤出 24 周，把 C++ 主线、性能度量方法和后端面试必考项压成一条能走完的路。所有结论都要有实测数据支撑。</p>
     <div class="hero-actions">
       <a class="button button-primary" href="#roadmap">查看学习路线 <span aria-hidden="true">↓</span></a>
       <a class="button" href="#latest-posts">浏览文章</a>
@@ -82,11 +82,11 @@
         
           <span class="chip">性能优化</span>
         
-          <span class="chip">内存模型</span>
+          <span class="chip">并发</span>
         
-          <span class="chip">SIMD</span>
+          <span class="chip">Linux / 网络</span>
         
-          <span class="chip">Linux</span>
+          <span class="chip">Benchmark</span>
         
       </div>
     
@@ -98,22 +98,22 @@
       
         <div class="status-row">
           <dt>主攻方向</dt>
-          <dd>C++ 性能工程</dd>
+          <dd>C++ 后端 / 性能工程</dd>
         </div>
       
         <div class="status-row">
           <dt>当前阶段</dt>
-          <dd>01 · 现代 C++ 语言内核</dd>
+          <dd>01 · 现代 C++ 语言内核（3 周）</dd>
         </div>
       
         <div class="status-row">
           <dt>正在做</dt>
-          <dd>手写 optional / variant / function</dd>
+          <dd>手写 shared_ptr / 简化 vector</dd>
         </div>
       
         <div class="status-row">
-          <dt>下一步</dt>
-          <dd>对象模型与内存布局</dd>
+          <dt>并行轨道</dt>
+          <dd>LeetCode 每周 8–10 题</dd>
         </div>
       
     </dl>
@@ -124,9 +124,9 @@
 <section id="roadmap" class="section page-shell">
   <div class="section-heading">
     <div>
-      <span class="eyebrow">LEARNING ROADMAP</span>
-      <h2>C++ 性能优化学习路线</h2>
-      <p>按「语言 → 内存 → 标准库 → 编译器 → 度量 → CPU → 并发 → 系统 → 领域」九级递进。核心原则：先会测量，再谈优化。</p>
+      <span class="eyebrow">LEARNING ROADMAP · 24 WEEKS</span>
+      <h2>C++ 性能优化冲刺路线</h2>
+      <p>面向秋招的 24 周压缩版。砍掉低频深水区，把时间压在面试高频和能产生数据的地方。第 12 周设一个「面试就绪」检查点，万一提前批来得早也有东西可讲。</p>
     </div>
     <a href="/shiqi.io/roadmap/">查看完整路线 <span aria-hidden="true">→</span></a>
   </div>
@@ -135,12 +135,16 @@
     
       <article class="stage-card">
         <span class="status-tag is-active">进行中</span>
-        <span class="stage-index">01</span>
+        <div class="stage-index-row">
+          <span class="stage-index">01</span>
+          <span class="chip is-depth-master">精通</span>
+          <span class="chip">3 周</span>
+        </div>
         <h3>
           <a href="/shiqi.io/roadmap/01-modern-cpp/">现代 C++ 语言内核</a>
         </h3>
-        <p class="stage-goal">从「会写」到「知道编译器看到了什么」。</p>
-        <p class="stage-output"><strong>关键产出</strong>手写 optional / variant / function</p>
+        <p class="stage-goal">面试高频的语言特性全部能讲清原理、能写代码、能答追问。</p>
+        <p class="stage-output"><strong>关键产出</strong>手写 unique_ptr / shared_ptr / 简化 vector</p>
         
           <a class="stage-cta" href="/shiqi.io/roadmap/01-modern-cpp/">查看学习计划 <span aria-hidden="true">→</span></a>
         
@@ -148,89 +152,121 @@
     
       <article class="stage-card">
         <span class="status-tag ">待开始</span>
-        <span class="stage-index">02</span>
+        <div class="stage-index-row">
+          <span class="stage-index">02</span>
+          <span class="chip is-depth-master">精通</span>
+          <span class="chip">2 周</span>
+        </div>
         <h3>
           对象模型与内存布局
         </h3>
-        <p class="stage-goal">看到一个类，就能在脑中画出它的内存布局。</p>
-        <p class="stage-output"><strong>关键产出</strong>自研 arena allocator + benchmark</p>
+        <p class="stage-goal">能画出类对象的内存布局，说清多态的实现代价。</p>
+        <p class="stage-output"><strong>关键产出</strong>一份类布局分析笔记 + vtable 实测</p>
         
       </article>
     
       <article class="stage-card">
         <span class="status-tag ">待开始</span>
-        <span class="stage-index">03</span>
+        <div class="stage-index-row">
+          <span class="stage-index">03</span>
+          <span class="chip is-depth-familiar">熟悉</span>
+          <span class="chip">2 周</span>
+        </div>
         <h3>
           标准库与数据结构
         </h3>
-        <p class="stage-goal">理解「复杂度相同 ≠ 性能相同」，常数因子才是主战场。</p>
-        <p class="stage-output"><strong>关键产出</strong>自研 flat hash map，压过 std::unordered_map</p>
+        <p class="stage-goal">能说清每个容器的实现与复杂度，并在面试里给出选型理由。</p>
+        <p class="stage-output"><strong>关键产出</strong>容器选型速查表 + 一组对比数据</p>
         
       </article>
     
       <article class="stage-card">
         <span class="status-tag ">待开始</span>
-        <span class="stage-index">04</span>
+        <div class="stage-index-row">
+          <span class="stage-index">04</span>
+          <span class="chip is-depth-familiar">熟悉</span>
+          <span class="chip">1 周</span>
+        </div>
         <h3>
-          编译器与构建
+          编译器与工具链
         </h3>
-        <p class="stage-goal">把编译器当合作者，而不是黑盒。</p>
-        <p class="stage-output"><strong>关键产出</strong>汇编对比报告 + sanitizer CI</p>
+        <p class="stage-goal">能说清从源码到可执行文件的过程，以及常用工具怎么用。</p>
+        <p class="stage-output"><strong>关键产出</strong>编译流程图解 + perf-lab 接上 CMake / ASan</p>
         
       </article>
     
       <article class="stage-card">
         <span class="status-tag ">待开始</span>
-        <span class="stage-index">05</span>
+        <div class="stage-index-row">
+          <span class="stage-index">05</span>
+          <span class="chip is-depth-master">精通</span>
+          <span class="chip">2 周</span>
+        </div>
         <h3>
-          度量方法论
+          性能度量方法论
         </h3>
-        <p class="stage-goal">这一条决定你是「优化工程师」还是「玄学爱好者」。</p>
-        <p class="stage-output"><strong>关键产出</strong>可复现的 benchmark 仓库</p>
+        <p class="stage-goal">这是你和普通候选人的分水岭——别人说「应该会快」，你拿数据。</p>
+        <p class="stage-output"><strong>关键产出</strong>3–5 个完整的性能案例</p>
         
       </article>
     
       <article class="stage-card">
         <span class="status-tag ">待开始</span>
-        <span class="stage-index">06</span>
+        <div class="stage-index-row">
+          <span class="stage-index">06</span>
+          <span class="chip is-depth-familiar">熟悉</span>
+          <span class="chip">2 周</span>
+        </div>
         <h3>
           CPU 微架构
         </h3>
-        <p class="stage-goal">把「cache 命中率」从口号变成可计算的量。</p>
-        <p class="stage-output"><strong>关键产出</strong>矩阵乘法逐级优化 + roofline 分析</p>
+        <p class="stage-goal">能解释常见的 cache / 分支 / SIMD 现象，并给出改进方向。</p>
+        <p class="stage-output"><strong>关键产出</strong>两个可复现实验 + 一份优化手法清单</p>
         
       </article>
     
       <article class="stage-card">
         <span class="status-tag ">待开始</span>
-        <span class="stage-index">07</span>
+        <div class="stage-index-row">
+          <span class="stage-index">07</span>
+          <span class="chip is-depth-master">精通</span>
+          <span class="chip">2 周</span>
+        </div>
         <h3>
           并发与内存模型
         </h3>
-        <p class="stage-goal">能判断「什么时候加锁就够，什么时候必须无锁」。</p>
-        <p class="stage-output"><strong>关键产出</strong>无锁队列 + TSan 验证</p>
+        <p class="stage-goal">面试高频区：线程同步、锁、原子、线程池都要能手撕。</p>
+        <p class="stage-output"><strong>关键产出</strong>线程池 + 生产者消费者 + 自旋锁 benchmark</p>
         
       </article>
     
       <article class="stage-card">
         <span class="status-tag ">待开始</span>
-        <span class="stage-index">08</span>
+        <div class="stage-index-row">
+          <span class="stage-index">08</span>
+          <span class="chip is-depth-familiar">熟悉</span>
+          <span class="chip">3 周</span>
+        </div>
         <h3>
-          系统与内核交互
+          系统编程与网络
         </h3>
-        <p class="stage-goal">很多瓶颈不在你的代码里，而在你与内核的边界上。</p>
-        <p class="stage-output"><strong>关键产出</strong>高性能 echo server 优化报告</p>
+        <p class="stage-goal">补上后端面试必考的 OS 与网络——原路线完全没有这块，不能空。</p>
+        <p class="stage-output"><strong>关键产出</strong>一个能讲的 Reactor echo server</p>
         
       </article>
     
       <article class="stage-card">
         <span class="status-tag ">待开始</span>
-        <span class="stage-index">09</span>
+        <div class="stage-index-row">
+          <span class="stage-index">09</span>
+          <span class="chip is-depth-sprint">冲刺</span>
+          <span class="chip">7 周</span>
+        </div>
         <h3>
-          领域深耕与输出
+          项目整合与面试冲刺
         </h3>
-        <p class="stage-goal">性能优化必须落到一个领域，才构成竞争力。</p>
-        <p class="stage-output"><strong>关键产出</strong>开源贡献 / 个人性能案例库</p>
+        <p class="stage-goal">把前面的产出打包成能讲 20 分钟的项目，并完成刷题与八股收尾。</p>
+        <p class="stage-output"><strong>关键产出</strong>简历 + 两个能讲的项目 + 200 题</p>
         
       </article>
     
@@ -240,18 +276,18 @@
     <div class="principle-row">
       
         <div class="principle">
-          <strong>先测量，再优化</strong>
-          <span>没有基准数据的优化等于没做。优化前先建立可复现的 benchmark。</span>
+          <strong>高频优先</strong>
+          <span>面试里出现过三次以上的知识点先吃透，冷门深水区直接标「了解」然后跳过。</span>
         </div>
       
         <div class="principle">
-          <strong>数据结构优先于指令</strong>
-          <span>大部分收益来自内存布局与数据组织，指令级技巧只是最后 20%。</span>
+          <strong>能讲清楚 &gt; 完整实现</strong>
+          <span>Swiss table 你不需要手写，但要能说清它为什么比 std::unordered_map 快。</span>
         </div>
       
         <div class="principle">
-          <strong>能解释才算会</strong>
-          <span>每步优化都要能回答「为什么快了」，答不上来就是运气。</span>
+          <strong>结论必须有数据</strong>
+          <span>每句性能优化的判断都要能在 perf-lab 里复现，这是你和普通候选人的分水岭。</span>
         </div>
       
     </div>
