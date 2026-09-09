@@ -84,7 +84,9 @@
       <section class="roadmap-stage">
         <div class="roadmap-stage-head">
           <span class="stage-index">01</span>
-          <h2>现代 C++ 语言内核</h2>
+          <h2>
+            <a href="/shiqi.io/roadmap/01-modern-cpp/">现代 C++ 语言内核</a>
+          </h2>
           <span class="status-tag is-active">进行中</span>
         </div>
         <p class="roadmap-goal">从「会写」到「知道编译器看到了什么」。</p>
@@ -108,12 +110,18 @@
           <span><strong>关键产出</strong>手写 optional / variant / function</span>
           <span><strong>资料</strong>Effective Modern C++ · C++ Templates 第二版 · C++20 The Complete Guide</span>
         </div>
+
+        
+          <a class="stage-cta" href="/shiqi.io/roadmap/01-modern-cpp/">查看学习计划 <span aria-hidden="true">→</span></a>
+        
       </section>
     
       <section class="roadmap-stage">
         <div class="roadmap-stage-head">
           <span class="stage-index">02</span>
-          <h2>对象模型与内存布局</h2>
+          <h2>
+            对象模型与内存布局
+          </h2>
           <span class="status-tag ">待开始</span>
         </div>
         <p class="roadmap-goal">看到一个类，就能在脑中画出它的内存布局。</p>
@@ -137,12 +145,16 @@
           <span><strong>关键产出</strong>自研 arena allocator + benchmark</span>
           <span><strong>资料</strong>Itanium C++ ABI · pahole / clang -fdump-lang-class</span>
         </div>
+
+        
       </section>
     
       <section class="roadmap-stage">
         <div class="roadmap-stage-head">
           <span class="stage-index">03</span>
-          <h2>标准库与数据结构</h2>
+          <h2>
+            标准库与数据结构
+          </h2>
           <span class="status-tag ">待开始</span>
         </div>
         <p class="roadmap-goal">理解「复杂度相同 ≠ 性能相同」，常数因子才是主战场。</p>
@@ -166,12 +178,16 @@
           <span><strong>关键产出</strong>自研 flat hash map，压过 std::unordered_map</span>
           <span><strong>资料</strong>abseil::flat_hash_map · folly F14 · Boost.Container</span>
         </div>
+
+        
       </section>
     
       <section class="roadmap-stage">
         <div class="roadmap-stage-head">
           <span class="stage-index">04</span>
-          <h2>编译器与构建</h2>
+          <h2>
+            编译器与构建
+          </h2>
           <span class="status-tag ">待开始</span>
         </div>
         <p class="roadmap-goal">把编译器当合作者，而不是黑盒。</p>
@@ -195,12 +211,16 @@
           <span><strong>关键产出</strong>汇编对比报告 + sanitizer CI</span>
           <span><strong>资料</strong>Compiler Explorer · llvm-mca · bloaty · include-what-you-use</span>
         </div>
+
+        
       </section>
     
       <section class="roadmap-stage">
         <div class="roadmap-stage-head">
           <span class="stage-index">05</span>
-          <h2>度量方法论</h2>
+          <h2>
+            度量方法论
+          </h2>
           <span class="status-tag ">待开始</span>
         </div>
         <p class="roadmap-goal">这一条决定你是「优化工程师」还是「玄学爱好者」。</p>
@@ -224,12 +244,16 @@
           <span><strong>关键产出</strong>可复现的 benchmark 仓库</span>
           <span><strong>资料</strong>Google Benchmark · perf · Brendan Gregg 火焰图</span>
         </div>
+
+        
       </section>
     
       <section class="roadmap-stage">
         <div class="roadmap-stage-head">
           <span class="stage-index">06</span>
-          <h2>CPU 微架构</h2>
+          <h2>
+            CPU 微架构
+          </h2>
           <span class="status-tag ">待开始</span>
         </div>
         <p class="roadmap-goal">把「cache 命中率」从口号变成可计算的量。</p>
@@ -253,12 +277,16 @@
           <span><strong>关键产出</strong>矩阵乘法逐级优化 + roofline 分析</span>
           <span><strong>资料</strong>Agner Fog 优化手册 · Intel / AMD Optimization Manual · CS:APP 第 5-6 章</span>
         </div>
+
+        
       </section>
     
       <section class="roadmap-stage">
         <div class="roadmap-stage-head">
           <span class="stage-index">07</span>
-          <h2>并发与内存模型</h2>
+          <h2>
+            并发与内存模型
+          </h2>
           <span class="status-tag ">待开始</span>
         </div>
         <p class="roadmap-goal">能判断「什么时候加锁就够，什么时候必须无锁」。</p>
@@ -282,12 +310,16 @@
           <span><strong>关键产出</strong>无锁队列 + TSan 验证</span>
           <span><strong>资料</strong>C++ Concurrency in Action 2nd · Is Parallel Programming Hard?</span>
         </div>
+
+        
       </section>
     
       <section class="roadmap-stage">
         <div class="roadmap-stage-head">
           <span class="stage-index">08</span>
-          <h2>系统与内核交互</h2>
+          <h2>
+            系统与内核交互
+          </h2>
           <span class="status-tag ">待开始</span>
         </div>
         <p class="roadmap-goal">很多瓶颈不在你的代码里，而在你与内核的边界上。</p>
@@ -311,12 +343,16 @@
           <span><strong>关键产出</strong>高性能 echo server 优化报告</span>
           <span><strong>资料</strong>Linux perf · bpftrace · io_uring 文档</span>
         </div>
+
+        
       </section>
     
       <section class="roadmap-stage">
         <div class="roadmap-stage-head">
           <span class="stage-index">09</span>
-          <h2>领域深耕与输出</h2>
+          <h2>
+            领域深耕与输出
+          </h2>
           <span class="status-tag ">待开始</span>
         </div>
         <p class="roadmap-goal">性能优化必须落到一个领域，才构成竞争力。</p>
@@ -340,6 +376,8 @@
           <span><strong>关键产出</strong>开源贡献 / 个人性能案例库</span>
           <span><strong>资料</strong>abseil · folly · ClickHouse · RocksDB · LLVM</span>
         </div>
+
+        
       </section>
     
   </div>
