@@ -6,11 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#fcfcfd">
 <title>C++ 性能优化冲刺路线 · SHIQI.IO</title>
-<meta name="description" content="面向秋招的 12 周主线计划（项目与冲刺另算）：不碰 CUDA，把权重压在面试高频和能产生数据的地方。">
+<meta name="description" content="12 周知识主线 + 4–6 周项目冲刺：不碰 CUDA，把权重压在面试高频和能产生数据的地方。">
 <meta name="author" content="shiqi">
 <meta property="og:type" content="website">
 <meta property="og:title" content="C++ 性能优化冲刺路线 · SHIQI.IO">
-<meta property="og:description" content="面向秋招的 12 周主线计划（项目与冲刺另算）：不碰 CUDA，把权重压在面试高频和能产生数据的地方。">
+<meta property="og:description" content="12 周知识主线 + 4–6 周项目冲刺：不碰 CUDA，把权重压在面试高频和能产生数据的地方。">
 <meta property="og:url" content="https://shiqi117-lang.github.io/shiqi.io/roadmap/index.html">
 <meta property="og:site_name" content="SHIQI.IO">
 <link rel="canonical" href="https://shiqi117-lang.github.io/shiqi.io/roadmap/index.html">
@@ -70,7 +70,7 @@
   <header class="page-heading">
     <span class="eyebrow">LEARNING ROADMAP · 12 WEEKS</span>
     <h1>C++ 性能优化冲刺路线</h1>
-    <p>面向秋招的 12 周主线计划（项目与冲刺另算）：不碰 CUDA，把权重压在面试高频和能产生数据的地方。</p>
+    <p>12 周知识主线 + 4–6 周项目冲刺：不碰 CUDA，把权重压在面试高频和能产生数据的地方。</p>
 
     
       <div class="chip-row">
@@ -86,13 +86,12 @@
   </header>
 
   
-    <div class="article-content"><h2 id="当前口径"><a href="#当前口径" class="headerlink" title="当前口径"></a>当前口径</h2><ul>
+    <div class="article-content"><h2 id="节奏"><a href="#节奏" class="headerlink" title="节奏"></a>节奏</h2><ul>
 <li><strong>知识主线 12 周</strong>（约 3 个月），走完阶段 01–08</li>
-<li><strong>项目与冲刺额外 4–6 周</strong>（阶段 09），不计入 12 周</li>
-<li><strong>不碰 CUDA 与 GPU</strong>，也不碰分布式训练</li>
-<li>算法刷题全程并行，12 周内完成 150 题</li>
+<li><strong>项目与冲刺 4–6 周</strong>（阶段 09），和主线分开算</li>
+<li><strong>算法刷题全程并行</strong>，主线期间完成 150 题</li>
 </ul>
-<p>主线压到 3 个月，代价是<strong>大量内容降级为「了解」</strong>。每个阶段都附了「仅了解 &#x2F; 可跳过」清单，<br>那是这份计划能塞进 12 周的唯一原因——该跳就跳，别犹豫。</p>
+<p>主线只有 12 周，所以大量内容只要求「了解」。每个阶段都附了「仅了解 &#x2F; 可跳过」清单，<br>那是这份计划能成立的前提——该跳就跳，别犹豫。</p>
 <h2 id="12-周总表"><a href="#12-周总表" class="headerlink" title="12 周总表"></a>12 周总表</h2><table>
 <thead>
 <tr>
@@ -167,45 +166,41 @@
 <td>项目另算</td>
 </tr>
 </tbody></table>
-<h2 id="被挤出去的内容去哪了"><a href="#被挤出去的内容去哪了" class="headerlink" title="被挤出去的内容去哪了"></a>被挤出去的内容去哪了</h2><p>主线缩短，下面这些<strong>不是不做了，是挪到项目时间</strong>（阶段 09）：</p>
+<h2 id="主线与项目期的分工"><a href="#主线与项目期的分工" class="headerlink" title="主线与项目期的分工"></a>主线与项目期的分工</h2><p>有些内容不适合塞进 12 周——要么耗时，要么做完就忘。它们统一放在项目期，<br>因为<strong>这些本来就是最好的项目素材</strong>：做出来能直接写进简历，比散在各阶段里强。</p>
 <table>
 <thead>
 <tr>
 <th>内容</th>
-<th>原属阶段</th>
-<th>现在</th>
+<th>归属</th>
+<th>说明</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>矩阵乘法逐级优化（naive → 分块 → SIMD）</td>
-<td>06</td>
+<td>项目期</td>
 <td>项目二的核心案例</td>
 </tr>
 <tr>
 <td>1.5x vs 2x 扩容实测</td>
-<td>01</td>
-<td>项目时间</td>
+<td>项目期</td>
+<td>结论先记住，实测留到项目期</td>
 </tr>
 <tr>
 <td>手写简化 string 与 SSO</td>
-<td>01</td>
-<td>项目时间</td>
+<td>项目期</td>
+<td>主线只要求知道 SSO 存在</td>
 </tr>
 <tr>
 <td>完整 HTTP 服务器</td>
-<td>08</td>
-<td>项目一可选方向</td>
+<td>项目期</td>
+<td>主线只要求能解析请求行与 header</td>
 </tr>
 <tr>
 <td>手写 hash map &#x2F; 无锁队列</td>
-<td>03 &#x2F; 07</td>
-<td>已降级为「读懂实现」</td>
+<td>了解</td>
+<td>读懂实现即可，全程不手写</td>
 </tr>
 </tbody></table>
-<p>这个挪动其实是好事：这些本来就是<strong>最好的项目素材</strong>，放在项目期做，产出直接能写进简历，<br>比散在各阶段里做完就忘强。</p>
-<h2 id="为什么还没放弃性能优化这条线"><a href="#为什么还没放弃性能优化这条线" class="headerlink" title="为什么还没放弃性能优化这条线"></a>为什么还没放弃性能优化这条线</h2><p>调研显示 AI Infra 岗位的硬门槛已经变成 CUDA，而 3 个月内同时吃 C++ 性能主线 + CUDA<br>必然两头不扎实。所以这里是明确的取舍：<strong>先把通用的性能工程能力做扎实</strong>。</p>
-<p>好消息是，推理优化里 CPU 侧的那部分（算子融合、量化、KV cache 内存管理、访存优化）<br>本质上就是你路线里阶段 02&#x2F;03&#x2F;05&#x2F;06 的内容。把通用能力打牢，后面真要往 AI Infra 转，<br>只需要补 CUDA 和模型结构两块，迁移成本比从零开始低得多。</p>
-<p>项目二特意留了一个 <strong>INT8 量化 matmul（纯 CPU &#x2F; SIMD）</strong> 的选项——不碰 GPU，<br>但能让简历沾上「推理优化」的叙事，成本只有一两周。</p>
 <h2 id="怎么判断该不该跳过"><a href="#怎么判断该不该跳过" class="headerlink" title="怎么判断该不该跳过"></a>怎么判断该不该跳过</h2><p>拿不准时问自己三个问题：</p>
 <ol>
 <li>过去半年我在面经里见过它三次以上吗？</li>
@@ -213,7 +208,7 @@
 <li>我能不能在两分钟内把它讲清楚，并说出一个使用场景？</li>
 </ol>
 <p>三个都答不上来 → 标「了解」，写进 skip 清单，然后跳过。三个都能答 → 才值得投时间到「精通」。</p>
-<h2 id="明确放弃"><a href="#明确放弃" class="headerlink" title="明确放弃"></a>明确放弃</h2><p>页面底部有一份清单，包括 <strong>CUDA &#x2F; GPU、分布式训练、HPC、游戏引擎、DPDK、编译器开发、RCU、eBPF</strong>。<br>它不是「以后也不学」，而是「这 3 个月学了不划算」。</p>
+<h2 id="明确放弃"><a href="#明确放弃" class="headerlink" title="明确放弃"></a>明确放弃</h2><p>页面底部有一份清单，包括 <strong>CUDA &#x2F; GPU、分布式训练、HPC、游戏引擎、DPDK、编译器开发、RCU、eBPF</strong>。<br>它们不在这条路线的范围内。</p>
 </div>
   
 
@@ -601,7 +596,7 @@
       <h2>三条原则</h2>
       <ul>
         
-          <li><strong>高频优先</strong> — 面试里出现过三次以上的知识点先吃透，冷门深水区直接标「了解」然后跳过。3 个月不容许好奇心驱动。</li>
+          <li><strong>高频优先</strong> — 面试里出现过三次以上的知识点先吃透，冷门深水区直接标「了解」然后跳过。时间有限，不容许好奇心驱动。</li>
         
           <li><strong>能讲清楚 &gt; 完整实现</strong> — Swiss table 你不需要手写，但要能说清它为什么比 std::unordered_map 快。</li>
         
@@ -628,7 +623,7 @@
 
   
     <div class="callout is-cut">
-      <h2>明确放弃：6 个月内不要碰</h2>
+      <h2>明确放弃：不在这条路线范围内</h2>
       <ul>
         <li>CUDA 与 GPU 编程（含 cuBLAS / TensorRT / Triton kernel）</li><li>分布式训练：NCCL、模型并行、数据并行、ZeRO</li><li>HPC / MPI / BLAS 调优</li><li>游戏引擎：ECS、数据导向设计</li><li>内核旁路：DPDK、RDMA</li><li>编译器开发：LLVM pass、JIT</li><li>RCU / hazard pointer / epoch 内存回收</li><li>eBPF / Intel PT 深入分析</li><li>手写 hash map 与 MPMC 无锁队列（改为读懂实现，不手写）</li>
       </ul>
@@ -639,7 +634,7 @@
     <div class="callout">
       <h2>要避开的坑</h2>
       <ul>
-        <li>按旧路线啃 HPC 或编译器——对秋招零回报，坚决跳过</li><li>3 个月里还想「顺便学一下 CUDA」——会两头不扎实，已明确放弃</li><li>只刷八股不写项目——面试三轮之后全是项目追问，没有产出会露馅</li><li>刷题拖到最后——笔试挂了后面全白搭，主线期间每周必须完成配额</li><li>性能优化只讲结论不给数据——「应该会快」在面试官那里等于没说</li><li>把「了解」的内容当成「精通」准备——对照 skip 清单，别自我感动</li>
+        <li>去啃 HPC 或编译器——对秋招零回报，不在这条路线范围内</li><li>中途改主意去学 CUDA——会两头不扎实，CUDA 不在这条路线里</li><li>只刷八股不写项目——面试三轮之后全是项目追问，没有产出会露馅</li><li>刷题拖到最后——笔试挂了后面全白搭，主线期间每周必须完成配额</li><li>性能优化只讲结论不给数据——「应该会快」在面试官那里等于没说</li><li>把「了解」的内容当成「精通」准备——对照 skip 清单，别自我感动</li>
       </ul>
     </div>
   

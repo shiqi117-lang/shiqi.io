@@ -83,9 +83,9 @@
   </header>
 
   
-    <div class="article-content"><h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p>从 3 周压到 2 周，取舍标准只有一条：<strong>这个知识点在面试里出现过三次以上吗？</strong></p>
-<p>答是的留下，答不是的一律降级到「了解」或跳过。所以协程、Concepts、SFINAE 奇技全部出局，<br>连 <strong>SSO string 和 1.5x&#x2F;2x 扩容实测也挪到了项目时间</strong>——它们很好，但两周里排不进去。</p>
-<p>省下来的时间全部压在<strong>智能指针</strong>和<strong>Rule of 5</strong> 上，这是 C++ 面试出现频率最高、<br>也最容易被追问到实现细节的两块。</p>
+    <div class="article-content"><h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p>两周时间，取舍标准只有一条：<strong>这个知识点在面试里出现过三次以上吗？</strong></p>
+<p>答是的留下，答不是的一律降级到「了解」或跳过。所以协程、Concepts、SFINAE 奇技只要求知道存在，<br><strong>SSO string 与扩容倍率实测留到项目期</strong>——它们很好，但两周的主线里排不进去。</p>
+<p>时间全部压在<strong>智能指针</strong>和<strong>Rule of 5</strong> 上，这是 C++ 面试出现频率最高、<br>也最容易被追问到实现细节的两块。</p>
 <h2 id="每周时间盒（实习期间，约-12–15-小时）"><a href="#每周时间盒（实习期间，约-12–15-小时）" class="headerlink" title="每周时间盒（实习期间，约 12–15 小时）"></a>每周时间盒（实习期间，约 12–15 小时）</h2><table>
 <thead>
 <tr>
@@ -253,13 +253,13 @@
 </ol>
 <p>第 3 条别跳过。「还没搞懂的问题」那一栏就是下一轮复习的清单。</p>
 <h3 id="加班日的底线"><a href="#加班日的底线" class="headerlink" title="加班日的底线"></a>加班日的底线</h3><p>实习日状态差时，只做两件事：<strong>0.5h 读 + 当日那一题</strong>。不写新代码也行，但不能断。</p>
-<h2 id="四个练习（落在-6-个目录里）"><a href="#四个练习（落在-6-个目录里）" class="headerlink" title="四个练习（落在 6 个目录里）"></a>四个练习（落在 6 个目录里）</h2><p>练习数是 4 个、perf-lab 里是 6 个目录，因为 <code>02-move-forward</code> 属于练习 1、<br><code>04-rule-of-five</code> 属于练习 3，各占一个目录。</p>
+<h2 id="四个练习（落在-6-个目录里）"><a href="#四个练习（落在-6-个目录里）" class="headerlink" title="四个练习（落在 6 个目录里）"></a>四个练习（落在 6 个目录里）</h2><p>练习数是 4 个、perf-lab 里是 6 个目录，因为 <code>02-move-forward</code> 属于练习 1、<br><code>04-rule-of-five</code> 属于练习 3，各占一个目录。每一个练习都是面试能直接聊的。</p>
 <ol>
 <li><p><strong>值类别判定表</strong>（15 个表达式）<br><code>a</code>、<code>std::move(a)</code>、<code>f()</code>、<code>a++</code>、<code>++a</code>、<code>p-&gt;x</code>、<code>arr[0]</code>、字符串字面量、<code>T{}</code>、三元表达式……<br>用重载决议判类别，做成表格。目标不是背下来，是能现场推导。</p>
 </li>
 <li><p><strong>手写 <code>unique_ptr</code> + <code>shared_ptr</code></strong> ⭐ 最高频<br><code>unique_ptr</code>：禁拷贝、实现移动、<code>release</code> &#x2F; <code>reset</code> &#x2F; <code>get</code>、自定义删除器。<br><code>shared_ptr</code>：控制块（强计数 + 弱计数）、<code>make_shared</code> 为什么只分配一次、<br>手写一遍循环引用再用 <code>weak_ptr</code> 断开。<br>面试官大概率追问”引用计数存在哪””线程安全吗”，这两个必须能答。</p>
 </li>
-<li><p><strong>手写简化 <code>vector</code></strong> ⭐ 最高频<br>Rule of 5 齐全，移动构造标 <code>noexcept</code>。<br>重点是扩容策略和 <code>emplace_back</code> 的完美转发，以及扩容后的迭代器失效。<br>（简化 <code>string</code> 与 SSO 已挪到项目时间。）</p>
+<li><p><strong>手写简化 <code>vector</code></strong> ⭐ 最高频<br>Rule of 5 齐全，移动构造标 <code>noexcept</code>。<br>重点是扩容策略和 <code>emplace_back</code> 的完美转发，以及扩容后的迭代器失效。<br>简化 <code>string</code> 与 SSO 留到项目期做，主线不要求。</p>
 </li>
 <li><p><strong>类型推导与四种 cast</strong><br><code>auto</code> &#x2F; <code>decltype</code> &#x2F; <code>decltype(auto)</code> 的推导差异，写十几个例子验证。<br>四种 cast 各写一个最小用例，重点说清 <code>dynamic_cast</code> 依赖 RTTI、有运行时开销。</p>
 </li>
@@ -286,15 +286,15 @@
 <li><strong>Concepts &#x2F; requires</strong> — 能写一个简单约束即可</li>
 <li><strong>SFINAE 与模板元编程奇技</strong> — 知道 <code>void_t</code> 和 <code>enable_if</code> 存在即可</li>
 <li><strong>手写 <code>optional</code> &#x2F; <code>variant</code> &#x2F; <code>function</code></strong> — 了解 SBO 概念，能说出 <code>std::function</code> 多大以内不分配堆</li>
-<li><strong>手写简化 <code>string</code> 与 SSO</strong> — 知道 SSO 存在即可，实现留到项目时间</li>
+<li><strong>手写简化 <code>string</code> 与 SSO</strong> — 知道 SSO 存在即可，实现留到项目期</li>
 <li><strong>1.5x vs 2x 扩容实测</strong> — 记住结论就行：2x 内存浪费上限 50%，1.5x 有机会复用之前释放的内存块</li>
 </ul>
-<p>后两条原本在计划内，压缩后排除了。它们其实是最好的项目素材，留到项目期做，<br>产出能直接写进简历，比匆匆做完就忘强。</p>
+<p>后两条不是不学，而是留到项目期。它们本来就是最好的项目素材，那时候做产出能直接写进简历。</p>
 <h2 id="常见卡点"><a href="#常见卡点" class="headerlink" title="常见卡点"></a>常见卡点</h2><ul>
 <li><strong><code>shared_ptr</code> 的控制块想不明白</strong> — 直接去看 libc++ 或 libstdc++ 的头文件，画一张内存图。文字描述再详细也不如一张图。</li>
 <li><strong>D6 一次要吃掉智能指针</strong> — 这是两周里最硬的一天，周六 3 小时可能不够。宁可把 D8 的 <code>make_shared</code> 提前到 D6 一起做，也别拖到工作日晚上硬扛。</li>
 <li><strong>模板报错一屏屏</strong> — 只看第一行错误和最后一个 <code>note: ... with T = ...</code>，中间全是噪音。</li>
-<li><strong>两周太紧，想放弃某些练习</strong> — 可以放弃练习 4 的部分内容，但<strong>练习 2（智能指针）绝不能放弃</strong>。它是整个阶段 01 的核心产出。</li>
+<li><strong>节奏紧，想砍练习</strong> — 可以砍练习 4 的部分内容，但<strong>练习 2（智能指针）绝不能砍</strong>。它是整个阶段 01 的核心产出。</li>
 </ul>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><em>Effective Modern C++</em>（Scott Meyers）— 条款 1–4、13–32，其余暂时不看</li>
