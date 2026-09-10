@@ -111,7 +111,8 @@
 </tr>
 </tbody></table>
 <p>实习日状态差就只做「读」那一项，但<strong>不要断</strong>。断两天再接回来要花一天找状态。</p>
-<h2 id="3-周进度表"><a href="#3-周进度表" class="headerlink" title="3 周进度表"></a>3 周进度表</h2><table>
+<h2 id="3-周进度表"><a href="#3-周进度表" class="headerlink" title="3 周进度表"></a>3 周进度表</h2><p>下文把《Effective Modern C++》简称为 <strong>EMC</strong>，条款号以中译本为准。</p>
+<table>
 <thead>
 <tr>
 <th>周</th>
@@ -143,7 +144,177 @@
 <td>能说清 <code>auto</code> 与 <code>decltype</code> 的推导差异、四种 cast 的边界</td>
 </tr>
 </tbody></table>
-<h2 id="四个练习"><a href="#四个练习" class="headerlink" title="四个练习"></a>四个练习</h2><p>比原计划的八个少一半，剩下的每一个都是面试能直接聊的：</p>
+<h2 id="每日安排"><a href="#每日安排" class="headerlink" title="每日安排"></a>每日安排</h2><p>节奏：工作日 1.5h（0.5h 读 + 1h 写），周六 3h，周日 2h 复习自测。每周 12.5h，三周约 38h。</p>
+<p>测试分三层：<strong>每日小测</strong>（1 题，30 秒闭卷）→ <strong>周末验收</strong>（闭卷 + 代码跑通）→ <strong>阶段终测</strong>（Day 21）。</p>
+<h3 id="Week-1-·-值类别与移动语义"><a href="#Week-1-·-值类别与移动语义" class="headerlink" title="Week 1 · 值类别与移动语义"></a>Week 1 · 值类别与移动语义</h3><table>
+<thead>
+<tr>
+<th>Day</th>
+<th>学（0.5h）</th>
+<th>做（1h）</th>
+<th>当日小测</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1 一</td>
+<td>cppreference <code>value_category</code>；EMC 条款 23 前半</td>
+<td><code>01-value-categories</code>：写 <code>detect(int&amp;)</code> &#x2F; <code>detect(const int&amp;)</code> &#x2F; <code>detect(int&amp;&amp;)</code> 三重载，测 8 个表达式</td>
+<td>不查资料说出 lvalue &#x2F; xvalue &#x2F; prvalue 的判定规则</td>
+</tr>
+<tr>
+<td>2 二</td>
+<td>EMC 条款 23 后半</td>
+<td>补到 15 个：字符串字面量、<code>T{}</code>、三元、<code>a.b</code>、<code>p-&gt;b</code>、<code>arr[0]</code></td>
+<td><code>decltype(x)</code> 和 <code>decltype((x))</code> 分别是什么？为什么差一个括号就变了</td>
+</tr>
+<tr>
+<td>3 三</td>
+<td>EMC 条款 23、25</td>
+<td><code>02-move-forward</code>：手写 <code>my_move</code> &#x2F; <code>my_forward</code>，跑通 <code>wrapper</code> 三种调用</td>
+<td><code>std::move</code> 编译后有几条指令？（答案：0 条，它就是 <code>static_cast</code>）</td>
+</tr>
+<tr>
+<td>4 四</td>
+<td>EMC 条款 24、30</td>
+<td>复现完美转发失效：花括号初始化、<code>0</code> &#x2F; <code>NULL</code>、static const 成员、重载函数名</td>
+<td>说出这 4 种失效里的任意 3 种</td>
+</tr>
+<tr>
+<td>5 五</td>
+<td>EMC 条款 29；cppreference <code>emplace_back</code></td>
+<td><code>push_back</code> vs <code>emplace_back</code> 实测（<code>std::vector&lt;std::string&gt;</code>，数构造与移动次数）</td>
+<td>什么时候 <code>emplace_back</code> 和 <code>push_back</code> 没差别？</td>
+</tr>
+<tr>
+<td>6 六 (3h)</td>
+<td>Compiler Explorer</td>
+<td>看 <code>move</code> &#x2F; <code>forward</code> 在 <code>-O0</code> 与 <code>-O2</code> 下的汇编；写完 01、02 的 README</td>
+<td>为什么这里「零开销」是真的零</td>
+</tr>
+<tr>
+<td>7 日 (2h)</td>
+<td><strong>W1 验收</strong></td>
+<td>补漏</td>
+<td>闭卷答 12 题里的 1–3 题：左值右值 &#x2F; <code>std::move</code> &#x2F; 完美转发失效</td>
+</tr>
+</tbody></table>
+<p><strong>W1 通过标准</strong>：3 题全对 + 01、02 能跑 + README 写完。</p>
+<h3 id="Week-2-·-智能指针与-RAII"><a href="#Week-2-·-智能指针与-RAII" class="headerlink" title="Week 2 · 智能指针与 RAII"></a>Week 2 · 智能指针与 RAII</h3><table>
+<thead>
+<tr>
+<th>Day</th>
+<th>学（0.5h）</th>
+<th>做（1h）</th>
+<th>当日小测</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>8 一</td>
+<td>EMC 条款 18</td>
+<td><code>03-smart-pointers</code>：写 <code>UniquePtr</code>（禁拷贝、移动、<code>release</code> &#x2F; <code>reset</code> &#x2F; <code>get</code>、自定义删除器）</td>
+<td><code>unique_ptr</code> 怎么禁止拷贝的？能作为函数返回值吗？</td>
+</tr>
+<tr>
+<td>9 二</td>
+<td>EMC 条款 19–20；翻 libc++ 或 libstdc++ 的 <code>__shared_ptr</code> 头文件</td>
+<td>实现 <code>ControlBlock</code>（strong &#x2F; weak 原子计数）+ <code>SharedPtr</code> 的拷贝与析构</td>
+<td>画一张 <code>shared_ptr</code> 的内存布局图：对象在哪、控制块在哪、各有什么字段</td>
+</tr>
+<tr>
+<td>10 三</td>
+<td>EMC 条款 21</td>
+<td>实现 <code>MakeShared&lt;T&gt;()</code>（一次分配）；用标准库 <code>weak_ptr</code> 修一次循环引用</td>
+<td><code>make_shared</code> 少几次分配？它有什么坏处？</td>
+</tr>
+<tr>
+<td>11 四</td>
+<td>—</td>
+<td><code>Node { SharedPtr&lt;Node&gt; next; }</code> 互持，观察析构没被调用；把一端换成 <code>WeakPtr</code> 再观察</td>
+<td>用自己的话解释：为什么 <code>weak_ptr</code> 能断循环引用</td>
+</tr>
+<tr>
+<td>12 五</td>
+<td>EMC 条款 13–17</td>
+<td><code>04-rule-of-five</code>：补齐移动赋值；去掉移动构造的 <code>noexcept</code>，看 <code>vector&lt;Buffer&gt;</code> 扩容发生什么</td>
+<td>Rule of 3 &#x2F; 5 &#x2F; 0 分别是什么？现代 C++ 推荐哪个？</td>
+</tr>
+<tr>
+<td>13 六 (3h)</td>
+<td>ASan &#x2F; UBSan</td>
+<td>03、04 全量跑 sanitizer；写多线程测试：4 线程各做 10 万次拷贝</td>
+<td>你的 <code>SharedPtr</code> 计数是线程安全的吗？它指向的对象呢？</td>
+</tr>
+<tr>
+<td>14 日 (2h)</td>
+<td><strong>W2 验收</strong></td>
+<td>补漏</td>
+<td>闭卷答 12 题里的 4–9 题，重点 4&#x2F;5&#x2F;6 三条 <code>shared_ptr</code> 追问</td>
+</tr>
+</tbody></table>
+<p><strong>W2 通过标准</strong>：6 题至少对 5 题，且 <strong>4&#x2F;5&#x2F;6 三条必须全对</strong>——<code>shared_ptr</code> 几乎每场必问，会一路追问到控制块布局。</p>
+<h3 id="Week-3-·-模板与类型系统"><a href="#Week-3-·-模板与类型系统" class="headerlink" title="Week 3 · 模板与类型系统"></a>Week 3 · 模板与类型系统</h3><table>
+<thead>
+<tr>
+<th>Day</th>
+<th>学（0.5h）</th>
+<th>做（1h）</th>
+<th>当日小测</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>15 一</td>
+<td>EMC 条款 1–2</td>
+<td><code>06-type-deduction</code> 的 auto 部分：写 10 个例子验证推导结果</td>
+<td><code>auto</code> 什么时候推导出引用？什么时候丢掉 const？</td>
+</tr>
+<tr>
+<td>16 二</td>
+<td>EMC 条款 3–4</td>
+<td>验证 <code>decltype((x))</code>、<code>decltype(auto)</code> 作为返回值的差异</td>
+<td>举一个必须用 <code>decltype(auto)</code> 的场景</td>
+</tr>
+<tr>
+<td>17 三</td>
+<td>cppreference 模板特化</td>
+<td>写一个函数模板 + 全特化；写一个类模板 + 偏特化</td>
+<td>为什么函数模板不能偏特化？通常用什么替代？</td>
+</tr>
+<tr>
+<td>18 四</td>
+<td>EMC 条款 27</td>
+<td><code>06-type-deduction</code> 的 cast 部分：四种 cast 各一个最小用例</td>
+<td><code>dynamic_cast</code> 的开销来自哪？失败时对指针和对引用分别是？</td>
+</tr>
+<tr>
+<td>19 五</td>
+<td>cppreference 迭代器失效</td>
+<td><code>05-string-vector</code>：补 <code>erase</code> &#x2F; <code>insert</code>，实测扩容前后迭代器</td>
+<td>扩容后哪些迭代器失效？<code>reserve</code> 之后插入还会失效吗？</td>
+</tr>
+<tr>
+<td>20 六 (3h)</td>
+<td>—</td>
+<td>扩容倍率实测：把 2x 改成 1.5x，各跑 100 万次 <code>push_back</code>，记录分配次数与峰值内存</td>
+<td>2x 的内存浪费上限是多少？1.5x 为什么有机会复用之前释放的内存块？</td>
+</tr>
+<tr>
+<td>21 日 (2h)</td>
+<td><strong>阶段终测</strong></td>
+<td>六个目录全跑 + ASan 干净 + README 补全</td>
+<td>12 题全部闭卷</td>
+</tr>
+</tbody></table>
+<h3 id="三层测试怎么判"><a href="#三层测试怎么判" class="headerlink" title="三层测试怎么判"></a>三层测试怎么判</h3><p><strong>每日小测</strong> — 答不上来就当天回炉，不要拖。标准是「30 秒内能答」，答不上说明这个概念没真懂，继续往下走会越积越多。</p>
+<p><strong>周末验收</strong> — 错 2 题以上，周日不要进入下一周，把本周重投一天。三周总共 38 小时，多花一天补救比带着漏洞往前走划算得多。</p>
+<p><strong>阶段终测（Day 21）</strong>：</p>
+<ol>
+<li>12 题闭卷，目标 11 &#x2F; 12</li>
+<li>六个目录全部编译运行通过，ASan + UBSan 零报告</li>
+<li>六个 README 都写了（现象 &#x2F; 你的解释 &#x2F; 还没搞懂的问题）</li>
+</ol>
+<p>第 3 条别跳过。「还没搞懂的问题」那一栏就是下一轮复习的清单。</p>
+<h3 id="加班日的底线"><a href="#加班日的底线" class="headerlink" title="加班日的底线"></a>加班日的底线</h3><p>实习日状态差时，只做两件事：<strong>0.5h 读 + 当日那一题</strong>。不写新代码也行，但不能断。断两天再接回来要花一整天找状态，这是三周计划最大的风险。</p>
+<h2 id="四个练习（落在-6-个目录里）"><a href="#四个练习（落在-6-个目录里）" class="headerlink" title="四个练习（落在 6 个目录里）"></a>四个练习（落在 6 个目录里）</h2><p>比原计划的八个少一半，剩下的每一个都是面试能直接聊的。练习数是 4 个、perf-lab 里是 6 个目录，<br>因为 <code>02-move-forward</code> 属于练习 1、<code>04-rule-of-five</code> 属于练习 3，各占一个目录。</p>
 <ol>
 <li><p><strong>值类别判定表</strong>（15 个表达式，精简版）<br><code>a</code>、<code>std::move(a)</code>、<code>f()</code>、<code>a++</code>、<code>++a</code>、<code>p-&gt;x</code>、<code>arr[0]</code>、字符串字面量、<code>T{}</code>、三元表达式……<br>用重载决议判类别，做成表格。目标不是背下来，是能现场推导。</p>
 </li>
