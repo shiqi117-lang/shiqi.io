@@ -6,11 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#fcfcfd">
 <title>现代 C++ 语言内核 · SHIQI.IO</title>
-<meta name="description" content="3 周计划：值类别与移动语义、智能指针与 RAII、模板与类型推导。全部按面试高频排序，低频内容明确标注为「仅了解」。">
+<meta name="description" content="2 周计划（14 天）：值类别与移动语义、智能指针与 RAII、模板与类型推导。全部按面试高频排序，低频内容明确标注为「仅了解」。">
 <meta name="author" content="shiqi">
 <meta property="og:type" content="website">
 <meta property="og:title" content="现代 C++ 语言内核 · SHIQI.IO">
-<meta property="og:description" content="3 周计划：值类别与移动语义、智能指针与 RAII、模板与类型推导。全部按面试高频排序，低频内容明确标注为「仅了解」。">
+<meta property="og:description" content="2 周计划（14 天）：值类别与移动语义、智能指针与 RAII、模板与类型推导。全部按面试高频排序，低频内容明确标注为「仅了解」。">
 <meta property="og:url" content="https://shiqi117-lang.github.io/shiqi.io/roadmap/01-modern-cpp/index.html">
 <meta property="og:site_name" content="SHIQI.IO">
 <link rel="canonical" href="https://shiqi117-lang.github.io/shiqi.io/roadmap/01-modern-cpp/index.html">
@@ -70,22 +70,22 @@
   <header class="page-heading">
     <span class="eyebrow">阶段 01</span>
     <h1>现代 C++ 语言内核</h1>
-    <p>3 周计划：值类别与移动语义、智能指针与 RAII、模板与类型推导。全部按面试高频排序，低频内容明确标注为「仅了解」。</p>
+    <p>2 周计划（14 天）：值类别与移动语义、智能指针与 RAII、模板与类型推导。全部按面试高频排序，低频内容明确标注为「仅了解」。</p>
 
     <div class="chip-row">
       
         <span class="status-tag is-active">进行中</span>
         <span class="chip is-depth-master">深度 精通</span>
       
-      <span class="chip">周期 3 周</span>
+      <span class="chip">周期 2 周</span>
       <span class="chip">前置 基本语法、指针与引用、会编译</span>
     </div>
   </header>
 
   
-    <div class="article-content"><h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p>原来的 12 周版本按「完整掌握语言」设计，现在压到 3 周，取舍标准只有一条：<strong>这个知识点在面试里出现过三次以上吗？</strong></p>
-<p>答是的留下，答不是的一律降级到「了解」或跳过。所以协程、Concepts、SFINAE 奇技全部出局——它们很有趣，但六个月内投入产出比太低。</p>
-<p>省下来的时间全部压在<strong>智能指针</strong>和<strong>Rule of 5</strong> 上，这是 C++ 面试出现频率最高、也最容易被追问到实现细节的两块。</p>
+    <div class="article-content"><h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p>从 3 周压到 2 周，取舍标准只有一条：<strong>这个知识点在面试里出现过三次以上吗？</strong></p>
+<p>答是的留下，答不是的一律降级到「了解」或跳过。所以协程、Concepts、SFINAE 奇技全部出局，<br>连 <strong>SSO string 和 1.5x&#x2F;2x 扩容实测也挪到了项目时间</strong>——它们很好，但两周里排不进去。</p>
+<p>省下来的时间全部压在<strong>智能指针</strong>和<strong>Rule of 5</strong> 上，这是 C++ 面试出现频率最高、<br>也最容易被追问到实现细节的两块。</p>
 <h2 id="每周时间盒（实习期间，约-12–15-小时）"><a href="#每周时间盒（实习期间，约-12–15-小时）" class="headerlink" title="每周时间盒（实习期间，约 12–15 小时）"></a>每周时间盒（实习期间，约 12–15 小时）</h2><table>
 <thead>
 <tr>
@@ -96,23 +96,22 @@
 </thead>
 <tbody><tr>
 <td>工作日 5 × 1.5h</td>
-<td>读 + 写代码</td>
-<td>每晚固定，别攒到周末</td>
+<td>0.5h 读 + 1h 写</td>
+<td>读可以放通勤&#x2F;午休，写放晚上</td>
 </tr>
 <tr>
-<td>周末 5h</td>
-<td>写练习 + 看汇编</td>
-<td>大部分产出在这里</td>
+<td>周六 3h</td>
+<td>大块练习</td>
+<td>智能指针、简化 vector 都在这</td>
 </tr>
 <tr>
-<td>周末 1h</td>
-<td>整理笔记</td>
-<td>用能讲给别人的标准写</td>
+<td>周日 2h</td>
+<td>复习自测 + 补漏</td>
+<td>用能讲给别人的标准写笔记</td>
 </tr>
 </tbody></table>
-<p>实习日状态差就只做「读」那一项，但<strong>不要断</strong>。断两天再接回来要花一天找状态。</p>
-<h2 id="3-周进度表"><a href="#3-周进度表" class="headerlink" title="3 周进度表"></a>3 周进度表</h2><p>下文把《Effective Modern C++》简称为 <strong>EMC</strong>，条款号以中译本为准。</p>
-<table>
+<p>两周合计约 25 小时。实习日状态差就只做「读」那一项，但<strong>不要断</strong>——断两天再接回来要花一天找状态。</p>
+<h2 id="2-周进度表"><a href="#2-周进度表" class="headerlink" title="2 周进度表"></a>2 周进度表</h2><table>
 <thead>
 <tr>
 <th>周</th>
@@ -124,29 +123,22 @@
 </thead>
 <tbody><tr>
 <td>1</td>
-<td>值类别与移动语义</td>
-<td>EMC 条款 23–30；cppreference <code>value_category</code></td>
-<td>15 个表达式的值类别判定表；<code>emplace_back</code> vs <code>push_back</code> 实测</td>
-<td>能说清 <code>std::move</code> 到底做了什么、完美转发何时失效</td>
+<td>值类别、移动语义、智能指针</td>
+<td>EMC 条款 18–30；cppreference <code>value_category</code> &#x2F; <code>shared_ptr</code></td>
+<td>15 个表达式判定表；手写 <code>unique_ptr</code> + <code>shared_ptr</code>（含控制块）</td>
+<td>能画出 <code>shared_ptr</code> 的内存布局；说出完美转发何时失效</td>
 </tr>
 <tr>
 <td>2</td>
-<td>智能指针与 RAII</td>
-<td>EMC 条款 18–22；cppreference <code>shared_ptr</code></td>
-<td>手写 <code>unique_ptr</code> 与 <code>shared_ptr</code>，复现循环引用并用 <code>weak_ptr</code> 修掉</td>
-<td>能画出 <code>shared_ptr</code> 的内存布局（对象 + 控制块）</td>
-</tr>
-<tr>
-<td>3</td>
-<td>模板与类型系统</td>
-<td>EMC 条款 1–4；cppreference 四种 cast</td>
-<td>手写简化 <code>string</code> &#x2F; <code>vector</code>（Rule of 5 + 扩容 + <code>emplace_back</code>）</td>
-<td>能说清 <code>auto</code> 与 <code>decltype</code> 的推导差异、四种 cast 的边界</td>
+<td>RAII、Rule of 5、模板与类型系统</td>
+<td>EMC 条款 1–4、13–17</td>
+<td>简化 <code>vector</code>（Rule of 5 + 扩容 + <code>emplace_back</code>）；类型推导与四种 cast 用例</td>
+<td>能说清 <code>auto</code> 与 <code>decltype</code> 的差异、四种 cast 边界</td>
 </tr>
 </tbody></table>
-<h2 id="每日安排"><a href="#每日安排" class="headerlink" title="每日安排"></a>每日安排</h2><p>节奏：工作日 1.5h（0.5h 读 + 1h 写），周六 3h，周日 2h 复习自测。每周 12.5h，三周约 38h。</p>
-<p>测试分三层：<strong>每日小测</strong>（1 题，30 秒闭卷）→ <strong>周末验收</strong>（闭卷 + 代码跑通）→ <strong>阶段终测</strong>（Day 21）。</p>
-<h3 id="Week-1-·-值类别与移动语义"><a href="#Week-1-·-值类别与移动语义" class="headerlink" title="Week 1 · 值类别与移动语义"></a>Week 1 · 值类别与移动语义</h3><table>
+<p>下文把《Effective Modern C++》简称为 <strong>EMC</strong>，条款号以中译本为准。</p>
+<h2 id="每日安排（14-天）"><a href="#每日安排（14-天）" class="headerlink" title="每日安排（14 天）"></a>每日安排（14 天）</h2><p>测试分三层：<strong>每日小测</strong>（1 题，30 秒闭卷）→ <strong>中途验收</strong>（D7）→ <strong>阶段终测</strong>（D14）。</p>
+<h3 id="Week-1-·-值类别、移动语义、智能指针"><a href="#Week-1-·-值类别、移动语义、智能指针" class="headerlink" title="Week 1 · 值类别、移动语义、智能指针"></a>Week 1 · 值类别、移动语义、智能指针</h3><table>
 <thead>
 <tr>
 <th>Day</th>
@@ -176,30 +168,30 @@
 <tr>
 <td>4 四</td>
 <td>EMC 条款 24、30</td>
-<td>复现完美转发失效：花括号初始化、<code>0</code> &#x2F; <code>NULL</code>、static const 成员、重载函数名</td>
+<td>复现完美转发失效：花括号初始化、<code>0</code> &#x2F; <code>NULL</code>、static const 成员、重载函数名；顺带实测 <code>push_back</code> vs <code>emplace_back</code></td>
 <td>说出这 4 种失效里的任意 3 种</td>
 </tr>
 <tr>
 <td>5 五</td>
-<td>EMC 条款 29；cppreference <code>emplace_back</code></td>
-<td><code>push_back</code> vs <code>emplace_back</code> 实测（<code>std::vector&lt;std::string&gt;</code>，数构造与移动次数）</td>
-<td>什么时候 <code>emplace_back</code> 和 <code>push_back</code> 没差别？</td>
+<td>EMC 条款 18</td>
+<td><code>03-smart-pointers</code> 上半：写 <code>UniquePtr</code>（禁拷贝、移动、<code>release</code> &#x2F; <code>reset</code> &#x2F; <code>get</code>、自定义删除器）</td>
+<td><code>unique_ptr</code> 怎么禁止拷贝的？能作为函数返回值吗？</td>
 </tr>
 <tr>
 <td>6 六 (3h)</td>
-<td>Compiler Explorer</td>
-<td>看 <code>move</code> &#x2F; <code>forward</code> 在 <code>-O0</code> 与 <code>-O2</code> 下的汇编；写完 01、02 的 README</td>
-<td>为什么这里「零开销」是真的零</td>
+<td>EMC 条款 19–20；翻 libc++ 或 libstdc++ 的 <code>__shared_ptr</code> 头文件</td>
+<td><code>03-smart-pointers</code> 下半：实现 <code>ControlBlock</code>（strong &#x2F; weak 原子计数）+ <code>SharedPtr</code> 的拷贝与析构</td>
+<td>画一张 <code>shared_ptr</code> 的内存布局图：对象在哪、控制块在哪、各有什么字段</td>
 </tr>
 <tr>
 <td>7 日 (2h)</td>
-<td><strong>W1 验收</strong></td>
+<td><strong>中途验收</strong></td>
 <td>补漏</td>
 <td>闭卷答 12 题里的 1–3 题：左值右值 &#x2F; <code>std::move</code> &#x2F; 完美转发失效</td>
 </tr>
 </tbody></table>
-<p><strong>W1 通过标准</strong>：3 题全对 + 01、02 能跑 + README 写完。</p>
-<h3 id="Week-2-·-智能指针与-RAII"><a href="#Week-2-·-智能指针与-RAII" class="headerlink" title="Week 2 · 智能指针与 RAII"></a>Week 2 · 智能指针与 RAII</h3><table>
+<p><strong>D7 通过标准</strong>：3 题全对 + 01、02、03 三个目录能跑。答错的当天补，不要拖进第二周。</p>
+<h3 id="Week-2-·-RAII、Rule-of-5、模板与类型系统"><a href="#Week-2-·-RAII、Rule-of-5、模板与类型系统" class="headerlink" title="Week 2 · RAII、Rule of 5、模板与类型系统"></a>Week 2 · RAII、Rule of 5、模板与类型系统</h3><table>
 <thead>
 <tr>
 <th>Day</th>
@@ -210,117 +202,64 @@
 </thead>
 <tbody><tr>
 <td>8 一</td>
-<td>EMC 条款 18</td>
-<td><code>03-smart-pointers</code>：写 <code>UniquePtr</code>（禁拷贝、移动、<code>release</code> &#x2F; <code>reset</code> &#x2F; <code>get</code>、自定义删除器）</td>
-<td><code>unique_ptr</code> 怎么禁止拷贝的？能作为函数返回值吗？</td>
-</tr>
-<tr>
-<td>9 二</td>
-<td>EMC 条款 19–20；翻 libc++ 或 libstdc++ 的 <code>__shared_ptr</code> 头文件</td>
-<td>实现 <code>ControlBlock</code>（strong &#x2F; weak 原子计数）+ <code>SharedPtr</code> 的拷贝与析构</td>
-<td>画一张 <code>shared_ptr</code> 的内存布局图：对象在哪、控制块在哪、各有什么字段</td>
-</tr>
-<tr>
-<td>10 三</td>
 <td>EMC 条款 21</td>
 <td>实现 <code>MakeShared&lt;T&gt;()</code>（一次分配）；用标准库 <code>weak_ptr</code> 修一次循环引用</td>
 <td><code>make_shared</code> 少几次分配？它有什么坏处？</td>
 </tr>
 <tr>
-<td>11 四</td>
-<td>—</td>
-<td><code>Node { SharedPtr&lt;Node&gt; next; }</code> 互持，观察析构没被调用；把一端换成 <code>WeakPtr</code> 再观察</td>
-<td>用自己的话解释：为什么 <code>weak_ptr</code> 能断循环引用</td>
-</tr>
-<tr>
-<td>12 五</td>
+<td>9 二</td>
 <td>EMC 条款 13–17</td>
 <td><code>04-rule-of-five</code>：补齐移动赋值；去掉移动构造的 <code>noexcept</code>，看 <code>vector&lt;Buffer&gt;</code> 扩容发生什么</td>
 <td>Rule of 3 &#x2F; 5 &#x2F; 0 分别是什么？现代 C++ 推荐哪个？</td>
 </tr>
 <tr>
-<td>13 六 (3h)</td>
-<td>ASan &#x2F; UBSan</td>
-<td>03、04 全量跑 sanitizer；写多线程测试：4 线程各做 10 万次拷贝</td>
-<td>你的 <code>SharedPtr</code> 计数是线程安全的吗？它指向的对象呢？</td>
-</tr>
-<tr>
-<td>14 日 (2h)</td>
-<td><strong>W2 验收</strong></td>
-<td>补漏</td>
-<td>闭卷答 12 题里的 4–9 题，重点 4&#x2F;5&#x2F;6 三条 <code>shared_ptr</code> 追问</td>
-</tr>
-</tbody></table>
-<p><strong>W2 通过标准</strong>：6 题至少对 5 题，且 <strong>4&#x2F;5&#x2F;6 三条必须全对</strong>——<code>shared_ptr</code> 几乎每场必问，会一路追问到控制块布局。</p>
-<h3 id="Week-3-·-模板与类型系统"><a href="#Week-3-·-模板与类型系统" class="headerlink" title="Week 3 · 模板与类型系统"></a>Week 3 · 模板与类型系统</h3><table>
-<thead>
-<tr>
-<th>Day</th>
-<th>学（0.5h）</th>
-<th>做（1h）</th>
-<th>当日小测</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>15 一</td>
+<td>10 三</td>
 <td>EMC 条款 1–2</td>
 <td><code>06-type-deduction</code> 的 auto 部分：写 10 个例子验证推导结果</td>
 <td><code>auto</code> 什么时候推导出引用？什么时候丢掉 const？</td>
 </tr>
 <tr>
-<td>16 二</td>
-<td>EMC 条款 3–4</td>
-<td>验证 <code>decltype((x))</code>、<code>decltype(auto)</code> 作为返回值的差异</td>
-<td>举一个必须用 <code>decltype(auto)</code> 的场景</td>
-</tr>
-<tr>
-<td>17 三</td>
-<td>cppreference 模板特化</td>
-<td>写一个函数模板 + 全特化；写一个类模板 + 偏特化</td>
-<td>为什么函数模板不能偏特化？通常用什么替代？</td>
-</tr>
-<tr>
-<td>18 四</td>
-<td>EMC 条款 27</td>
-<td><code>06-type-deduction</code> 的 cast 部分：四种 cast 各一个最小用例</td>
+<td>11 四</td>
+<td>EMC 条款 3–4、27</td>
+<td><code>06-type-deduction</code> 的 cast 部分：四种 cast 各一个最小用例；顺带验证 <code>decltype(auto)</code> 返回值</td>
 <td><code>dynamic_cast</code> 的开销来自哪？失败时对指针和对引用分别是？</td>
 </tr>
 <tr>
-<td>19 五</td>
+<td>12 五</td>
 <td>cppreference 迭代器失效</td>
-<td><code>05-string-vector</code>：补 <code>erase</code> &#x2F; <code>insert</code>，实测扩容前后迭代器</td>
+<td><code>05-string-vector</code>：Rule of 5 + 扩容 + <code>emplace_back</code>，实测扩容前后迭代器</td>
 <td>扩容后哪些迭代器失效？<code>reserve</code> 之后插入还会失效吗？</td>
 </tr>
 <tr>
-<td>20 六 (3h)</td>
-<td>—</td>
-<td>扩容倍率实测：把 2x 改成 1.5x，各跑 100 万次 <code>push_back</code>，记录分配次数与峰值内存</td>
-<td>2x 的内存浪费上限是多少？1.5x 为什么有机会复用之前释放的内存块？</td>
+<td>13 六 (3h)</td>
+<td>ASan &#x2F; UBSan</td>
+<td>六个目录全量跑 sanitizer；写多线程测试：4 线程各做 10 万次 <code>SharedPtr</code> 拷贝</td>
+<td>你的 <code>SharedPtr</code> 计数是线程安全的吗？它指向的对象呢？</td>
 </tr>
 <tr>
-<td>21 日 (2h)</td>
+<td>14 日 (2h)</td>
 <td><strong>阶段终测</strong></td>
-<td>六个目录全跑 + ASan 干净 + README 补全</td>
+<td>README 补全 + 补漏</td>
 <td>12 题全部闭卷</td>
 </tr>
 </tbody></table>
-<h3 id="三层测试怎么判"><a href="#三层测试怎么判" class="headerlink" title="三层测试怎么判"></a>三层测试怎么判</h3><p><strong>每日小测</strong> — 答不上来就当天回炉，不要拖。标准是「30 秒内能答」，答不上说明这个概念没真懂，继续往下走会越积越多。</p>
-<p><strong>周末验收</strong> — 错 2 题以上，周日不要进入下一周，把本周重投一天。三周总共 38 小时，多花一天补救比带着漏洞往前走划算得多。</p>
-<p><strong>阶段终测（Day 21）</strong>：</p>
+<h3 id="三层测试怎么判"><a href="#三层测试怎么判" class="headerlink" title="三层测试怎么判"></a>三层测试怎么判</h3><p><strong>每日小测</strong> — 答不上来就当天回炉，不要拖。标准是「30 秒内能答」，答不上说明这个概念没真懂，<br>两周的计划里积三天就救不回来了。</p>
+<p><strong>中途验收（D7）</strong> — 错 2 题以上，周日不要进入第二周。总共只有 25 小时，多花半天补救<br>比带着漏洞往前走划算。</p>
+<p><strong>阶段终测（D14）</strong>：</p>
 <ol>
 <li>12 题闭卷，目标 11 &#x2F; 12</li>
 <li>六个目录全部编译运行通过，ASan + UBSan 零报告</li>
 <li>六个 README 都写了（现象 &#x2F; 你的解释 &#x2F; 还没搞懂的问题）</li>
 </ol>
 <p>第 3 条别跳过。「还没搞懂的问题」那一栏就是下一轮复习的清单。</p>
-<h3 id="加班日的底线"><a href="#加班日的底线" class="headerlink" title="加班日的底线"></a>加班日的底线</h3><p>实习日状态差时，只做两件事：<strong>0.5h 读 + 当日那一题</strong>。不写新代码也行，但不能断。断两天再接回来要花一整天找状态，这是三周计划最大的风险。</p>
-<h2 id="四个练习（落在-6-个目录里）"><a href="#四个练习（落在-6-个目录里）" class="headerlink" title="四个练习（落在 6 个目录里）"></a>四个练习（落在 6 个目录里）</h2><p>比原计划的八个少一半，剩下的每一个都是面试能直接聊的。练习数是 4 个、perf-lab 里是 6 个目录，<br>因为 <code>02-move-forward</code> 属于练习 1、<code>04-rule-of-five</code> 属于练习 3，各占一个目录。</p>
+<h3 id="加班日的底线"><a href="#加班日的底线" class="headerlink" title="加班日的底线"></a>加班日的底线</h3><p>实习日状态差时，只做两件事：<strong>0.5h 读 + 当日那一题</strong>。不写新代码也行，但不能断。</p>
+<h2 id="四个练习（落在-6-个目录里）"><a href="#四个练习（落在-6-个目录里）" class="headerlink" title="四个练习（落在 6 个目录里）"></a>四个练习（落在 6 个目录里）</h2><p>练习数是 4 个、perf-lab 里是 6 个目录，因为 <code>02-move-forward</code> 属于练习 1、<br><code>04-rule-of-five</code> 属于练习 3，各占一个目录。</p>
 <ol>
-<li><p><strong>值类别判定表</strong>（15 个表达式，精简版）<br><code>a</code>、<code>std::move(a)</code>、<code>f()</code>、<code>a++</code>、<code>++a</code>、<code>p-&gt;x</code>、<code>arr[0]</code>、字符串字面量、<code>T{}</code>、三元表达式……<br>用重载决议判类别，做成表格。目标不是背下来，是能现场推导。</p>
+<li><p><strong>值类别判定表</strong>（15 个表达式）<br><code>a</code>、<code>std::move(a)</code>、<code>f()</code>、<code>a++</code>、<code>++a</code>、<code>p-&gt;x</code>、<code>arr[0]</code>、字符串字面量、<code>T{}</code>、三元表达式……<br>用重载决议判类别，做成表格。目标不是背下来，是能现场推导。</p>
 </li>
-<li><p><strong>手写 <code>unique_ptr</code> + <code>shared_ptr</code></strong> ⭐ 最高频<br><code>unique_ptr</code>：禁拷贝、实现移动、<code>release</code> &#x2F; <code>reset</code> &#x2F; <code>get</code>、自定义删除器。<br><code>shared_ptr</code>：控制块（强计数 + 弱计数）、<code>make_shared</code> 为什么只分配一次、手写一遍循环引用再用 <code>weak_ptr</code> 断开。<br>面试官大概率会追问”引用计数存在哪””线程安全吗”，这两个必须能答。</p>
+<li><p><strong>手写 <code>unique_ptr</code> + <code>shared_ptr</code></strong> ⭐ 最高频<br><code>unique_ptr</code>：禁拷贝、实现移动、<code>release</code> &#x2F; <code>reset</code> &#x2F; <code>get</code>、自定义删除器。<br><code>shared_ptr</code>：控制块（强计数 + 弱计数）、<code>make_shared</code> 为什么只分配一次、<br>手写一遍循环引用再用 <code>weak_ptr</code> 断开。<br>面试官大概率追问”引用计数存在哪””线程安全吗”，这两个必须能答。</p>
 </li>
-<li><p><strong>手写简化 <code>string</code> &#x2F; <code>vector</code></strong> ⭐ 最高频<br>Rule of 5 齐全，移动构造标 <code>noexcept</code>。<br><code>vector</code> 重点在扩容策略（1.5x 还是 2x，为什么）和 <code>emplace_back</code> 的完美转发。<br>写完后用 ASan 跑一遍，确认没有泄漏和越界。</p>
+<li><p><strong>手写简化 <code>vector</code></strong> ⭐ 最高频<br>Rule of 5 齐全，移动构造标 <code>noexcept</code>。<br>重点是扩容策略和 <code>emplace_back</code> 的完美转发，以及扩容后的迭代器失效。<br>（简化 <code>string</code> 与 SSO 已挪到项目时间。）</p>
 </li>
 <li><p><strong>类型推导与四种 cast</strong><br><code>auto</code> &#x2F; <code>decltype</code> &#x2F; <code>decltype(auto)</code> 的推导差异，写十几个例子验证。<br>四种 cast 各写一个最小用例，重点说清 <code>dynamic_cast</code> 依赖 RTTI、有运行时开销。</p>
 </li>
@@ -346,14 +285,16 @@
 <li><strong>协程</strong> — 知道 <code>co_await</code> 是什么就行</li>
 <li><strong>Concepts &#x2F; requires</strong> — 能写一个简单约束即可</li>
 <li><strong>SFINAE 与模板元编程奇技</strong> — 知道 <code>void_t</code> 和 <code>enable_if</code> 存在即可</li>
-<li><strong>手写 <code>optional</code> &#x2F; <code>variant</code> &#x2F; <code>function</code></strong> — 改为了解 SBO 概念，能说出 <code>std::function</code> 多大以内不分配堆内存</li>
+<li><strong>手写 <code>optional</code> &#x2F; <code>variant</code> &#x2F; <code>function</code></strong> — 了解 SBO 概念，能说出 <code>std::function</code> 多大以内不分配堆</li>
+<li><strong>手写简化 <code>string</code> 与 SSO</strong> — 知道 SSO 存在即可，实现留到项目时间</li>
+<li><strong>1.5x vs 2x 扩容实测</strong> — 记住结论就行：2x 内存浪费上限 50%，1.5x 有机会复用之前释放的内存块</li>
 </ul>
-<p>最后一条原本是旧计划的核心产出，现在降级了。如果你后面有余力，<code>function</code> 的 SBO 值得一看（涉及类型擦除），但优先级低于所有标 ⭐ 的练习。</p>
+<p>后两条原本在计划内，压缩后排除了。它们其实是最好的项目素材，留到项目期做，<br>产出能直接写进简历，比匆匆做完就忘强。</p>
 <h2 id="常见卡点"><a href="#常见卡点" class="headerlink" title="常见卡点"></a>常见卡点</h2><ul>
 <li><strong><code>shared_ptr</code> 的控制块想不明白</strong> — 直接去看 libc++ 或 libstdc++ 的头文件，画一张内存图。文字描述再详细也不如一张图。</li>
+<li><strong>D6 一次要吃掉智能指针</strong> — 这是两周里最硬的一天，周六 3 小时可能不够。宁可把 D8 的 <code>make_shared</code> 提前到 D6 一起做，也别拖到工作日晚上硬扛。</li>
 <li><strong>模板报错一屏屏</strong> — 只看第一行错误和最后一个 <code>note: ... with T = ...</code>，中间全是噪音。</li>
-<li><strong>实习太累，晚上不想动</strong> — 把每晚 1.5h 拆成通勤&#x2F;午休的「读」+ 睡前的「写」。只要不断，进度就不会崩。</li>
-<li><strong>想把所有东西都学透</strong> — 这是这份计划最大的敌人。对照上面的 skip 清单，该跳就跳。</li>
+<li><strong>两周太紧，想放弃某些练习</strong> — 可以放弃练习 4 的部分内容，但<strong>练习 2（智能指针）绝不能放弃</strong>。它是整个阶段 01 的核心产出。</li>
 </ul>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
 <li><em>Effective Modern C++</em>（Scott Meyers）— 条款 1–4、13–32，其余暂时不看</li>
@@ -378,7 +319,7 @@
         
           <div>
             <h3>做什么</h3>
-            <ul><li>手写 unique_ptr 与 shared_ptr：含控制块、引用计数，并复现循环引用再用 weak_ptr 修掉</li><li>手写简化 string / vector：Rule of 5、扩容策略、emplace_back</li><li>整理 15 个表达式的值类别判定表</li></ul>
+            <ul><li>手写 unique_ptr 与 shared_ptr：含控制块、引用计数，并复现循环引用再用 weak_ptr 修掉</li><li>手写简化 vector：Rule of 5、扩容策略、emplace_back</li><li>整理 15 个表达式的值类别判定表</li></ul>
           </div>
         
       </div>
@@ -386,7 +327,7 @@
       
         <div class="roadmap-skip">
           <strong>仅了解 / 可跳过</strong>
-          <ul><li>协程：知道 co_await 是什么即可</li><li>Concepts / requires：能写一个简单约束就行</li><li>SFINAE 与模板元编程奇技：知道 void_t 和 enable_if 存在即可</li><li>手写 optional / variant / function：改为了解 SBO 概念，能说出 std::function 多大以内不分配堆</li></ul>
+          <ul><li>协程：知道 co_await 是什么即可</li><li>Concepts / requires：能写一个简单约束就行</li><li>SFINAE 与模板元编程奇技：知道 void_t 和 enable_if 存在即可</li><li>手写 optional / variant / function：改为了解 SBO 概念</li><li>手写简化 string 与 SSO：知道 SSO 存在即可，实现留到项目时间</li><li>1.5x vs 2x 扩容实测：知道结论（2x 浪费上限 50%，1.5x 有机会复用内存块）即可</li></ul>
         </div>
       
 

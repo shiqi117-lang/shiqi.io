@@ -69,8 +69,8 @@
 <section class="hero page-shell">
   <div class="hero-copy">
     <span class="eyebrow">SHIQI.IO / 个人技术笔记</span>
-    <h1>C++ 与性能工程，24 周冲刺</h1>
-    <p class="hero-lead">在实习与秋招之间挤出 24 周，把 C++ 主线、性能度量方法和后端面试必考项压成一条能走完的路。所有结论都要有实测数据支撑。</p>
+    <h1>C++ 与性能工程，12 周主线</h1>
+    <p class="hero-lead">在实习与秋招之间挤出 3 个月走完知识主线，项目另算时间。不碰 CUDA，把权重压在面试高频和能产生数据的地方。</p>
     <div class="hero-actions">
       <a class="button button-primary" href="#roadmap">查看学习路线 <span aria-hidden="true">↓</span></a>
       <a class="button" href="#latest-posts">浏览文章</a>
@@ -103,7 +103,7 @@
       
         <div class="status-row">
           <dt>当前阶段</dt>
-          <dd>01 · 现代 C++ 语言内核（3 周）</dd>
+          <dd>01 · 现代 C++ 语言内核（2 周）</dd>
         </div>
       
         <div class="status-row">
@@ -113,7 +113,7 @@
       
         <div class="status-row">
           <dt>并行轨道</dt>
-          <dd>LeetCode 每周 8–10 题</dd>
+          <dd>LeetCode 每周 12–13 题</dd>
         </div>
       
     </dl>
@@ -124,9 +124,9 @@
 <section id="roadmap" class="section page-shell">
   <div class="section-heading">
     <div>
-      <span class="eyebrow">LEARNING ROADMAP · 24 WEEKS</span>
-      <h2>C++ 性能优化冲刺路线</h2>
-      <p>面向秋招的 24 周压缩版。砍掉低频深水区，把时间压在面试高频和能产生数据的地方。第 12 周设一个「面试就绪」检查点，万一提前批来得早也有东西可讲。</p>
+      <span class="eyebrow">LEARNING ROADMAP · 12 WEEKS</span>
+      <h2>C++ 性能优化冲刺路线（3 个月）</h2>
+      <p>知识主线压缩到 12 周，项目与冲刺另算 4–6 周。不碰 CUDA 与 GPU。压缩的代价是大量内容降级为「了解」——每个阶段都附了 skip 清单，该跳就跳。</p>
     </div>
     <a href="/shiqi.io/roadmap/">查看完整路线 <span aria-hidden="true">→</span></a>
   </div>
@@ -138,7 +138,7 @@
         <div class="stage-index-row">
           <span class="stage-index">01</span>
           <span class="chip is-depth-master">精通</span>
-          <span class="chip">3 周</span>
+          <span class="chip">2 周</span>
         </div>
         <h3>
           <a href="/shiqi.io/roadmap/01-modern-cpp/">现代 C++ 语言内核</a>
@@ -170,13 +170,13 @@
         <div class="stage-index-row">
           <span class="stage-index">03</span>
           <span class="chip is-depth-familiar">熟悉</span>
-          <span class="chip">2 周</span>
+          <span class="chip">1 周</span>
         </div>
         <h3>
           标准库与数据结构
         </h3>
         <p class="stage-goal">能说清每个容器的实现与复杂度，并在面试里给出选型理由。</p>
-        <p class="stage-output"><strong>关键产出</strong>容器选型速查表 + 一组对比数据</p>
+        <p class="stage-output"><strong>关键产出</strong>容器选型速查表</p>
         
       </article>
     
@@ -185,13 +185,13 @@
         <div class="stage-index-row">
           <span class="stage-index">04</span>
           <span class="chip is-depth-familiar">熟悉</span>
-          <span class="chip">1 周</span>
+          <span class="chip">0.5 周</span>
         </div>
         <h3>
-          编译器与工具链
+          编译链接与工具链
         </h3>
-        <p class="stage-goal">能说清从源码到可执行文件的过程，以及常用工具怎么用。</p>
-        <p class="stage-output"><strong>关键产出</strong>编译流程图解 + perf-lab 接上 CMake / ASan</p>
+        <p class="stage-goal">能说清从源码到可执行文件的过程——这是后端面试高频题。</p>
+        <p class="stage-output"><strong>关键产出</strong>编译流程图解 + perf-lab 接上 ASan</p>
         
       </article>
     
@@ -200,13 +200,13 @@
         <div class="stage-index-row">
           <span class="stage-index">05</span>
           <span class="chip is-depth-master">精通</span>
-          <span class="chip">2 周</span>
+          <span class="chip">1.5 周</span>
         </div>
         <h3>
           性能度量方法论
         </h3>
         <p class="stage-goal">这是你和普通候选人的分水岭——别人说「应该会快」，你拿数据。</p>
-        <p class="stage-output"><strong>关键产出</strong>3–5 个完整的性能案例</p>
+        <p class="stage-output"><strong>关键产出</strong>2–3 个完整的性能案例</p>
         
       </article>
     
@@ -215,13 +215,13 @@
         <div class="stage-index-row">
           <span class="stage-index">06</span>
           <span class="chip is-depth-familiar">熟悉</span>
-          <span class="chip">2 周</span>
+          <span class="chip">1 周</span>
         </div>
         <h3>
           CPU 微架构
         </h3>
         <p class="stage-goal">能解释常见的 cache / 分支 / SIMD 现象，并给出改进方向。</p>
-        <p class="stage-output"><strong>关键产出</strong>两个可复现实验 + 一份优化手法清单</p>
+        <p class="stage-output"><strong>关键产出</strong>两个可复现实验</p>
         
       </article>
     
@@ -245,7 +245,7 @@
         <div class="stage-index-row">
           <span class="stage-index">08</span>
           <span class="chip is-depth-familiar">熟悉</span>
-          <span class="chip">3 周</span>
+          <span class="chip">2 周</span>
         </div>
         <h3>
           系统编程与网络
@@ -260,13 +260,13 @@
         <div class="stage-index-row">
           <span class="stage-index">09</span>
           <span class="chip is-depth-sprint">冲刺</span>
-          <span class="chip">7 周</span>
+          <span class="chip">额外 4–6 周</span>
         </div>
         <h3>
           项目整合与面试冲刺
         </h3>
-        <p class="stage-goal">把前面的产出打包成能讲 20 分钟的项目，并完成刷题与八股收尾。</p>
-        <p class="stage-output"><strong>关键产出</strong>简历 + 两个能讲的项目 + 200 题</p>
+        <p class="stage-goal">主线走完后，把产出打包成能讲 20 分钟的项目，并完成刷题与八股收尾。</p>
+        <p class="stage-output"><strong>关键产出</strong>简历 + 两个能讲的项目 + 150 题</p>
         
       </article>
     
@@ -277,7 +277,7 @@
       
         <div class="principle">
           <strong>高频优先</strong>
-          <span>面试里出现过三次以上的知识点先吃透，冷门深水区直接标「了解」然后跳过。</span>
+          <span>面试里出现过三次以上的知识点先吃透，冷门深水区直接标「了解」然后跳过。3 个月不容许好奇心驱动。</span>
         </div>
       
         <div class="principle">
