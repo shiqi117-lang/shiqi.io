@@ -149,25 +149,25 @@
 </thead>
 <tbody><tr>
 <td>1 一</td>
-<td>cppreference <code>value_category</code>；EMC 条款 23 前半</td>
+<td>cppreference <code>value_category</code>（五类：lvalue &#x2F; xvalue &#x2F; prvalue &#x2F; glvalue &#x2F; rvalue）</td>
 <td><code>01-value-categories</code>：写 <code>detect(int&amp;)</code> &#x2F; <code>detect(const int&amp;)</code> &#x2F; <code>detect(int&amp;&amp;)</code> 三重载，测 8 个表达式</td>
 <td>不查资料说出 lvalue &#x2F; xvalue &#x2F; prvalue 的判定规则</td>
 </tr>
 <tr>
 <td>2 二</td>
-<td>EMC 条款 23 后半</td>
-<td>补到 15 个：字符串字面量、<code>T{}</code>、三元、<code>a.b</code>、<code>p-&gt;b</code>、<code>arr[0]</code></td>
+<td>cppreference <code>value_category</code> 续 + <code>decltype</code>；EMC 条款 24（万能引用 vs 右值引用）</td>
+<td>补到 15 个：字符串字面量、<code>T{}</code>、三元、<code>a.b</code>、<code>p-&gt;b</code>、<code>arr[0]</code>；加一组推导实验——传左值&#x2F;右值时 <code>T</code> 各被推成什么</td>
 <td><code>decltype(x)</code> 和 <code>decltype((x))</code> 分别是什么？为什么差一个括号就变了</td>
 </tr>
 <tr>
 <td>3 三</td>
-<td>EMC 条款 23、25</td>
+<td>EMC 条款 28（引用折叠）+ 23（<code>move</code> &#x2F; <code>forward</code>）</td>
 <td><code>02-move-forward</code>：手写 <code>my_move</code> &#x2F; <code>my_forward</code>，跑通 <code>wrapper</code> 三种调用</td>
-<td><code>std::move</code> 编译后有几条指令？（答案：0 条，它就是 <code>static_cast</code>）</td>
+<td><code>std::move</code> 编译后有几条指令？（0 条，它就是 <code>static_cast</code>）为什么实现里必须 <code>remove_reference</code>？</td>
 </tr>
 <tr>
 <td>4 四</td>
-<td>EMC 条款 24、30</td>
+<td>EMC 条款 25、30</td>
 <td>复现完美转发失效：花括号初始化、<code>0</code> &#x2F; <code>NULL</code>、static const 成员、重载函数名；顺带实测 <code>push_back</code> vs <code>emplace_back</code></td>
 <td>说出这 4 种失效里的任意 3 种</td>
 </tr>
@@ -297,8 +297,11 @@
 <li><strong>节奏紧，想砍练习</strong> — 可以砍练习 4 的部分内容，但<strong>练习 2（智能指针）绝不能砍</strong>。它是整个阶段 01 的核心产出。</li>
 </ul>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
-<li><em>Effective Modern C++</em>（Scott Meyers）— 条款 1–4、13–32，其余暂时不看</li>
-<li><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/">cppreference</a> — 遇到概念先查这里</li>
+<li><em>Effective Modern C++</em>（Scott Meyers）— 条款 18、23–25、28、30 是本周主线，其余暂时不看</li>
+<li><a target="_blank" rel="noopener" href="https://en.cppreference.com/w/">cppreference</a> — <code>value_category</code>、<code>decltype</code> 以这里为主</li>
+</ul>
+<p>关于阅读顺序有个坑：<strong>EMC 没有系统讲 value_category</strong>。它假设读者已经懂 C++98 的左值&#x2F;右值，<br>C++11 新增的五类（lvalue &#x2F; xvalue &#x2F; prvalue）它没单独成篇，只在条款 23–24 里顺带用到。<br>所以值类别要以 cppreference 为准先啃下来，再看 EMC——反过来会一直在”为什么 <code>T&amp;&amp;</code> 还是左值”这种问题上打转。<br>同理，条款 28（引用折叠）是理解 <code>move</code> &#x2F; <code>forward</code> 实现的前置，不要跳过直接看 23。</p>
+<ul>
 <li><a target="_blank" rel="noopener" href="https://godbolt.org/">Compiler Explorer</a> — 验证「零开销抽象」到底零没零</li>
 <li><code>perf-lab/01-language-core/</code> — 练习落在这里，每个目录一个 <code>README.md</code></li>
 </ul>
