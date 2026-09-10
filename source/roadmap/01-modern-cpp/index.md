@@ -44,10 +44,10 @@ prereq: 基本语法、指针与引用、会编译
 
 | Day | 学（0.5h） | 做（1h） | 当日小测 |
 | --- | --- | --- | --- |
-| 1 一 | cppreference `value_category`；EMC 条款 23 前半 | `01-value-categories`：写 `detect(int&)` / `detect(const int&)` / `detect(int&&)` 三重载，测 8 个表达式 | 不查资料说出 lvalue / xvalue / prvalue 的判定规则 |
-| 2 二 | EMC 条款 23 后半 | 补到 15 个：字符串字面量、`T{}`、三元、`a.b`、`p->b`、`arr[0]` | `decltype(x)` 和 `decltype((x))` 分别是什么？为什么差一个括号就变了 |
-| 3 三 | EMC 条款 23、25 | `02-move-forward`：手写 `my_move` / `my_forward`，跑通 `wrapper` 三种调用 | `std::move` 编译后有几条指令？（答案：0 条，它就是 `static_cast`） |
-| 4 四 | EMC 条款 24、30 | 复现完美转发失效：花括号初始化、`0` / `NULL`、static const 成员、重载函数名；顺带实测 `push_back` vs `emplace_back` | 说出这 4 种失效里的任意 3 种 |
+| 1 一 | cppreference `value_category`（五类：lvalue / xvalue / prvalue / glvalue / rvalue） | `01-value-categories`：写 `detect(int&)` / `detect(const int&)` / `detect(int&&)` 三重载，测 8 个表达式 | 不查资料说出 lvalue / xvalue / prvalue 的判定规则 |
+| 2 二 | cppreference `value_category` 续 + `decltype`；EMC 条款 24（万能引用 vs 右值引用） | 补到 15 个：字符串字面量、`T{}`、三元、`a.b`、`p->b`、`arr[0]`；加一组推导实验——传左值/右值时 `T` 各被推成什么 | `decltype(x)` 和 `decltype((x))` 分别是什么？为什么差一个括号就变了 |
+| 3 三 | EMC 条款 28（引用折叠）+ 23（`move` / `forward`） | `02-move-forward`：手写 `my_move` / `my_forward`，跑通 `wrapper` 三种调用 | `std::move` 编译后有几条指令？（0 条，它就是 `static_cast`）为什么实现里必须 `remove_reference`？ |
+| 4 四 | EMC 条款 25、30 | 复现完美转发失效：花括号初始化、`0` / `NULL`、static const 成员、重载函数名；顺带实测 `push_back` vs `emplace_back` | 说出这 4 种失效里的任意 3 种 |
 | 5 五 | EMC 条款 18 | `03-smart-pointers` 上半：写 `UniquePtr`（禁拷贝、移动、`release` / `reset` / `get`、自定义删除器） | `unique_ptr` 怎么禁止拷贝的？能作为函数返回值吗？ |
 | 6 六 (3h) | EMC 条款 19–20；翻 libc++ 或 libstdc++ 的 `__shared_ptr` 头文件 | `03-smart-pointers` 下半：实现 `ControlBlock`（strong / weak 原子计数）+ `SharedPtr` 的拷贝与析构 | 画一张 `shared_ptr` 的内存布局图：对象在哪、控制块在哪、各有什么字段 |
 | 7 日 (2h) | **中途验收** | 补漏 | 闭卷答 12 题里的 1–3 题：左值右值 / `std::move` / 完美转发失效 |
@@ -151,7 +151,12 @@ prereq: 基本语法、指针与引用、会编译
 
 ## 参考
 
-- *Effective Modern C++*（Scott Meyers）— 条款 1–4、13–32，其余暂时不看
-- [cppreference](https://en.cppreference.com/w/) — 遇到概念先查这里
+- *Effective Modern C++*（Scott Meyers）— 条款 18、23–25、28、30 是本周主线，其余暂时不看
+- [cppreference](https://en.cppreference.com/w/) — `value_category`、`decltype` 以这里为主
+
+关于阅读顺序有个坑：**EMC 没有系统讲 value_category**。它假设读者已经懂 C++98 的左值/右值，
+C++11 新增的五类（lvalue / xvalue / prvalue）它没单独成篇，只在条款 23–24 里顺带用到。
+所以值类别要以 cppreference 为准先啃下来，再看 EMC——反过来会一直在"为什么 `T&&` 还是左值"这种问题上打转。
+同理，条款 28（引用折叠）是理解 `move` / `forward` 实现的前置，不要跳过直接看 23。
 - [Compiler Explorer](https://godbolt.org/) — 验证「零开销抽象」到底零没零
 - `perf-lab/01-language-core/` — 练习落在这里，每个目录一个 `README.md`
