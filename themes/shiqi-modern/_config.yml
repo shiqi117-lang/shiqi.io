@@ -9,8 +9,8 @@ footer_text: 先测量，再优化。
 
 hero:
   eyebrow: 'SHIQI.IO / 个人技术笔记'
-  title: 'C++ 与性能工程，24 周冲刺'
-  description: '在实习与秋招之间挤出 24 周，把 C++ 主线、性能度量方法和后端面试必考项压成一条能走完的路。所有结论都要有实测数据支撑。'
+  title: 'C++ 与性能工程，12 周主线'
+  description: '在实习与秋招之间挤出 3 个月走完知识主线，项目另算时间。不碰 CUDA，把权重压在面试高频和能产生数据的地方。'
   chips:
     - C++
     - 性能优化
@@ -22,19 +22,19 @@ hero:
     - label: '主攻方向'
       value: 'C++ 后端 / 性能工程'
     - label: '当前阶段'
-      value: '01 · 现代 C++ 语言内核（3 周）'
+      value: '01 · 现代 C++ 语言内核（2 周）'
     - label: '正在做'
       value: '手写 shared_ptr / 简化 vector'
     - label: '并行轨道'
-      value: 'LeetCode 每周 8–10 题'
+      value: 'LeetCode 每周 12–13 题'
 
 # 学习路线：首页渲染精简版，/roadmap/ 渲染完整版
 # status: done | active | todo
 # depth:  精通 | 熟悉 | 了解 | 冲刺
 roadmap:
-  eyebrow: 'LEARNING ROADMAP · 24 WEEKS'
-  title: 'C++ 性能优化冲刺路线'
-  description: '面向秋招的 24 周压缩版。砍掉低频深水区，把时间压在面试高频和能产生数据的地方。第 12 周设一个「面试就绪」检查点，万一提前批来得早也有东西可讲。'
+  eyebrow: 'LEARNING ROADMAP · 12 WEEKS'
+  title: 'C++ 性能优化冲刺路线（3 个月）'
+  description: '知识主线压缩到 12 周，项目与冲刺另算 4–6 周。不碰 CUDA 与 GPU。压缩的代价是大量内容降级为「了解」——每个阶段都附了 skip 清单，该跳就跳。'
   depth_legend:
     - '精通：能讲原理、能写代码、能答追问'
     - '熟悉：能讲清原理和权衡，不要求手写'
@@ -43,15 +43,17 @@ roadmap:
   # 全程并行，不占主线时间
   parallel:
     - title: '算法刷题'
-      text: '200 题规模（数组 / 链表 / 二叉树 / 图 / 二分 / 排序 / DP），每周 8–10 题，第 20 周前收尾。这是硬门槛，不刷过不了笔试。'
+      text: '150 题（数组 / 链表 / 二叉树 / 二分 / DP 基础 / 回溯），12 周内每周 12–13 题。优先刷高频题型，别在偏题上耗。笔试挂了后面全白搭。'
     - title: '八股滚动复习'
-      text: 'C++ / OS / 网络三科，每周末 2 小时过一遍错题本。不要攒到最后，会崩。'
+      text: 'C++ / OS / 网络三科，每周末 2 小时过一遍错题本。不要攒到最后。'
     - title: '实习沉淀'
-      text: '把实习里碰到的每个问题按 STAR 记下来。面试时「你做过什么」比「你学过什么」有分量得多。'
+      text: '把实习里碰到的每个问题按 STAR 记下来。「你做过什么」比「你学过什么」有分量得多。'
 
   # 明确放弃，不要在这些问题上花时间
   cut:
-    - 'HPC / MPI / GPU offload / BLAS 调优'
+    - 'CUDA 与 GPU 编程（含 cuBLAS / TensorRT / Triton kernel）'
+    - '分布式训练：NCCL、模型并行、数据并行、ZeRO'
+    - 'HPC / MPI / BLAS 调优'
     - '游戏引擎：ECS、数据导向设计'
     - '内核旁路：DPDK、RDMA'
     - '编译器开发：LLVM pass、JIT'
@@ -61,7 +63,7 @@ roadmap:
 
   principles:
     - title: '高频优先'
-      text: '面试里出现过三次以上的知识点先吃透，冷门深水区直接标「了解」然后跳过。'
+      text: '面试里出现过三次以上的知识点先吃透，冷门深水区直接标「了解」然后跳过。3 个月不容许好奇心驱动。'
     - title: '能讲清楚 > 完整实现'
       text: 'Swiss table 你不需要手写，但要能说清它为什么比 std::unordered_map 快。'
     - title: '结论必须有数据'
@@ -73,11 +75,11 @@ roadmap:
       title: '现代 C++ 语言内核'
       status: active
       depth: 精通
-      weeks: '3 周'
+      weeks: '2 周'
       goal: '面试高频的语言特性全部能讲清原理、能写代码、能答追问。'
       output: '手写 unique_ptr / shared_ptr / 简化 vector'
       page: /roadmap/01-modern-cpp/
-      duration: '3 周'
+      duration: '2 周'
       prereq: '基本语法、指针与引用、会编译'
       learn:
         - '值类别与移动语义：lvalue / xvalue / prvalue、std::move 与 std::forward、完美转发、emplace_back vs push_back'
@@ -87,13 +89,15 @@ roadmap:
         - '四种类型转换与各自适用边界'
       do:
         - '手写 unique_ptr 与 shared_ptr：含控制块、引用计数，并复现循环引用再用 weak_ptr 修掉'
-        - '手写简化 string / vector：Rule of 5、扩容策略、emplace_back'
+        - '手写简化 vector：Rule of 5、扩容策略、emplace_back'
         - '整理 15 个表达式的值类别判定表'
       skip:
         - '协程：知道 co_await 是什么即可'
         - 'Concepts / requires：能写一个简单约束就行'
         - 'SFINAE 与模板元编程奇技：知道 void_t 和 enable_if 存在即可'
-        - '手写 optional / variant / function：改为了解 SBO 概念，能说出 std::function 多大以内不分配堆'
+        - '手写 optional / variant / function：改为了解 SBO 概念'
+        - '手写简化 string 与 SSO：知道 SSO 存在即可，实现留到项目时间'
+        - '1.5x vs 2x 扩容实测：知道结论（2x 浪费上限 50%，1.5x 有机会复用内存块）即可'
       refs: 'Effective Modern C++ 条款 13–32（挑读）· cppreference'
 
     - id: '02'
@@ -112,95 +116,99 @@ roadmap:
       do:
         - '打印各类对象的 sizeof 与成员偏移，手画多继承对象布局图'
         - '用 -fdump-lang-class 导出 vtable，验证你画的图'
-        - '实现 IntrusivePtr，对比 shared_ptr 控制块的额外开销'
+        - '实测虚函数调用 vs 普通调用的开销差（CRTP 静态多态作为对照）'
       skip:
         - 'Itanium ABI 完整规范：知道有这份文档、遇到问题会查即可'
         - '虚继承的复杂布局：知道它解决菱形继承即可'
+        - 'IntrusivePtr 实现：了解思路即可，不手写'
       refs: '深度探索 C++ 对象模型（挑读 1–4 章）· cppreference'
 
     - id: '03'
       title: '标准库与数据结构'
       status: todo
       depth: 熟悉
-      weeks: '2 周'
+      weeks: '1 周'
       goal: '能说清每个容器的实现与复杂度，并在面试里给出选型理由。'
-      output: '容器选型速查表 + 一组对比数据'
+      output: '容器选型速查表'
       learn:
         - 'vector 扩容策略、reserve 的意义、迭代器失效规则'
         - 'list / deque / map / unordered_map 的实现与适用场景'
         - '迭代器失效全景：各容器插入删除后哪些迭代器还能用'
-        - 'allocator 概念、std::pmr 一句话'
         - '冷门但好用的接口：stable_sort、nth_element、lower_bound'
       do:
-        - '把阶段 01 的简化 vector 补齐 allocator 接口'
-        - '实测 vector vs list 的遍历与插入，数据记进 perf-lab'
+        - '整理一张「操作 → 该用哪个容器」的速查表，写清理由'
+        - '用 perf-lab 实测一次 vector vs list 的遍历（数据留档）'
       skip:
         - '手写 hash map：改为读懂 Swiss table 的设计要点'
-        - 'ranges / views 深入'
+        - 'allocator 完整实现与 std::pmr：知道概念即可'
+        - 'ranges / views'
       refs: 'cppreference · abseil Swiss table 设计文档'
 
     - id: '04'
-      title: '编译器与工具链'
+      title: '编译链接与工具链'
       status: todo
       depth: 熟悉
-      weeks: '1 周'
-      goal: '能说清从源码到可执行文件的过程，以及常用工具怎么用。'
-      output: '编译流程图解 + perf-lab 接上 CMake / ASan'
+      weeks: '0.5 周'
+      goal: '能说清从源码到可执行文件的过程——这是后端面试高频题。'
+      output: '编译流程图解 + perf-lab 接上 ASan'
       learn:
-        - '预处理 / 编译 / 汇编 / 链接四步；静态库与动态库的区别'
+        - '预处理 / 编译 / 汇编 / 链接四步，每步产什么'
+        - '静态库与动态库的区别、链接期 vs 运行期'
         - '符号、ODR、extern "C"、名称修饰'
-        - '-O0 到 -O3、LTO、-march=native 各做了什么（概念层）'
-        - 'gdb 基本调试、core dump 分析、CMake 基础'
-        - 'sanitizer：ASan / UBSan / TSan 怎么用、各自查什么'
+        - 'ASan / UBSan 怎么用、各自查什么'
       do:
         - '手动走一遍 gcc -E / -S / -c / 链接，看每一步的产物'
-        - '给 perf-lab 接上 CMake 与 ASan，把现有练习跑一遍'
+        - '给 perf-lab 的已有练习接上 ASan，确认零报告'
       skip:
-        - 'PGO / BOLT 实操：知道是什么、能解决什么问题即可'
+        - '-O0 到 -O3 各做了什么：知道有分级、优化会重排代码即可'
+        - 'LTO / PGO / BOLT：知道是什么、能解决什么问题即可'
+        - 'gdb 深度调试与 core dump 分析：会用 bt 看栈即可'
+        - 'CMake 系统学习：会写最简 CMakeLists 就行'
         - 'C++20 modules'
-      refs: 'CS:APP 第 7 章（链接）· man gdb'
+      refs: 'CS:APP 第 7 章（链接）· cppreference'
 
     - id: '05'
       title: '性能度量方法论'
       status: todo
       depth: 精通
-      weeks: '2 周'
+      weeks: '1.5 周'
       goal: '这是你和普通候选人的分水岭——别人说「应该会快」，你拿数据。'
-      output: '3–5 个完整的性能案例'
+      output: '2–3 个完整的性能案例'
       learn:
-        - '可复现基准：锁频、绑核、warm-up、多轮取中位数与 CV'
+        - '可复现基准：warm-up、多轮取中位数与 CV、控制变量'
         - 'Google Benchmark：DoNotOptimize / ClobberMemory / PauseTiming 的坑'
-        - 'perf stat / perf record、火焰图怎么读'
-        - 'Roofline 与算术强度：概念层，能讲清楚即可'
+        - '火焰图怎么读；perf stat 看哪些指标'
         - '微基准的三个经典陷阱：DCE、常量折叠、测到的是缓存不是算法'
       do:
-        - '在 perf-lab 里积累 3–5 个案例，每个都要有「现象 → 测量 → 根因 → 方案 → 收益」'
-        - '每个案例都要留优化前后的数字和火焰图'
+        - '在 perf-lab 里积累 2–3 个案例，每个都要有「现象 → 测量 → 根因 → 方案 → 收益」'
+        - '每个案例留优化前后的数字'
       skip:
-        - '自建性能回归 CI：知道思路即可'
-        - 'libpfm 自定义硬件计数器：知道能接即可'
-      refs: 'Google Benchmark 文档 · perf wiki · Brendan Gregg 火焰图'
+        - 'perf record / 火焰图生成全流程：会用现成脚本即可（macOS 无 perf）'
+        - 'Roofline 与算术强度：知道概念、能一句话讲清即可'
+        - '自建性能回归 CI'
+        - '锁频 / 绑核实操：知道要这么做即可（macOS 不支持）'
+      refs: 'Google Benchmark 文档 · perf wiki · perf-lab/bench/README.md'
 
     - id: '06'
       title: 'CPU 微架构'
       status: todo
       depth: 熟悉
-      weeks: '2 周'
+      weeks: '1 周'
       goal: '能解释常见的 cache / 分支 / SIMD 现象，并给出改进方向。'
-      output: '两个可复现实验 + 一份优化手法清单'
+      output: '两个可复现实验'
       learn:
         - '缓存层级、cache line 64B、伪共享及其代价'
         - '分支预测与误判代价、likely / unlikely'
         - '数据布局：AoS vs SoA、热冷字段分离'
         - 'SIMD 与自动向量化：什么时候该用、怎么判断有没有生效'
-        - '循环分块、展开、消除依赖链：概念 + 简单应用'
       do:
         - '伪共享实验：alignas(64) 前后对比'
         - '分支预测实验：排序 vs 未排序数组'
-        - '矩阵乘法做到分块 + -O3 自动向量化即可，不手写 intrinsics'
       skip:
-        - 'AVX-512 intrinsics 手写'
-        - '流水线与乱序执行的微架构细节：知道有这回事即可'
+        - '矩阵乘法逐级优化：这是项目内容，留到项目时间做'
+        - '手写 SIMD intrinsics：会看自动向量化报告即可'
+        - '循环分块、展开、消除依赖链：知道思路，实操放项目'
+        - '流水线与乱序执行的微架构细节'
       refs: 'Agner Fog 优化手册（挑读）· CS:APP 第 5–6 章'
 
     - id: '07'
@@ -223,13 +231,14 @@ roadmap:
       skip:
         - '手写 MPMC 无锁队列：改为读懂一个实现'
         - 'hazard pointer / RCU / epoch 内存回收'
+        - '协程调度器与有栈/无栈协程实现'
       refs: 'C++ Concurrency in Action 2nd（挑读 1–8 章）· cppreference'
 
     - id: '08'
       title: '系统编程与网络'
       status: todo
       depth: 熟悉
-      weeks: '3 周'
+      weeks: '2 周'
       goal: '补上后端面试必考的 OS 与网络——原路线完全没有这块，不能空。'
       output: '一个能讲的 Reactor echo server'
       learn:
@@ -244,30 +253,33 @@ roadmap:
       skip:
         - 'io_uring：知道是新一代异步 IO 即可'
         - 'DPDK、零拷贝深入'
-        - '拥塞控制算法细节'
+        - '拥塞控制算法细节（BBR / CUBIC 的公式）'
+        - '手写 HTTP 服务器完整实现：能解析请求行和 header 即可'
       refs: 'UNIX 网络编程（挑读）· man epoll · 小林 coding 网络篇'
 
     - id: '09'
       title: '项目整合与面试冲刺'
       status: todo
       depth: 冲刺
-      weeks: '7 周'
-      goal: '把前面的产出打包成能讲 20 分钟的项目，并完成刷题与八股收尾。'
-      output: '简历 + 两个能讲的项目 + 200 题'
+      weeks: '额外 4–6 周'
+      goal: '主线走完后，把产出打包成能讲 20 分钟的项目，并完成刷题与八股收尾。'
+      output: '简历 + 两个能讲的项目 + 150 题'
       learn:
         - '八股三科：C++ / OS / 网络高频题滚动复习'
         - '项目讲述结构：背景 → 难点 → 你的方案 → 数据 → 复盘'
         - '行为面试：实习经历用 STAR 表达'
       do:
-        - '把 perf-lab 的案例整成 1–2 个项目主线，每个能讲 20 分钟'
-        - 'LeetCode 200 题，第 20 周前收尾'
+        - '项目一（必做）：高性能组件库 或 Reactor 网络库，二选一做深'
+        - '项目二（加分）：CPU 侧性能案例集——矩阵乘法逐级优化、伪共享、内存池、INT8 量化 matmul（纯 CPU / SIMD，不涉及 CUDA）'
+        - 'LeetCode 收尾到 150 题'
         - '每周 2 次模拟面试，录音复盘'
       skip: []
       refs: '剑指 Offer · 代码随想录 · 你的错题本'
 
   pitfalls:
-    - '按旧路线啃 HPC 或编译器——6 个月内对秋招零回报，坚决跳过'
+    - '按旧路线啃 HPC 或编译器——对秋招零回报，坚决跳过'
+    - '3 个月里还想「顺便学一下 CUDA」——会两头不扎实，已明确放弃'
     - '只刷八股不写项目——面试三轮之后全是项目追问，没有产出会露馅'
-    - '刷题拖到最后——笔试挂了后面全白搭，第 20 周前必须收尾'
+    - '刷题拖到最后——笔试挂了后面全白搭，主线期间每周必须完成配额'
     - '性能优化只讲结论不给数据——「应该会快」在面试官那里等于没说'
     - '把「了解」的内容当成「精通」准备——对照 skip 清单，别自我感动'
